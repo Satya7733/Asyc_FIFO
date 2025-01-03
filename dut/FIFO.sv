@@ -15,17 +15,17 @@ fifo_memory #( DSIZE, ASIZE) fifo_mem (
 		,.clk(wr_clk)
 		,.*);
 
-FIFO_rd_empty #(ASIZE) fifo_empty(.*);
+rd_empty #(ASIZE) fifo_empty(.*);
 
 wr_full #(ASIZE) fifo_full(.wr_q2_rptr(wr_q2_ptr)
 			   ,.*);
 
-ff_sync #(SIZE) r2w(.dq2(rd_q2_ptr)
+ff_sync #(ASIZE + 1) r2w(.dq2(rd_q2_ptr)
 		,.din(rd_ptr)
 		,.clk(wr_clk)
 		,.rst(wr_rst)); 
 
-ff_sync #(SIZE) w2r(.dq2(wr_q2_ptr)
+ff_sync #(ASIZE + 1) w2r(.dq2(wr_q2_ptr)
 		,.din(wr_ptr)
 		,.clk(rd_clk)
 		,.rst(rd_rst));
