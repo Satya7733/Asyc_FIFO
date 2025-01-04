@@ -6,8 +6,8 @@ module ff_sync #(parameter SIZE = 4)(
 
     logic [SIZE-1:0] dq1; // Output of the first flip-flop
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or negedge rst) begin
+        if (!rst) begin
             dq2<=0;
 			dq1<=0;       // Reset the FIFO
 		end

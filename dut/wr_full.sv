@@ -9,8 +9,8 @@ module wr_full #(parameter ADDR_SIZE = 4)(
 	wire [ADDR_SIZE:0] wr_gray_next, wr_bin_next;
 	wire wr_full_val;
 	
-	always @(posedge wr_clk or posedge wr_rst) begin
-		if(wr_rst) {wr_bin, wr_ptr} <= 0;
+	always @(posedge wr_clk or negedge wr_rst) begin
+		if(!wr_rst) {wr_bin, wr_ptr} <= 0;
 		else {wr_bin, wr_ptr} <= {wr_bin_next, wr_gray_next};
 	end
 	
@@ -20,8 +20,8 @@ module wr_full #(parameter ADDR_SIZE = 4)(
 	
 	assign wr_full_val = (wr_gray_next=={~wr_q2_rptr[ADDR_SIZE:ADDR_SIZE-1], wr_q2_rptr[ADDR_SIZE-2:0]});
 
-	always @(posedge wr_clk or posedge wr_rst) begin
-        if (wr_rst)           
+	always @(posedge wr_clk or negedge wr_rst) begin
+        if (!wr_rst)           
             wr_full <= 1'b0;
         else 
             wr_full <= wr_full_val;
