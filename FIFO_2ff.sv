@@ -1,4 +1,4 @@
-`include "FIFO_mem.sv"
+`include "pkg_graybin.svh"
 
 module FIFO_2ff #(parameter int DEPTH = 8) (
 input logic [0:$clog2(DEPTH)] ptr,
