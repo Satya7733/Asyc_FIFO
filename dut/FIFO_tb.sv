@@ -41,15 +41,15 @@ module FIFO_tb();
         // Initialize all signals
         wclk = 0;
         rclk = 0;
-        wrst_n = 0;     // Active high reset
-        rrst_n = 0;     // Active high reset
+        wrst_n = 1;     // Active low reset
+        rrst_n = 1;     // Active low reset
         winc = 0;
         rinc = 0;
         wdata = 0;
 
         // Reset the FIFO
-        #40 wrst_n = 1; rrst_n = 1;
         #40 wrst_n = 0; rrst_n = 0;
+        #40 wrst_n = 1; rrst_n = 1;
 
         // TEST CASE 1: Write data and read it back
         rinc = 1;
