@@ -1,0 +1,319 @@
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# reading modelsim.ini
+# Loading project FIFO2
+# Compile of FIFO_mem.sv was successful.
+# Compile of FIFO_2ff.sv was successful.
+# Compile of FIFO_write.sv was successful.
+# Compile of FIFO_read.sv was successful.
+# Compile of pkg_graybin.svh was successful.
+# Compile of FIFO_top.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 7 compiles, 0 failed with no errors.
+# Optimization canceled
+vsim -voptargs=+acc work.FIFO_tb
+# vsim -voptargs="+acc" work.FIFO_tb 
+# Start time: 00:24:44 on Jan 07,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+add wave -position insertpoint  \
+sim:/FIFO_tb/wdata \
+sim:/FIFO_tb/rdata \
+sim:/FIFO_tb/wfull \
+sim:/FIFO_tb/rempty \
+sim:/FIFO_tb/wren \
+sim:/FIFO_tb/rden \
+sim:/FIFO_tb/wclk \
+sim:/FIFO_tb/rclk \
+sim:/FIFO_tb/wrst \
+sim:/FIFO_tb/rrst \
+sim:/FIFO_tb/i \
+sim:/FIFO_tb/seed
+run -all
+# Write: Data = 0
+# Write: Data = 56
+# Write: Data = 134
+# Write: Data = 92
+# Write: Data = 206
+# Write: Data = 199
+# Write: Data = 198
+# Write: Data = 243
+# Write: Data = 195
+# Write: Data = 95
+# Read: Data = 0
+# Read: Data = 56
+# Read: Data = 134
+# Read: Data = x
+# Read: Data = x
+# Read: Data = x
+# Read: Data = x
+# Read: Data = x
+# ** Note: $finish    : /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv(74)
+#    Time: 350 ns  Iteration: 0  Instance: /FIFO_tb
+# 1
+# Break in Module FIFO_tb at /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv line 74
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+run
+# Write: Data = 0
+run
+# Write: Data = 56
+# Write: Data = 134
+# Write: Data = 92
+# Write: Data = 206
+# Write: Data = 199
+# Compile of FIFO_mem.sv was successful.
+# Compile of FIFO_2ff.sv was successful.
+# Compile of FIFO_write.sv was successful.
+# Compile of FIFO_read.sv was successful.
+# Compile of pkg_graybin.svh was successful.
+# Compile of FIFO_top.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+run -all
+# Write: Data = 0
+# Write: Data = 56
+# Write: Data = 56
+# Write: Data = 134
+# Write: Data = 134
+# Read: Data = 0
+# Write: Data = 92
+# Read: Data = 56
+# Write: Data = 206
+# Read: Data = 134
+# Write: Data = 199
+# Read: Data = x
+# Write: Data = 198
+# Read: Data = x
+# Write: Data = 243
+# Read: Data = x
+# Write: Data = 195
+# Read: Data = x
+# Write: Data = 95
+# Read: Data = x
+# ** Note: $stop    : /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv(74)
+#    Time: 240 ns  Iteration: 0  Instance: /FIFO_tb
+# Break in Module FIFO_tb at /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv line 74
+# Compile of FIFO_mem.sv was successful.
+# Compile of FIFO_2ff.sv was successful.
+# Compile of FIFO_write.sv was successful.
+# Compile of FIFO_read.sv was successful.
+# Compile of pkg_graybin.svh was successful.
+# Compile of FIFO_top.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+run -all
+# Write: Data = 0
+# Write: Data = 56
+# Write: Data = 56
+# Write: Data = 134
+# Write: Data = 134
+# Read: Data = 0
+# Write: Data = 92
+# Read: Data = 0
+# Write: Data = 206
+# Read: Data = 6
+# Write: Data = 199
+# Read: Data = 4
+# Write: Data = 198
+# Read: Data = 6
+# Write: Data = 243
+# Read: Data = 7
+# Write: Data = 195
+# Read: Data = 6
+# Write: Data = 95
+# Read: Data = 3
+# ** Note: $stop    : /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv(74)
+#    Time: 240 ns  Iteration: 0  Instance: /FIFO_tb
+# Break in Module FIFO_tb at /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv line 74
+# Compile of FIFO_mem.sv was successful.
+# Compile of FIFO_2ff.sv was successful.
+# Compile of FIFO_write.sv was successful.
+# Compile of FIFO_read.sv was successful.
+# Compile of pkg_graybin.svh was successful.
+# Compile of FIFO_top.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (3) for port 'i_data'. The port definition is at: /u/patilsid/Practice/Asyc_FIFO/FIFO_top.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /FIFO_tb/fifo File: /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv Line: 19
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (3) for port 'o_data'. The port definition is at: /u/patilsid/Practice/Asyc_FIFO/FIFO_top.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /FIFO_tb/fifo File: /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv Line: 19
+run -all
+# Write: Data = 0
+# Write: Data = 0
+# Write: Data = 6
+# Write: Data = 6
+# Read: Data = 0
+# Write: Data = 4
+# Read: Data = 0
+# Write: Data = 6
+# Read: Data = 6
+# Write: Data = 7
+# Read: Data = 4
+# Write: Data = 6
+# Read: Data = 6
+# Write: Data = 3
+# Read: Data = 7
+# Write: Data = 3
+# Read: Data = 6
+# Write: Data = 7
+# Read: Data = 3
+# ** Note: $stop    : /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv(74)
+#    Time: 240 ns  Iteration: 0  Instance: /FIFO_tb
+# Break in Module FIFO_tb at /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv line 74
+# Compile of FIFO_mem.sv was successful.
+# Compile of FIFO_2ff.sv was successful.
+# Compile of FIFO_write.sv was successful.
+# Compile of FIFO_read.sv was successful.
+# Compile of pkg_graybin.svh was successful.
+# Compile of FIFO_top.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pkg_graybin(fast)
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_top_sv_unit(fast)
+# Loading work.FIFO_top(fast)
+# Loading work.FIFO_read_sv_unit(fast)
+# Loading work.FIFO_read(fast)
+# Loading work.FIFO_2ff_sv_unit(fast)
+# Loading work.FIFO_2ff(fast)
+# Loading work.FIFO_write_sv_unit(fast)
+# Loading work.FIFO_write(fast)
+# Loading work.FIFO_mem_sv_unit(fast)
+# Loading work.FIFO_mem(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (3) for port 'i_data'. The port definition is at: /u/patilsid/Practice/Asyc_FIFO/FIFO_top.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /FIFO_tb/fifo File: /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv Line: 19
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (3) for port 'o_data'. The port definition is at: /u/patilsid/Practice/Asyc_FIFO/FIFO_top.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /FIFO_tb/fifo File: /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv Line: 19
+run -all
+# Write: Data = 0
+# Write: Data = 0
+# Write: Data = 6
+# Write: Data = 6
+# Read: Data = 0
+# Write: Data = 4
+# Read: Data = 0
+# Write: Data = 6
+# Read: Data = 6
+# Write: Data = 7
+# Read: Data = 4
+# Write: Data = 6
+# Read: Data = 6
+# Write: Data = 3
+# Read: Data = 7
+# Write: Data = 3
+# Read: Data = 6
+# Write: Data = 7
+# Read: Data = 3
+# Read: Data = 3
+# Read: Data = 7
+# ** Note: $stop    : /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv(75)
+#    Time: 290 ns  Iteration: 0  Instance: /FIFO_tb
+# Break in Module FIFO_tb at /u/patilsid/Practice/Asyc_FIFO/FIFO_tb.sv line 75
