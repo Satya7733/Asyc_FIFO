@@ -37,11 +37,11 @@ module FIFO_tb();
     always #10 rclk = ~rclk;   // slower reading
     
 always @(posedge wclk) begin
-    if (wren && !wfull) $monitor("Write: Data = %0d", wdata);
+    if (wren && !wfull) $strobe("Write: Data = %0d", wdata);
 end
 
 always @(posedge rclk) begin
-    if (rden && !rempty) $monitor("Read: Data = %0d", rdata);
+    if (rden && !rempty) $strobe("Read: Data = %0d", rdata);
 end
     initial begin
         // Initialize all signals
@@ -66,12 +66,26 @@ end
         end
 #50;
 
-//	for (int i = 0; i < 10; i = i + 1) begin
-//        	rden = 1;                    // Enable read
-//        	#10;
-//        	rden = 0;                    // Disable read
-//       		#10;
-//    	end
+        rden = 0;
+        wren = 1;
+        for (i = 0; i < DEPTH + 3; i = i + 1) begin
+            wdata = $random(seed) % 256;
+            #10;
+        end
+
+#50;
+
+        // TEST CASE 3: Read data from empty FIFO and try to read more data
+        wren = 0;
+        rden = 1;
+        for (i = 0; i < DEPTH + 3; i = i + 1) begin
+            #20;
+        end
+
+
+#50;
+
+
         $stop;
     end
 
