@@ -1,3 +1,5 @@
+//`include "trans.sv"
+
 class generator;
 
 rand transaction trans;
@@ -21,4 +23,4 @@ task main();
 -> ended;
 endtask
 
-endclass : generator
+endclass

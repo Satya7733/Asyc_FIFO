@@ -1,3 +1,6 @@
+`include "../dut_new/pkg_graybin.svh"
+import pkg_graybin::*;
+
 interface rd_mem_intf(input logic rclk, rrst);
 
 logic [DATASIZE-1:0] odata;
@@ -6,7 +9,7 @@ logic rd_empty;
 
 clocking rd_driver_cb @(posedge rclk or posedge rrst);
 	default input #0 output #0;		// why ???
-	output odata;
+	input odata;
 	output rden;
 	input rd_empty;
 endclocking
