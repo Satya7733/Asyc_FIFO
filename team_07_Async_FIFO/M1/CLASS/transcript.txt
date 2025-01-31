@@ -1,0 +1,70 @@
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading project Asyn
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# Compile of FIFO_tb_comp.sv was successful.
+# Compile of wr_full.sv was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.async_fifo_TB
+# vsim -voptargs="+acc" work.async_fifo_TB 
+# Start time: 14:40:16 on Jan 31,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.async_fifo_TB(fast)
+# Loading work.FIFO(fast)
+# Loading work.fifo_memory(fast)
+# Loading work.rd_empty(fast)
+# Loading work.wr_full(fast)
+# Loading work.ff_sync(fast)
+run -all
+# Time = 1645000: Comparison Passed: wr_data = 72 and rd_data = 72
+# Time = 1785000: Comparison Passed: wr_data = b2 and rd_data = b2
+# Time = 1925000: Comparison Passed: wr_data = 10 and rd_data = 10
+# Time = 2065000: Comparison Passed: wr_data = 30 and rd_data = 30
+# Time = 2205000: Comparison Passed: wr_data = b5 and rd_data = b5
+# Time = 2345000: Comparison Passed: wr_data = b6 and rd_data = b6
+# Time = 2485000: Comparison Passed: wr_data = 14 and rd_data = 14
+# Time = 2625000: Comparison Passed: wr_data = df and rd_data = df
+# Time = 2765000: Comparison Passed: wr_data = bb and rd_data = bb
+# Time = 2905000: Comparison Passed: wr_data = eb and rd_data = eb
+# Time = 3045000: Comparison Passed: wr_data = 41 and rd_data = 41
+# Time = 3185000: Comparison Passed: wr_data = 40 and rd_data = 40
+# Time = 3325000: Comparison Passed: wr_data = 8a and rd_data = 8a
+# Time = 3465000: Comparison Passed: wr_data = 03 and rd_data = 03
+# Time = 3605000: Comparison Passed: wr_data = fc and rd_data = fc
+# Time = 3745000: Comparison Passed: wr_data = 5d and rd_data = 5d
+# Time = 3885000: Comparison Passed: wr_data = 1d and rd_data = 1d
+# Time = 4025000: Comparison Passed: wr_data = 6a and rd_data = 6a
+# Time = 4165000: Comparison Passed: wr_data = 16 and rd_data = 16
+# Time = 4305000: Comparison Passed: wr_data = 3f and rd_data = 3f
+# Time = 4445000: Comparison Passed: wr_data = 23 and rd_data = 23
+# Time = 4585000: Comparison Passed: wr_data = a8 and rd_data = a8
+# Time = 4725000: Comparison Passed: wr_data = 90 and rd_data = 90
+# Time = 4865000: Comparison Passed: wr_data = 25 and rd_data = 25
+# Time = 5005000: Comparison Passed: wr_data = 82 and rd_data = 82
+# Time = 5145000: Comparison Passed: wr_data = 5b and rd_data = 5b
+# Time = 5285000: Comparison Passed: wr_data = f2 and rd_data = f2
+# Time = 5425000: Comparison Passed: wr_data = 31 and rd_data = 31
+# Time = 5565000: Comparison Passed: wr_data = cd and rd_data = cd
+# Time = 5705000: Comparison Passed: wr_data = 64 and rd_data = 64
+# ** Note: $finish    : /u/satyajit/ECE593-W25/Asyc_FIFO/team_07_Async_FIFO/M1/CLASS/FIFO_tb_comp.sv(77)
+#    Time: 5825 ns  Iteration: 0  Instance: /async_fifo_TB
+# 1
+# Break in Module async_fifo_TB at /u/satyajit/ECE593-W25/Asyc_FIFO/team_07_Async_FIFO/M1/CLASS/FIFO_tb_comp.sv line 77
