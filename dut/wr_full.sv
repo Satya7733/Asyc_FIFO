@@ -25,10 +25,12 @@ module wr_full #(parameter ADDR_SIZE = 4)(
             wr_full <= 1'b0;
         else 
             wr_full <= wr_full_val;
+	`ifdef DEBUG
 	$strobe($time,"\n Write Full= %d\n",wr_full_val );
 	$strobe($time,"\n Write Address = %b\n",wr_addr );
 	$strobe($time,"\n wr_gray_next = %b (wr_bin_next = %b), wr_q2_rptr = %b \n"
 				,wr_gray_next, wr_bin_next, wr_q2_rptr );
+	`endif
     end
 
 assign wr_full_val = (wr_gray_next=={~wr_q2_rptr[ADDR_SIZE:ADDR_SIZE -1], wr_q2_rptr[ADDR_SIZE-2:0]});
