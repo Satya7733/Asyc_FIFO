@@ -7,12 +7,17 @@ class AFIFO_Transaction #(parameter DSIZE = 8);
  bit rd_empty,wr_full;
 
 function AFIFO_Transaction copy();// create deep copy
-
+copy = new();
+   /* if (copy == null) begin
+        $fatal("ERROR: Memory allocation failed for copy!");
+    end else begin
+        $display("DEBUG: Memory allocated successfully for copy()");
+    end*/
 copy.wr_data = this.wr_data;
 copy.rd_data = this.rd_data;
 copy.rd_empty = this.rd_empty;
 copy.wr_full = this.wr_full;
-
+ return copy;
 endfunction
  
 endclass

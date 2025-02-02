@@ -8,7 +8,7 @@ class AFIFO_Driver #(parameter DSIZE = 8, parameter ASIZE = 3);
 
 //Event
 event drv_nxt;
-
+event gen_done;
 // Variables
 //logic [DSIZE-1:0] drv_wr_data_q[$];
 
@@ -21,6 +21,7 @@ event drv_nxt;
 		mailbox #(bit [DSIZE-1:0]) mbx_drv2sco);
  this.mbx_gen2drv = mbx_gen2drv;
  this.mbx_drv2sco = mbx_drv2sco;
+// gen_done = new();
  endfunction
 	
 //Tasks
@@ -39,21 +40,29 @@ task reset(); // Test Case :1
 endtask
 
 task write(input int drv_repeat_count); // Test Case :2
+ 
+ $display("[DRV] :DEBUG WAITING FOR GEN COMPLETE");
+ @gen_done ;
+//wait(gen_done.triggered);
  $display("[DRV] : WRITE for %d times",drv_repeat_count);
  vif.wr_rst <= 1'b1;
 
  repeat(drv_repeat_count) begin
  	@(posedge vif.wr_clk);
- 	mbx_gen2drv.get(tr);
+
+ 	if(mbx_gen2drv.try_get(tr)) $display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
+	else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
+
 	$display("[DRV] : Mailbox.get done, gen2drv");
- 	vif.wr_data <= tr.wr_data;
-	vif.wr_inc <= 1'b1;
+ 	vif.wr_data = tr.wr_data;
+	vif.wr_inc = 1'b1;
 	$display("[DRV] : Data Written to wr_data = %d" ,tr.wr_data);
  	//drv_wr_data_q.push_back(tr.wr_data);
 	mbx_drv2sco.put(tr.wr_data);
 	$display("[DRV] : Mailbox.put done, drv2sco");
 	@(posedge vif.wr_clk); //Experimental
-	vif.wr_inc <= 1'b0;
+	vif.wr_inc = 1'b0;
+	->drv_nxt;
  end
 
 endtask
@@ -84,9 +93,17 @@ task testcase2(); //test case 2
 	$display("[DRV] : [Test Case 2] START: Writes and Reads");
  	reset();
 	fork 
-	write(20);
-	//repeat(7) @(posedge vif.wr_clk); //after 7 write clk cycles start reading
-	#150 read(20);
+    begin
+		$display("[DRV] : ENTERED TASK WRITE");
+
+        write(20); // Start writing
+		$display("[DRV] : EXITED TASK WRITE");
+
+    end
+    begin
+        repeat(7) @(posedge vif.wr_clk); // Wait for 7 write clock cycles
+        read(20); // Start reading after 7 cycles
+    end
  	join 
 	$display("[DRV] : [Test Case 2] DONE: Writes and Reads");
 endtask
@@ -115,9 +132,17 @@ task testcase5();// test case 5
 	join
 	reset();
 	$display("[DRV] : [Test Case 5] DONE: Continuous Writes and Reads");
-	->drv_nxt;
+	
 	$display("[DRV] : Drv_nxt");
 endtask
 
+task run;
+testcase1();
+testcase2();
+testcase3();
+testcase4();
+testcase5();
+$finish;
+endtask
 
 endclass
