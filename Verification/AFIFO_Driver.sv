@@ -41,12 +41,13 @@ endtask
 
 task write(input int drv_repeat_count); // Test Case :2
  
- $display("[DRV] :DEBUG WAITING FOR GEN COMPLETE");
- @gen_done ;
+ $display("%tns, [DRV] :DEBUG WAITING FOR GEN COMPLETE", $time);
+ ->drv_nxt; 
+ //@gen_done;
 //wait(gen_done.triggered);
  $display("[DRV] : WRITE for %d times",drv_repeat_count);
  vif.wr_rst <= 1'b1;
-
+ 
  repeat(drv_repeat_count) begin
  	@(posedge vif.wr_clk);
 
@@ -101,8 +102,8 @@ task testcase2(); //test case 2
 
     end
     begin
-        repeat(7) @(posedge vif.wr_clk); // Wait for 7 write clock cycles
-        read(20); // Start reading after 7 cycles
+       repeat(7) @(posedge vif.wr_clk); // Wait for 7 write clock cycles
+       read(20); // Start reading after 7 cycles
     end
  	join 
 	$display("[DRV] : [Test Case 2] DONE: Writes and Reads");
