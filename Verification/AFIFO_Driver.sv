@@ -2,49 +2,49 @@ import AFIFO_Pkg::*;
 
 class AFIFO_Driver #(parameter DSIZE = 8, parameter ASIZE = 3);
 
-// Handle
+// ========== Instantiation ==========
+
  virtual AFIFO_Interface vif;
  AFIFO_Transaction tr;
-
-//Event
-event drv_nxt;
-event gen_done;
-// Variables
-//logic [DSIZE-1:0] drv_wr_data_q[$];
-
-//////////////* Mailbox*//////////////////
  mailbox #(AFIFO_Transaction) mbx_gen2drv; //generator to driver
  mailbox #(bit [DSIZE-1:0]) mbx_drv2sco;    // driver to scoreboard
+
+// ========== Event Declaration ==========
+event driver_done;
  
-//Constructor
- function new(mailbox #(AFIFO_Transaction) mbx_gen2drv,
-		mailbox #(bit [DSIZE-1:0]) mbx_drv2sco);
+// ========== Constructor ==========
+
+ function new(mailbox #(AFIFO_Transaction) mbx_gen2drv, mailbox #(bit [DSIZE-1:0]) mbx_drv2sco);
+ 
  this.mbx_gen2drv = mbx_gen2drv;
  this.mbx_drv2sco = mbx_drv2sco;
-// gen_done = new();
+
  endfunction
 	
-//Tasks
+// ========== RESET STATE ==========
 task reset(); // Test Case :1
- $display("[DRV] : RESET READ AND WRITE ");
+ $display("[DRV] : Entered Reset state");
  vif.rd_rst <= 1'b0; //Active Low Reset
  vif.wr_rst <= 1'b0;
- //drv_wr_data_q.delete();
- //$display("[DRV] : RESETED QUEUE (REF MODULE)");
+ 
  $display("[DRV] : RESETING FOR 5 WRITE CLK CYCLES");
  repeat(5) @(posedge vif.wr_clk);
  vif.rd_rst <= 1'b1;
  vif.wr_rst <= 1'b1;
- $display("[DRV] : RESET DONE");
+ $display("[DRV] : Reset Done");
  $display("----------------------------------------");
 endtask
 
+// ========== WRITE TASK ==========
+
 task write(input int drv_repeat_count); // Test Case :2
+
  
  $display("%tns, [DRV] :DEBUG WAITING FOR GEN COMPLETE", $time);
  ->drv_nxt; 
  //@gen_done;
 //wait(gen_done.triggered);
+
  $display("[DRV] : WRITE for %d times",drv_repeat_count);
  vif.wr_rst <= 1'b1;
  
@@ -63,7 +63,7 @@ task write(input int drv_repeat_count); // Test Case :2
 	$display("[DRV] : Mailbox.put done, drv2sco");
 	@(posedge vif.wr_clk); //Experimental
 	vif.wr_inc = 1'b0;
-	->drv_nxt;
+	->driver_done;
  end
 
 endtask
