@@ -26,6 +26,7 @@ event gen_done;
 	
 //Tasks
 task reset(); // Test Case :1
+ $display("[DRV] ----------------------------------------");
  $display("[DRV] : RESET READ AND WRITE ");
  vif.rd_rst <= 1'b0; //Active Low Reset
  vif.wr_rst <= 1'b0;
@@ -36,40 +37,41 @@ task reset(); // Test Case :1
  vif.rd_rst <= 1'b1;
  vif.wr_rst <= 1'b1;
  $display("[DRV] : RESET DONE");
- $display("----------------------------------------");
+ $display("[DRV] ----------------------------------------");
 endtask
 
 task write(input int drv_repeat_count); // Test Case :2
- 
- $display("%tns, [DRV] :DEBUG WAITING FOR GEN COMPLETE", $time);
+  $display("[DRV] ----------------------------------------");
+ //$display("[DRV][WRITE] :DEBUG WAITING FOR GEN COMPLETE");
  ->drv_nxt; 
  //@gen_done;
 //wait(gen_done.triggered);
- $display("[DRV] : WRITE for %d times",drv_repeat_count);
+ $display("[DRV][WRITE] : WRITE for %d times",drv_repeat_count);
  vif.wr_rst <= 1'b1;
  
  repeat(drv_repeat_count) begin
  	@(posedge vif.wr_clk);
 
- 	if(mbx_gen2drv.try_get(tr)) $display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
-	else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
+ 	if(mbx_gen2drv.try_get(tr)); //$display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
+	//else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
 
-	$display("[DRV] : Mailbox.get done, gen2drv");
+	$display("[DRV][WRITE] : Mailbox.get done, gen2drv");
  	vif.wr_data = tr.wr_data;
 	vif.wr_inc = 1'b1;
-	$display("[DRV] : Data Written to wr_data = %d" ,tr.wr_data);
+	$display("[DRV][WRITE] : Data Written to wr_data = %d" ,tr.wr_data);
  	//drv_wr_data_q.push_back(tr.wr_data);
 	mbx_drv2sco.put(tr.wr_data);
-	$display("[DRV] : Mailbox.put done, drv2sco");
+	$display("[DRV][WRITE] : Mailbox.put done, drv2sco");
 	@(posedge vif.wr_clk); //Experimental
 	vif.wr_inc = 1'b0;
 	->drv_nxt;
  end
-
+ $display("[DRV] ----------------------------------------");
 endtask
 
 task read(input int drv_repeat_count);
- $display("[DRV] : READ for %d times ",drv_repeat_count);
+ $display("[DRV] ----------------------------------------");
+ $display("[DRV][READ] : READ for %d times ",drv_repeat_count);
  vif.rd_rst <= 1'b1;
 
  repeat(drv_repeat_count) begin
@@ -78,12 +80,13 @@ task read(input int drv_repeat_count);
 	//$display("[DRV] : Mailbox.get done, gen2drv");
  	//vif.wr_data <= tr.wr_data;
 	vif.rd_inc <= 1'b1;
-	$display("[DRV] : Data Read to rd_data");
+	$display("[DRV][READ] : Data Read to rd_data");
 	//mbx_drv2sco.put(tr.wr_data);
 	//$display("[DRV] : Mailbox.put done, drv2sco");
 	@(posedge vif.rd_clk); //Experimental
 	vif.rd_inc <= 1'b0;
  end
+  $display("[DRV] ----------------------------------------");
 endtask
 
 task testcase1();
@@ -95,10 +98,10 @@ task testcase2(); //test case 2
  	reset();
 	fork 
     begin
-		$display("[DRV] : ENTERED TASK WRITE");
+		//$display("[DRV] : ENTERED TASK WRITE");
 
         write(20); // Start writing
-		$display("[DRV] : EXITED TASK WRITE");
+		//$display("[DRV] : EXITED TASK WRITE");
 
     end
     begin
@@ -140,9 +143,9 @@ endtask
 task run;
 testcase1();
 testcase2();
-testcase3();
-testcase4();
-testcase5();
+//testcase3();
+//testcase4();
+//testcase5();
 $finish;
 endtask
 

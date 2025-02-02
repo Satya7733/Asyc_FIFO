@@ -28,6 +28,7 @@ task run();
 //
  forever begin
  mbx_mon2sco.get(rd_data_dut);
+  $display("[SCO]:----------------------------------------");
  $display("[SCO]: Mailbox GET Mon -> Sco, rd_data = %d",rd_data_dut);
  if(vif.wr_inc) begin
  mbx_drv2sco.get(get_wr_data_drv);
