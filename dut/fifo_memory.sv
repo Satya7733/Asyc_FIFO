@@ -12,6 +12,8 @@ module fifo_memory #(parameter DATA_SIZE = 8, parameter ADDR_SIZE = 4)(
 	always @(posedge clk) begin
 	if(en && !wr_full) begin 
 		mem[wr_addr] <= wr_data;
+	//	$display($time,"[DUT: FIFO MEM] Data written, Mem[%0d] = %0h \n",wr_addr,wr_data);
+	//	$display($time,"[DUT: FIFO MEM] Data read, Mem[%0d] = %0h \n",rd_addr,mem[rd_addr]);
 	`ifdef DEBUG
 		$display($time," Data read, Mem[%0d] = %0h \n",rd_addr,mem[rd_addr]);
 		$display($time," Data written, Mem[%0d] = %0h \n",wr_addr,wr_data);

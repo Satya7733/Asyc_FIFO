@@ -26,10 +26,14 @@ forever begin
  @(posedge vif.rd_clk); 
  if(vif.rd_inc && !vif.rd_empty) begin
  mbx_mon2sco.put(vif.rd_data);
- $display("[MON] : MBX DATA SENT TO SCO %0d ----------", vif.rd_data);
+  $display("[MON]:----------------------------------------");
+ $display("[MON]: MBX DATA SENT TO SCO %0d ", vif.rd_data);
+ 
  end
- if(vif.rd_empty) $display("[MON] : READ EMPTY, Nothing to read in FIFO Mem -----------");
- if(vif.wr_full) $display("[MON] : WRITE FULL, Full FIFO Mem ------------");
+   $display("[MON]:----------------------------------------");
+ if(vif.rd_empty) $display("[MON] : READ EMPTY, Nothing to read in FIFO Mem ");
+ if(vif.wr_full) $display("[MON] : WRITE FULL, Full FIFO Mem ");
+  $display("[MON]:----------------------------------------");
  
 end
 

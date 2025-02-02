@@ -26,7 +26,7 @@ assign rd_gray_next = (rd_bin_next >> 1) ^ rd_bin_next; // convert binary to gra
 assign rd_empty_temp = (rd_gray_next == wr_q2_ptr); // check for empty condition
 
 always@(posedge rd_clk or negedge rd_rst)begin
-
+//$display($time,"\n Read INC = %d\n",rd_inc );
 if(!rd_rst) rd_empty <= 1;
 else rd_empty <= rd_empty_temp;
 end

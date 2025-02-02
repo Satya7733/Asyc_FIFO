@@ -5,12 +5,14 @@ import AFIFO_Pkg::*;
 
 module AFIFO_TB_Top;
 
-// Handle
- AFIFO_Interface vif();
+
 
 //PARAMETER
 parameter DSIZE = 8;
 parameter ASIZE = 3;
+// Handle
+ AFIFO_Interface  vif();
+
 FIFO #(DSIZE, ASIZE) fifo (vif.wr_data, vif.wr_clk, vif.wr_rst, vif.wr_inc,
                         vif.rd_clk, vif.rd_rst, vif.rd_inc, vif.rd_data, vif.rd_empty, vif.wr_full);
 
