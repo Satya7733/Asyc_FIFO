@@ -14,7 +14,7 @@ event nextgd;
 event next_gen;
 
 //Mailbox
-mailbox #(bit[DSIZE-1 :0]) mbx_mon2sco; // monitor to scoreboard
+mailbox #(AFIFO_Transaction) mbx_mon2sco; // monitor to scoreboard
 mailbox #(AFIFO_Transaction) mbx_gen2drv; //generator to driver
 mailbox #(bit [DSIZE-1:0]) mbx_drv2sco;    // driver to scoreboard
 
@@ -35,7 +35,7 @@ sco = new(mbx_mon2sco,mbx_drv2sco);
 
 this.vif = vif;
 dr.vif = this.vif;
-mo.vif = this.vif;
+mo.vif_mon = this.vif;
 sco.vif = this.vif;
 
 gr.drv_nxt = nextgd;
@@ -43,7 +43,7 @@ dr.drv_nxt = nextgd;
 gr.gen_done = next_gen;
 dr.gen_done = next_gen;
 endfunction
-
+ 
 task run();
 fork 
 gr.run();

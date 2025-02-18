@@ -24,8 +24,8 @@ forever begin
 	wait( drv_nxt.triggered);
 	 $display("[GEN] ----------------------------------------");
 	assert(tr.randomize) else $error("[GEN]: Randomization Failed");
-	if(mbx_gen2drv.try_put(tr.copy)) $display("[GEN: DEBUG] [PUT SUCCESS] placed in mailbox"); // Tranfer the randomized values to driver 
-	else $display("[GEN: DEBUG] [PUT FAILED]: Mailbox full, could not put ");
+	if(mbx_gen2drv.try_put(tr.copy)) $display("[GEN] [PUT SUCCESS] placed in mailbox"); // Tranfer the randomized values to driver 
+	else $display("[GEN] [PUT FAILED]: Mailbox full, could not put ");
 	$display("[GEN] Generated Write Data : %0d", tr.wr_data);
 	#2;
     //->gen_done;
