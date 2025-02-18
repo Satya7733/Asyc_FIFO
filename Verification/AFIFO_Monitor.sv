@@ -40,7 +40,7 @@ forever begin
 
  @(posedge vif_mon.rd_clk); 
 if(vif_mon.rd_inc || vif_mon.rd_empty || vif_mon.wr_full || ~vif_mon.rd_rst || ~vif_mon.rd_rst) begin 
-$display("[MON]:----------------------------------------");
+//$display("[MON]:----------------------------------------");
  tr_mon2scb.rd_data = vif_mon.rd_data;
  tr_mon2scb.wr_inc = vif_mon.wr_inc;
  tr_mon2scb.rd_inc = vif_mon.rd_inc;
@@ -50,8 +50,8 @@ $display("[MON]:----------------------------------------");
  tr_mon2scb.wr_full = vif_mon.wr_full;
 
  mbx_mon2sco.put(tr_mon2scb);
-$display("[MON]: MBX DATA SENT TO SCO %0d ", vif_mon.rd_data);
-$display("[MON]:----------------------------------------");
+if(vif_mon.wr_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", vif_mon.rd_data);
+//$display("[MON]:----------------------------------------");
 end
 end
 

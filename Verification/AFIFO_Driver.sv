@@ -29,6 +29,7 @@ task reset(); // Test Case :1
  $display("[DRV] ----------------------------------------");
  $display("[DRV] : RESET READ AND WRITE ");
   vif.rd_rst <= 1'b1;
+  $display("[DRV] : RESET READ AND WRITE ");
  vif.wr_rst <= 1'b1;
   repeat(5) @(posedge vif.wr_clk);
  vif.rd_rst <= 1'b0; //Active Low Reset

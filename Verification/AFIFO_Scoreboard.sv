@@ -53,15 +53,16 @@ begin
      $display("[SCO]:----------------------------------------");
  end
 end
-
+/*
 begin
     forever begin
          // if reset
-    if(~tr_mon2scb.wr_rst || ~tr_mon2scb.rd_rst)begin
+    if(!tr_mon2scb.wr_rst || !tr_mon2scb.rd_rst)begin
      wr_data_drv_q.delete();
     end
     end
 end
+*/
 join 
 endtask
 
