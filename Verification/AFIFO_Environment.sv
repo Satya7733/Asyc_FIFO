@@ -12,6 +12,7 @@ AFIFO_Scoreboard sco;
 //event sco_nxt;
 event nextgd;
 event next_gen;
+event next_ms;
 
 //Mailbox
 mailbox #(AFIFO_Transaction) mbx_mon2sco; // monitor to scoreboard
@@ -42,6 +43,8 @@ gr.drv_nxt = nextgd;
 dr.drv_nxt = nextgd;
 gr.gen_done = next_gen;
 dr.gen_done = next_gen;
+mo.mon_done = next_ms;
+sco.mon_done = next_ms;
 endfunction
  
 task run();

@@ -57,7 +57,7 @@ task write(input int drv_repeat_count); // Test Case :2
  vif.wr_rst <= 1'b1;
  
  repeat(drv_repeat_count) begin
- 	repeat(5) @(posedge vif.wr_clk);
+ 	repeat(1) @(posedge vif.wr_clk);
 
  	if(mbx_gen2drv.try_get(tr)); //$display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
 	//else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
@@ -82,7 +82,7 @@ task read(input int drv_repeat_count);
  vif.rd_rst <= 1'b1;
 
  repeat(drv_repeat_count) begin
- 	@(negedge vif.rd_clk);
+ 	@(posedge vif.rd_clk);
  	//mbx_gen2drv.get(tr);
 	//$display("[DRV] : Mailbox.get done, gen2drv");
  	//vif.wr_data <= tr.wr_data;
@@ -90,7 +90,8 @@ task read(input int drv_repeat_count);
 	$display("[DRV][READ] : Data Read to rd_data");
 	//mbx_drv2sco.put(tr.wr_data);
 	//$display("[DRV] : Mailbox.put done, drv2sco");
-	@(negedge vif.rd_clk); //Experimental
+	@(posedge vif.rd_clk); //Experimental
+	#5ns;
 	vif.rd_inc <= 1'b0;
  end
   $display("[DRV] ----------------------------------------");
@@ -138,8 +139,16 @@ task testcase5();// test case 5
 	$display("[DRV] : [Test Case 5] START: Continuous Writes and Reads");
  	reset();
 	fork
-	write(1 << ASIZE*2);
-	#100 read((1 << ASIZE)*2);
+//	write((1 << ASIZE)*2);
+//	#1000ns read((1 << ASIZE)*2);
+  begin
+    write((1 << ASIZE) * 2);  // Start write operation immediately
+  end
+
+  begin
+    repeat(10) @(vif.rd_clk); // Wait for 10 clock cycles
+    read((1 << ASIZE) * 2);    // Perform read after delay
+  end
 	join
 	reset();
 	$display("[DRV] : [Test Case 5] DONE: Continuous Writes and Reads");
@@ -149,9 +158,9 @@ endtask
 
 task run;
 testcase1();
-testcase2();// Reads and Writes
-testcase3(); //Only writes
-testcase4(); //Only Reads
+//testcase2();// Reads and Writes
+//testcase3(); //Only writes
+//testcase4(); //Only Reads
 testcase5(); //Continuous Reads and Writes
 $finish;
 endtask

@@ -29,8 +29,8 @@ forever begin
 	$display("[GEN] Generated Write Data : %0d", tr.wr_data);
 	#2;
     //->gen_done;
-$display("[GEN] completed");
- $display("[GEN] ----------------------------------------");
+    $display("[GEN] completed");
+    $display("[GEN] ----------------------------------------");
 	//drvnext.triggered;
 	//sconext.triggered;
 	

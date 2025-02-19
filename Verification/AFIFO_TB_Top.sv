@@ -22,8 +22,8 @@ vif.rd_clk <= 0;
 end
 
 //clk for rd and wr
-always #10ns vif.wr_clk <= ~vif.wr_clk;
-always #35ns vif.rd_clk <= ~vif.rd_clk;
+always #35ns vif.wr_clk <= ~vif.wr_clk;
+always #25ns vif.rd_clk <= ~vif.rd_clk;
 
 AFIFO_Environment en;
 

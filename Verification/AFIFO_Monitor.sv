@@ -19,7 +19,7 @@ function new(mailbox #(AFIFO_Transaction) mbx_mon2sco);
 endfunction
 
 //Event
-
+event mon_done;
 //Task
 task run();
  tr_mon2scb = new();
@@ -38,19 +38,21 @@ forever begin
   $display("[MON]:----------------------------------------");
  */
 
- @(posedge vif_mon.rd_clk); 
-if(vif_mon.rd_inc || vif_mon.rd_empty || vif_mon.wr_full || ~vif_mon.rd_rst || ~vif_mon.rd_rst) begin 
-//$display("[MON]:----------------------------------------");
- tr_mon2scb.rd_data = vif_mon.rd_data;
- tr_mon2scb.wr_inc = vif_mon.wr_inc;
- tr_mon2scb.rd_inc = vif_mon.rd_inc;
- tr_mon2scb.wr_rst = vif_mon.wr_rst;
- tr_mon2scb.rd_rst = vif_mon.rd_rst;
- tr_mon2scb.rd_empty = vif_mon.rd_empty;
- tr_mon2scb.wr_full = vif_mon.wr_full;
-
+ @(posedge vif_mon.rd_inc or posedge vif_mon.wr_inc); 
+if(vif_mon.rd_inc || vif_mon.rd_empty || vif_mon.wr_full || ~vif_mon.rd_rst || ~vif_mon.rd_rst || vif_mon.wr_inc) begin 
+$display("[MON]:Entered Loop sending Tr class");
+//5ns
+ tr_mon2scb.rd_data <= vif_mon.rd_data;
+ tr_mon2scb.wr_inc <= vif_mon.wr_inc;
+ tr_mon2scb.rd_inc <= vif_mon.rd_inc;
+ tr_mon2scb.wr_rst <= vif_mon.wr_rst;
+ tr_mon2scb.rd_rst <= vif_mon.rd_rst;
+ tr_mon2scb.rd_empty <= vif_mon.rd_empty;
+ tr_mon2scb.wr_full <= vif_mon.wr_full;
+$display("[MON]: rd_inc = %d, wr_inc = %d", tr_mon2scb.rd_inc, tr_mon2scb.wr_inc);
  mbx_mon2sco.put(tr_mon2scb);
-if(vif_mon.wr_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", vif_mon.rd_data);
+ ->mon_done;
+if(vif_mon.rd_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", vif_mon.rd_data);
 //$display("[MON]:----------------------------------------");
 end
 end

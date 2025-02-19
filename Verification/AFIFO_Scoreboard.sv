@@ -17,7 +17,7 @@ mailbox #(AFIFO_Transaction) mbx_mon2sco; // monitor to scoreboard
 mailbox #(bit[DSIZE-1 :0]) mbx_drv2sco;  // driver to scoreboard
 
 //Event 
-//event sco_nxt;
+event mon_done;
 
 //Constructor
 function new(mailbox #(AFIFO_Transaction) mbx_mon2sco,
@@ -29,41 +29,71 @@ endfunction
 task run();
 //
 tr_mon2scb = new();
-fork 
-begin
+//fork 
+
  forever begin
-    mbx_drv2sco.get(get_wr_data_drv);//reference model Queue Implementation
-    wr_data_drv_q.push_back(get_wr_data_drv); 
-
-    mbx_mon2sco.get(tr_mon2scb);
-
+   //$display("[SCO]:In forever loop");
+   //@(posedge tr_mon2scb.rd_inc);
+     
     $display("[SCO]:----------------------------------------");
-    if(tr_mon2scb.rd_empty) $display("[MON] : READ EMPTY, Nothing to read in FIFO Mem ");
-    if(tr_mon2scb.wr_full) $display("[MON] : WRITE FULL, Full FIFO Mem ");
+   //$display("[SCO]:WR INC %d ",vif.wr_inc);
+  if(tr_mon2scb.wr_inc) begin
+  // $display("[SCO]:Entered ref block Ref Model %p ==================================================== ",get_wr_data_drv);
+   mbx_drv2sco.get(get_wr_data_drv);//reference model Queue Implementation
+  // $display("[SCO]:Got the data from mbx ref block Ref Model %p ==================================================== ",get_wr_data_drv);
+    wr_data_drv_q.push_back(get_wr_data_drv); 
+   $display("[SCO]:Data Written in Ref Model %p ========================================================",get_wr_data_drv);
+  end
+   /*
+    if(!mbx_mon2sco.try_get(tr_mon2scb)) $display("Failed to get the data ==========================================================");
+    else $display("SUCCESS to get the data ==========================================================");
+  */
+
+   @mon_done;
+   mbx_mon2sco.get(tr_mon2scb);
+  /*
+    if(!tr_mon2scb.wr_rst || !tr_mon2scb.rd_rst)begin    
+     wr_data_drv_q.delete();
+     $display("[SCO] : RESETTING the Reference Module %p ", wr_data_drv_q.pop_front());
+    end
+  */
+   $display("[SCO]: gOt the data rd_data = %d ==========================================================",tr_mon2scb.rd_data);
+    if(tr_mon2scb.rd_empty) $display("[SCO] : READ EMPTY, Nothing to read in FIFO Mem ");
+    if(tr_mon2scb.wr_full) $display("[SCO] : WRITE FULL, Full FIFO Mem ");
 
      if(tr_mon2scb.rd_inc && !tr_mon2scb.rd_empty)begin
+      //$display("[SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] ");
         ref_wr_data_drv =  wr_data_drv_q.pop_front();
         if(tr_mon2scb.rd_data == ref_wr_data_drv) begin
          $display("[SCO]: SUCCESS, Data Matched : %d",tr_mon2scb.rd_data);
          end
         else begin
         $error("[SCO]: FAILED, Data NOT Matched : [DUT] %d != [DRV] %d",tr_mon2scb.rd_data, ref_wr_data_drv);
+          //foreach (wr_data_drv_q[i]) begin
+       // $display("my_queue[%0d] = %0d", i, wr_data_drv_q[i]);
+        // end
          end
-     end
+     end 
+   // else $display("[SCO] :rd_inc = %d, rd_emp = %d NOT IN CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] "
+    // ,tr_mon2scb.rd_inc,tr_mon2scb.rd_empty);
      $display("[SCO]:----------------------------------------");
  end
-end
-/*
-begin
-    forever begin
+
+
+//begin
+    //forever begin
          // if reset
-    if(!tr_mon2scb.wr_rst || !tr_mon2scb.rd_rst)begin
-     wr_data_drv_q.delete();
-    end
-    end
-end
-*/
-join 
+    //     $display("[SCO]:IN FORKKKK==========================+++++++++++++++++++++++++++++++++"); /*
+  //  @(posedge tr_mon2scb.wr_clk);
+   // if(!tr_mon2scb.wr_rst || !tr_mon2scb.rd_rst)begin
+        
+   //  wr_data_drv_q.delete();
+   //  $display("[SCO] : RESETTING the Reference Module %p ", wr_data_drv_q.pop_front());
+  //  end
+   // end
+//end
+
+//join
 endtask
 
 endclass
