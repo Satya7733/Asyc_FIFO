@@ -58,7 +58,7 @@ task write(input int drv_repeat_count); // Test Case :2
  
  repeat(drv_repeat_count) begin
  	repeat(1) @(posedge vif.wr_clk);
-
+	if(!vif.wr_full)begin
  	if(mbx_gen2drv.try_get(tr)); //$display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
 	//else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
 
@@ -72,6 +72,7 @@ task write(input int drv_repeat_count); // Test Case :2
 	@(posedge vif.wr_clk); //Experimental
 	vif.wr_inc <= 1'b0;
 	->drv_nxt;
+	end
  end
  $display("[DRV] ----------------------------------------");
 endtask
@@ -82,7 +83,9 @@ task read(input int drv_repeat_count);
  vif.rd_rst <= 1'b1;
 
  repeat(drv_repeat_count) begin
- 	@(posedge vif.rd_clk);
+	@(posedge vif.rd_clk);
+	if(!vif.rd_empty) begin
+ 	
  	//mbx_gen2drv.get(tr);
 	//$display("[DRV] : Mailbox.get done, gen2drv");
  	//vif.wr_data <= tr.wr_data;
@@ -93,6 +96,7 @@ task read(input int drv_repeat_count);
 	@(posedge vif.rd_clk); //Experimental
 	#5ns;
 	vif.rd_inc <= 1'b0;
+	end
  end
   $display("[DRV] ----------------------------------------");
 endtask
@@ -158,10 +162,10 @@ endtask
 
 task run;
 testcase1();
-//testcase2();// Reads and Writes
+testcase2();// Reads and Writes
 //testcase3(); //Only writes
 //testcase4(); //Only Reads
-testcase5(); //Continuous Reads and Writes
+//testcase5(); //Continuous Reads and Writes
 $finish;
 endtask
 

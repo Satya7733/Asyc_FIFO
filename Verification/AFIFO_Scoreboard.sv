@@ -63,6 +63,7 @@ tr_mon2scb = new();
 
      if(tr_mon2scb.rd_inc && !tr_mon2scb.rd_empty)begin
       //$display("[SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] ");
+        @(posedge tr_mon2scb.rd_clk);
         ref_wr_data_drv =  wr_data_drv_q.pop_front();
         if(tr_mon2scb.rd_data == ref_wr_data_drv) begin
          $display("[SCO]: SUCCESS, Data Matched : %d",tr_mon2scb.rd_data);

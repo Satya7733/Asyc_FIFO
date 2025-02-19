@@ -50,9 +50,11 @@ $display("[MON]:Entered Loop sending Tr class");
  tr_mon2scb.rd_empty <= vif_mon.rd_empty;
  tr_mon2scb.wr_full <= vif_mon.wr_full;
 $display("[MON]: rd_inc = %d, wr_inc = %d", tr_mon2scb.rd_inc, tr_mon2scb.wr_inc);
+if(vif_mon.rd_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", tr_mon2scb.rd_data);
  mbx_mon2sco.put(tr_mon2scb);
+ if(vif_mon.rd_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", tr_mon2scb.rd_data);
  ->mon_done;
-if(vif_mon.rd_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", vif_mon.rd_data);
+if(vif_mon.rd_inc)$display("[MON]: MBX DATA SENT TO SCO %0d ", tr_mon2scb.rd_data);
 //$display("[MON]:----------------------------------------");
 end
 end
