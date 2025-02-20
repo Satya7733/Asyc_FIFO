@@ -26,10 +26,12 @@ event gen_done;
 	
 //Tasks
 task reset(); // Test Case :1
+`ifdef DEBUG
  $display("[DRV] ----------------------------------------");
  $display("[DRV] : RESET READ AND WRITE ");
+ `endif
   vif.rd_rst <= 1'b1;
-  $display("[DRV] : RESET READ AND WRITE ");
+  $display("[DRIVER] : DRIVING RESET (5 WR_CLK) READ AND WRITE TO DUT");
  vif.wr_rst <= 1'b1;
   repeat(5) @(posedge vif.wr_clk);
  vif.rd_rst <= 1'b0; //Active Low Reset
@@ -38,22 +40,28 @@ task reset(); // Test Case :1
  vif.wr_inc <= 1'b0;
  //drv_wr_data_q.delete();
  //$display("[DRV] : RESETED QUEUE (REF MODULE)");
+ `ifdef DEBUG
  $display("[DRV] : RESETING FOR 5 WRITE CLK CYCLES");
+ `endif 
  repeat(20) @(posedge vif.wr_clk);
  vif.rd_rst <= 1'b1;
  vif.wr_rst <= 1'b1;
  repeat(5) @(posedge vif.wr_clk);
+ `ifdef DEBUG
  $display("[DRV] : RESET DONE");
  $display("[DRV] ----------------------------------------");
+  `endif 
 endtask
 
 task write(input int drv_repeat_count); // Test Case :2
+`ifdef DEBUG
   $display("[DRV] ----------------------------------------");
+`endif 
  //$display("[DRV][WRITE] :DEBUG WAITING FOR GEN COMPLETE");
  ->drv_nxt; 
  //@gen_done;
 //wait(gen_done.triggered);
- $display("[DRV][WRITE] : WRITE for %d times",drv_repeat_count);
+ $display("[DRIVER][WRITE] : WRITE for %d times",drv_repeat_count);
  vif.wr_rst <= 1'b1;
  
  repeat(drv_repeat_count) begin
@@ -61,25 +69,33 @@ task write(input int drv_repeat_count); // Test Case :2
 	if(!vif.wr_full)begin
  	if(mbx_gen2drv.try_get(tr)); //$display("[DRV: DEBUG] [GET SUCCESS] Retrieved from mailbox");
 	//else  $display("[DRV: DEBUG] [GET FAILED] Mailbox Empty");
-
+	`ifdef DEBUG
 	$display("[DRV][WRITE] : Mailbox.get done, gen2drv");
+	`endif 
  	vif.wr_data <= tr.wr_data;
 	vif.wr_inc <= 1'b1;
-	$display("[DRV][WRITE] : Data Written to wr_data = %d" ,tr.wr_data);
+	
+	$display("[DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = %d" ,tr.wr_data);
  	//drv_wr_data_q.push_back(tr.wr_data);
 	mbx_drv2sco.put(tr.wr_data);
+	`ifdef DEBUG
 	$display("[DRV][WRITE] : Mailbox.put done, drv2sco");
+	`endif 
 	@(posedge vif.wr_clk); //Experimental
 	vif.wr_inc <= 1'b0;
 	->drv_nxt;
 	end
  end
+ `ifdef DEBUG
  $display("[DRV] ----------------------------------------");
+ `endif 
 endtask
 
 task read(input int drv_repeat_count);
+`ifdef DEBUG
  $display("[DRV] ----------------------------------------");
- $display("[DRV][READ] : READ for %d times ",drv_repeat_count);
+ `endif
+ $display("[DRIVER][READ] : READ for %d times ",drv_repeat_count);
  vif.rd_rst <= 1'b1;
 
  repeat(drv_repeat_count) begin
@@ -90,7 +106,9 @@ task read(input int drv_repeat_count);
 	//$display("[DRV] : Mailbox.get done, gen2drv");
  	//vif.wr_data <= tr.wr_data;
 	vif.rd_inc <= 1'b1;
-	$display("[DRV][READ] : Data Read to rd_data");
+	
+	$display("[DRV][READ] : READ INCREMENT HIGH");
+
 	//mbx_drv2sco.put(tr.wr_data);
 	//$display("[DRV] : Mailbox.put done, drv2sco");
 	@(posedge vif.rd_clk); //Experimental
@@ -98,15 +116,17 @@ task read(input int drv_repeat_count);
 	vif.rd_inc <= 1'b0;
 	end
  end
+ `ifdef DEBUG
   $display("[DRV] ----------------------------------------");
+  `endif 
 endtask
 
 task testcase1();
-	$display("[DRV] : [Test Case 1] Reset  ");
+	$display("[DRIVER] : [Test Case] Reset  ");
  	reset();
 endtask
 task testcase2(); //test case 2
-	$display("[DRV] : [Test Case 2] START: Writes and Reads");
+	$display("[DRIVER] : [Test Case] START: Writes and Reads");
  	reset();
 	fork 
     begin
@@ -118,10 +138,10 @@ task testcase2(); //test case 2
     end
     begin
        repeat(7) @(posedge vif.rd_clk); // Wait for 7 read clock cycles
-       read(20); // Start reading after 7 cycles
+       read(37); // Start reading after 7 cycles
     end
  	join 
-	$display("[DRV] : [Test Case 2] DONE: Writes and Reads");
+	$display("[DRIVER] : [Test Case] DONE: Writes and Reads");
 endtask
 
 task testcase3();// test case 3
@@ -163,6 +183,9 @@ endtask
 task run;
 testcase1();
 testcase2();// Reads and Writes
+testcase2();
+
+
 //testcase3(); //Only writes
 //testcase4(); //Only Reads
 //testcase5(); //Continuous Reads and Writes

@@ -22,15 +22,22 @@ task run();
 
 forever begin 
 	wait( drv_nxt.triggered);
+	`ifdef DEBUG
 	 $display("[GEN] ----------------------------------------");
+	`endif 
 	assert(tr.randomize) else $error("[GEN]: Randomization Failed");
-	if(mbx_gen2drv.try_put(tr.copy)) $display("[GEN] [PUT SUCCESS] placed in mailbox"); // Tranfer the randomized values to driver 
-	else $display("[GEN] [PUT FAILED]: Mailbox full, could not put ");
-	$display("[GEN] Generated Write Data : %0d", tr.wr_data);
+	mbx_gen2drv.try_put(tr.copy);
+	//$display("[GEN] [PUT SUCCESS] placed in mailbox"); // Tranfer the randomized values to driver 
+	//else $display("[GEN] [PUT FAILED]: Mailbox full, could not put ");
+	
+	$display("[GENERATOR] Generated Write Data : %0d", tr.wr_data);
+	
 	#2;
     //->gen_done;
+	`ifdef DEBUG
     $display("[GEN] completed");
     $display("[GEN] ----------------------------------------");
+	`endif 
 	//drvnext.triggered;
 	//sconext.triggered;
 	
@@ -40,6 +47,7 @@ forever begin
 	end	
 
 endtask
+
 
 
 endclass

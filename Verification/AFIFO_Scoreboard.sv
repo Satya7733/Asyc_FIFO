@@ -12,6 +12,7 @@ AFIFO_Transaction tr_mon2scb;
 bit [DSIZE-1:0] rd_data_dut; // DUT read data
 //reg [DSIZE -1 :0] wr_data_drv_q[$]; //Queue Driver to Scoreboard
 bit[DSIZE-1 :0] get_wr_data_drv, ref_wr_data_drv;
+integer i = 1;
 //Mailbox
 mailbox #(AFIFO_Transaction) mbx_mon2sco; // monitor to scoreboard
 mailbox #(bit[DSIZE-1 :0]) mbx_drv2sco;  // driver to scoreboard
@@ -36,7 +37,9 @@ fork
    //@(posedge tr_mon2scb.rd_inc);
         @mon_done;
    mbx_mon2sco.get(tr_mon2scb);
+   `ifdef DEBUG 
     $display($time,"[SCO]:----------------------------------------");
+    `endif 
    //$display("[SCO]:WR INC %d ",vif.wr_inc);
 
 /*
@@ -60,30 +63,45 @@ if(tr_mon2scb.wr_inc && !tr_mon2scb.rd_inc) begin
     end
   */
 @(posedge vif.rd_clk);
+`ifdef DEBUG 
    $display($time," [SCO]: gOt the data rd_data = %d ==========================================================",tr_mon2scb.rd_data);
-	
-	$display($time,"tr_mon2scb.rd_inc : %d, tr_mon2scb.rd_empty : %d, tr_mon2scb.rd_clk is : %d ", tr_mon2scb.rd_inc, tr_mon2scb.rd_empty, tr_mon2scb.rd_clk);
+	 $display($time,"tr_mon2scb.rd_inc : %d, tr_mon2scb.rd_empty : %d, tr_mon2scb.rd_clk is : %d ", tr_mon2scb.rd_inc, tr_mon2scb.rd_empty, tr_mon2scb.rd_clk);
+`endif 
      if(tr_mon2scb.rd_inc)begin
       //$display("[SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] ");
        // @(posedge tr_mon2scb.rd_clk);
         //ref_wr_data_drv =  wr_data_drv_q.pop_front();
 	//$display("Queue popping done");
         if(tr_mon2scb.rd_data == tr_mon2scb.rd_data_refModule) begin
-         $display($time,"[SCO]: SUCCESS, Data Matched : %d",tr_mon2scb.rd_data);
+         $display("=================================================");
+         $display("[SCB]: [ID = %d] MATCHED, READ DATA : %d", i++, tr_mon2scb.rd_data);
+         $display("=================================================");
          end
         else begin
-        $error($time,"[SCO]: FAILED, Data NOT Matched : [DUT] %d != [REF MODULE] %d",tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule);
+        $display("=================================================");
+        $error("[SCB]:  [ID = %d] MISMATCHED, READ DATA : [DUT] %d != [REF MODULE] %d",i++, tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule);
+        $display("=================================================");
           //foreach (wr_data_drv_q[i]) begin
        // $display("my_queue[%0d] = %0d", i, wr_data_drv_q[i]);
         // end
          end
      end 
 
-    if(tr_mon2scb.rd_empty) $display($time,"[SCO] : READ EMPTY, Nothing to read in FIFO Mem ");
-    if(tr_mon2scb.wr_full) $display($time,"[SCO] : WRITE FULL, Full FIFO Mem ");
+    if(tr_mon2scb.rd_empty) begin
+      $display("=================================================");
+      $display("[SCB]: READ EMPTY ");
+      $display("=================================================");
+    end
+    if(tr_mon2scb.wr_full) begin
+      $display("=================================================");
+      $display("[SCB]: WRITE FULL ");
+      $display("=================================================");
+    end
    // else $display("[SCO] :rd_inc = %d, rd_emp = %d NOT IN CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] "
     // ,tr_mon2scb.rd_inc,tr_mon2scb.rd_empty);
+    `ifdef DEBUG 
      $display($time,"[SCO]:----------------------------------------");
+     `endif
  end
 
 //

@@ -49,7 +49,10 @@ fork
 	forever begin
 	@(posedge vif_mon.wr_clk); 
 	if(vif_mon.wr_inc) begin
+	`ifdef DEBUG
 	$display($time,"[MON]: DATA WRITTEN TO REF MODULE %0d ", vif_mon.wr_data);
+	`endif 
+	$display("[iMON]: WRITE DATA INPUT TO DUT %0d ", vif_mon.wr_data);
 	wr_data_drv_q.push_back(vif_mon.wr_data);
 	
 	end // @(posedge vif_mon.rd_inc); 
@@ -60,7 +63,9 @@ fork
 	forever begin
 	@(posedge vif_mon.rd_clk);
 	if(vif_mon.rd_inc || vif_mon.rd_empty || vif_mon.wr_full || ~vif_mon.rd_rst || ~vif_mon.rd_rst) begin 
+	`ifdef DEBUG
 	$display($time,"[MON]:Entered Loop sending Tr class");
+	`endif 
 	//5ns
 	 tr_mon2scb.rd_data = vif_mon.rd_data;
 	 tr_mon2scb.wr_inc = vif_mon.wr_inc;
@@ -71,15 +76,24 @@ fork
 	 tr_mon2scb.wr_full = vif_mon.wr_full;
 	 if(vif_mon.rd_inc)begin 
 	tr_mon2scb.rd_data_refModule =  wr_data_drv_q.pop_front();
+	`ifdef DEBUG
 	$display("popped data is: %d",  tr_mon2scb.rd_data_refModule);
+	`endif 
+
+	if(vif_mon.rd_inc)$display("[oMON]: READ DATA OUTPUT FROM DUT: %d ", tr_mon2scb.rd_data);
+
 	end
-	$display($time,"[MON]: rd_inc = %d, wr_inc = %d", tr_mon2scb.rd_inc, tr_mon2scb.wr_inc);
-	if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule);
+	`ifdef DEBUG
+	$display("[MONITOR]: rd_inc = %d, wr_inc = %d", tr_mon2scb.rd_inc, tr_mon2scb.wr_inc);
+	`endif
+	`ifdef DEBUG if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule); `endif
 	 mbx_mon2sco.put(tr_mon2scb);
-	if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule);
+	`ifdef DEBUG if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule); `endif
 	 ->mon_done;
-	if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule);
-	//$display("[MON]:----------------------------------------");
+	`ifdef DEBUG 
+	if(vif_mon.rd_inc)$display($time,"[MON]: MBX DATA SENT TO SCO %0d, and ref MOD : %d ", tr_mon2scb.rd_data, tr_mon2scb.rd_data_refModule); 
+	$display("[MON]:----------------------------------------");
+	`endif
 	end else begin
 	wait(vif_mon.rd_inc || vif_mon.wr_inc);
 	end
