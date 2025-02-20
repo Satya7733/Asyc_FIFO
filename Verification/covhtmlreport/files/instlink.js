@@ -1,0 +1,2 @@
+var g_data = {"11":[10,"vif",1],"13":[12,"fifo_mem",1],"14":[12,"fifo_empty",1],"15":[12,"fifo_full",1],"16":[12,"r2w",1],"17":[12,"w2r",1],"12":[10,"fifo",1],"10":[-1,"AFIFO_TB_Top",1],"18":[-1,"AFIFO_Pkg",1]};
+processInstLinks(g_data);
