@@ -1,0 +1,501 @@
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of FIFO_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of AFIFO_Driver.sv was successful.
+# Compile of AFIFO_Environment.sv was successful.
+# Compile of AFIFO_Generator.sv was successful.
+# Compile of AFIFO_Interface.sv was successful.
+# Compile of AFIFO_Monitor.sv was successful with warnings.
+# Compile of AFIFO_Pkg.sv was successful.
+# Compile of AFIFO_Scoreboard.sv was successful.
+# Compile of AFIFO_TB_Top.sv was successful.
+# Compile of AFIFO_Transaction.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# Loading sv_std.std
+# Loading work.AFIFO_Interface(fast)
+# Loading work.AFIFO_Pkg(fast)
+# Loading work.AFIFO_TB_Top_sv_unit(fast)
+# Loading work.AFIFO_TB_Top(fast)
+run -all
+# [DRV] : [Test Case 1] Reset  
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 0 ==================================================== 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] : [Test Case 2] START: Writes and Reads
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][WRITE] : WRITE for          20 times
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 159
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 159
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [SCO]:Got the data from mbx ref block Ref Model 159 ==================================================== 
+# [SCO]:Data Written in Ref Model 159 ========================================================
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [SCO]: gOt the data rd_data =   x ==========================================================
+# [SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+# [SCO] :rd_inc = 0, rd_emp = 1 NOT IN CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 159 ==================================================== 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 108
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 108
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [SCO]:Got the data from mbx ref block Ref Model 108 ==================================================== 
+# [SCO]:Data Written in Ref Model 108 ========================================================
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 183
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [SCO]: gOt the data rd_data = 159 ==========================================================
+# [SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+# [SCO] :rd_inc = 0, rd_emp = 1 NOT IN CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 108 ==================================================== 
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 183
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [SCO]:Got the data from mbx ref block Ref Model 183 ==================================================== 
+# [SCO]:Data Written in Ref Model 183 ========================================================
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 128
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][READ] : READ for          20 times 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 128
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 17
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  17
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 0 
+# [MON]: MBX DATA SENT TO SCO 159 
+# [SCO]: gOt the data rd_data = 159 ==========================================================
+# [SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+# [SCO] :rd_inc = 0, rd_emp = 1 NOT IN CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 183 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 128 ==================================================== 
+# [SCO]:Data Written in Ref Model 128 ========================================================
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 93
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  93
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 120
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 108 
+# [SCO]: gOt the data rd_data = 159 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 159
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 128 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 17 ==================================================== 
+# [SCO]:Data Written in Ref Model 17 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 120
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 181
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 183 
+# [SCO]: gOt the data rd_data = 108 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 108
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 17 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 93 ==================================================== 
+# [SCO]:Data Written in Ref Model 93 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 181
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV][READ] : Data Read to rd_data
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 193
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 128 
+# [SCO]: gOt the data rd_data = 183 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 183
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 93 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 120 ==================================================== 
+# [SCO]:Data Written in Ref Model 120 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 193
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 76
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 17 
+# [SCO]: gOt the data rd_data = 128 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 128
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 120 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 181 ==================================================== 
+# [SCO]:Data Written in Ref Model 181 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  76
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 153
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 93 
+# [SCO]: gOt the data rd_data =  17 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  17
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 181 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 193 ==================================================== 
+# [SCO]:Data Written in Ref Model 193 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 153
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 101
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 101
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 120 
+# [SCO]: gOt the data rd_data =  93 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  93
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 193 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 76 ==================================================== 
+# [SCO]:Data Written in Ref Model 76 ========================================================
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 202
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 202
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 3
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 181 
+# [SCO]: gOt the data rd_data = 120 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 120
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 76 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 153 ==================================================== 
+# [SCO]:Data Written in Ref Model 153 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =   3
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 47
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 193 
+# [SCO]: gOt the data rd_data = 181 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 181
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 153 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 101 ==================================================== 
+# [SCO]:Data Written in Ref Model 101 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  47
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV][READ] : Data Read to rd_data
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 62
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 76 
+# [SCO]: gOt the data rd_data = 193 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 193
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 101 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 202 ==================================================== 
+# [SCO]:Data Written in Ref Model 202 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  62
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 21
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 153 
+# [SCO]: gOt the data rd_data =  76 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  76
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 202 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 3 ==================================================== 
+# [SCO]:Data Written in Ref Model 3 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  21
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 51
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 101 
+# [SCO]: gOt the data rd_data = 153 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 153
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 3 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 47 ==================================================== 
+# [SCO]:Data Written in Ref Model 47 ========================================================
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  51
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 118
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 118
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 202 
+# [SCO]: gOt the data rd_data = 101 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 101
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 47 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 62 ==================================================== 
+# [SCO]:Data Written in Ref Model 62 ========================================================
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 44
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  44
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV] ----------------------------------------
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 99
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 3 
+# [SCO]: gOt the data rd_data = 202 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched : 202
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 62 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 21 ==================================================== 
+# [SCO]:Data Written in Ref Model 21 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 47 
+# [SCO]: gOt the data rd_data =   3 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :   3
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 21 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 51 ==================================================== 
+# [SCO]:Data Written in Ref Model 51 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 62 
+# [SCO]: gOt the data rd_data =  47 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  47
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 51 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 118 ==================================================== 
+# [SCO]:Data Written in Ref Model 118 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 21 
+# [SCO]: gOt the data rd_data =  62 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  62
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 118 ==================================================== 
+# [SCO]:Got the data from mbx ref block Ref Model 44 ==================================================== 
+# [SCO]:Data Written in Ref Model 44 ========================================================
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 51 
+# [SCO]: gOt the data rd_data =  21 ==========================================================
+# [SCO] : GOT INSIDE the CHECKER LOOP]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] 
+# [SCO]: SUCCESS, Data Matched :  21
+# [SCO]:----------------------------------------
+# [SCO]:----------------------------------------
+# [SCO]:Entered ref block Ref Model 44 ==================================================== 
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 118 
+# [DRV][READ] : Data Read to rd_data
+# [MON]:Entered Loop sending Tr class
+# [MON]: rd_inc = 1 
+# [MON]: MBX DATA SENT TO SCO 44 
+# [DRV] ----------------------------------------
+# [DRV] : [Test Case 2] DONE: Writes and Reads
+# ** Note: $finish    : N:/My Documents/MCECS_Satya/PresiliconValidation/Git/Asyc_FIFO/Verification/AFIFO_Driver.sv(157)
+#    Time: 4450 ns  Iteration: 0  Region: /AFIFO_Pkg::AFIFO_Environment #(8)::run
+# 1
+# Break in Task AFIFO_Pkg/AFIFO_Driver::run at N:/My Documents/MCECS_Satya/PresiliconValidation/Git/Asyc_FIFO/Verification/AFIFO_Driver.sv line 157
+
