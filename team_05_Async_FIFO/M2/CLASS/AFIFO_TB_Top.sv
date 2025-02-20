@@ -121,7 +121,7 @@ always @(posedge vif.rd_clk) begin
 end
 
 initial begin
-#5000;
+#12395404ps;
 ->coverage_done;
 end
 // ====== Display coverage ====== 

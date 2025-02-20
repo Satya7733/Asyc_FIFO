@@ -1,0 +1,15 @@
+BEGIN 1:AFIFO_TB_Top:fast:work
+    en :  1:AFIFO_TB_Top:fast:work
+END 
+BEGIN 3:AFIFO_Interface:fast__2:work
+    wr_full :  1:AFIFO_TB_Top:fast:work
+    wr_rst :  1:AFIFO_TB_Top:fast:work
+    rd_clk :  1:AFIFO_TB_Top:fast:work
+    rd_rst :  1:AFIFO_TB_Top:fast:work
+    rd_inc :  1:AFIFO_TB_Top:fast:work
+    rd_empty :  1:AFIFO_TB_Top:fast:work
+    wr_clk :  1:AFIFO_TB_Top:fast:work
+    wr_inc :  1:AFIFO_TB_Top:fast:work
+    wr_data :  1:AFIFO_TB_Top:fast:work
+    rd_data :  1:AFIFO_TB_Top:fast:work
+END 

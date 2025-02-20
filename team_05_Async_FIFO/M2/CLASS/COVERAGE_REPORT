@@ -1,0 +1,775 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/vif
+=== Design Unit: work.AFIFO_Interface
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         48        46         2    95.83%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/vif --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                           wr_full           0           0        0.00 
+
+Total Node Count     =         24 
+Toggled Node Count   =         23 
+Untoggled Node Count =          1 
+
+Toggle Coverage      =      95.83% (46 of 48 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo/fifo_mem
+=== Design Unit: work.fifo_memory
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_TB_Top/fifo/fifo_mem
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File fifo_memory.sv
+------------------------------------IF Branch------------------------------------
+    13                                        83     Count coming in to IF
+    13              1                         40     
+                                              43     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         1         1    50.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /AFIFO_TB_Top/fifo/fifo_mem --
+
+  File fifo_memory.sv
+----------------Focused Condition View-------------------
+Line       13 Item    1  (en && ~wr_full)
+Condition totals: 1 of 2 input terms covered = 50.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+          en         Y
+     wr_full         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  en_0                  -                             
+  Row   2:          1  en_1                  ~wr_full                      
+  Row   3:          1  wr_full_0             en                            
+  Row   4:    ***0***  wr_full_1             en                            
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top/fifo/fifo_mem --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File fifo_memory.sv
+    10              1                         82     
+    12              1                         83     
+    14              1                         40     
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo/fifo_mem --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo/fifo_empty
+=== Design Unit: work.rd_empty
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         4         4         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_TB_Top/fifo/fifo_empty
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_rd_empty.sv
+------------------------------------IF Branch------------------------------------
+    11                                        59     Count coming in to IF
+    11              1                          6     
+    17              1                         53     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    30                                        79     Count coming in to IF
+    30              1                          6     
+    31              1                         73     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      1         1         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /AFIFO_TB_Top/fifo/fifo_empty --
+
+  File FIFO_rd_empty.sv
+----------------Focused Expression View-----------------
+Line       26 Item    1  (rd_gray_next == wr_q2_ptr)
+Expression totals: 1 of 1 input term covered = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      12        12         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top/fifo/fifo_empty --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_rd_empty.sv
+    10              1                         59     
+    12              1                          6     
+    15              1                          6     
+    18              1                         53     
+    19              1                         53     
+    23              1                         42     
+    24              1                        152     
+    25              1                         63     
+    26              1                        103     
+    28              1                         79     
+    30              1                          6     
+    31              1                         73     
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         42        42         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo/fifo_empty --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =         21 
+Toggled Node Count   =         21 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (42 of 42 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo/fifo_full
+=== Design Unit: work.wr_full
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         4         4         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_TB_Top/fifo/fifo_full
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_wr_full.sv
+------------------------------------IF Branch------------------------------------
+    13                                        90     Count coming in to IF
+    13              1                          6     
+    14              1                         84     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    24                                        10     Count coming in to IF
+    24              1                          6     
+    26              1                          4     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      1         0         1     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /AFIFO_TB_Top/fifo/fifo_full --
+
+  File FIFO_wr_full.sv
+----------------Focused Expression View-----------------
+Line       36 Item    1  (wr_gray_next == {~rd_q2_ptr[3:2],rd_q2_ptr[1:0]})
+Expression totals: 0 of 1 input term covered = 0.00%
+
+                                          Input Term   Covered  Reason for no coverage   Hint
+                                         -----------  --------  -----------------------  --------------
+  (wr_gray_next == {~rd_q2_ptr[3:2],rd_q2_ptr[1:0]})         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target                                            Non-masking condition(s)      
+ ---------  ---------  --------------------                                  -------------------------     
+  Row   1:          1  (wr_gray_next == {~rd_q2_ptr[3:2],rd_q2_ptr[1:0]})_0  -                             
+  Row   2:    ***0***  (wr_gray_next == {~rd_q2_ptr[3:2],rd_q2_ptr[1:0]})_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      10        10         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top/fifo/fifo_full --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_wr_full.sv
+    12              1                         90     
+    13              1                          6     
+    14              1                         84     
+    17              1                         43     
+    18              1                        124     
+    19              1                        123     
+    23              1                         10     
+    25              1                          6     
+    27              1                          4     
+    36              1                        163     
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         42        38         4    90.47%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo/fifo_full --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                           wr_full           0           0        0.00 
+                                       wr_full_val           0           0        0.00 
+
+Total Node Count     =         21 
+Toggled Node Count   =         19 
+Untoggled Node Count =          2 
+
+Toggle Coverage      =      90.47% (38 of 42 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo/r2w
+=== Design Unit: work.ff_sync
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_TB_Top/fifo/r2w
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_2FF_Sync.sv
+------------------------------------IF Branch------------------------------------
+    10                                        87     Count coming in to IF
+    10              1                          6     
+    14              1                         81     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       4         4         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top/fifo/r2w --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_2FF_Sync.sv
+    9               1                         87     
+    11              1                          6     
+    12              1                          6     
+    15              1                         81     
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo/r2w --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo/w2r
+=== Design Unit: work.ff_sync
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_TB_Top/fifo/w2r
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_2FF_Sync.sv
+------------------------------------IF Branch------------------------------------
+    10                                        90     Count coming in to IF
+    10              1                          6     
+    14              1                         84     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       4         4         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top/fifo/w2r --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File FIFO_2FF_Sync.sv
+    9               1                         90     
+    11              1                          6     
+    12              1                          6     
+    15              1                         84     
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo/w2r --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top/fifo
+=== Design Unit: work.FIFO
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         92        90         2    97.82%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /AFIFO_TB_Top/fifo --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                           wr_full           0           0        0.00 
+
+Total Node Count     =         46 
+Toggled Node Count   =         45 
+Untoggled Node Count =          1 
+
+Toggle Coverage      =      97.82% (90 of 92 bins)
+
+=================================================================================
+=== Instance: /AFIFO_TB_Top
+=== Design Unit: work.AFIFO_TB_Top
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      32        32         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_TB_Top --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AFIFO_TB_Top.sv
+    42              1                          1     
+    43              1                          1     
+    47              1                        355     
+    47              2                        354     
+    48              1                        496     
+    48              2                        495     
+    92              1                          1     
+    97              1                          1     
+    98              1                          1     
+    100             1                          1     
+    101             1                        178     
+    102             1                        177     
+    103             1                        177     
+    105             1                        177     
+    106             1                        177     
+    107             1                        177     
+    113             1                        177     
+    114             1                        177     
+    115             1                        177     
+    118             1                        248     
+    119             1                        248     
+    120             1                        248     
+    124             1                          1     
+    125             1                          1     
+    129             1                          1     
+    130             1                          1     
+    131             1                          1     
+    132             1                          1     
+    133             1                          1     
+    134             1                          1     
+    135             1                          1     
+    137             1                          1     
+
+=================================================================================
+=== Instance: /AFIFO_Pkg
+=== Design Unit: work.AFIFO_Pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        22        17         5    77.27%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AFIFO_Pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AFIFO_Driver.sv
+------------------------------------IF Branch------------------------------------
+    69                                        40     Count coming in to IF
+    69     1 (CP=( 8, 3))                         40     
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    70                                        40     Count coming in to IF
+    70     1 (CP=( 8, 3))                         40     
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    103                                       71     Count coming in to IF
+    103    1 (CP=( 8, 3))                         40     
+                                              31     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+  File AFIFO_Monitor.sv
+------------------------------------IF Branch------------------------------------
+    51                                       177     Count coming in to IF
+    51     1 (CP=( 8))                         40     
+                                             137     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    65                                       164     Count coming in to IF
+    65     1 (CP=( 8))                        121     
+    97     1 (CP=( 8))                         43     
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    77                                       121     Count coming in to IF
+    77     1 (CP=( 8))                         39     
+                                              82     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    83                                        39     Count coming in to IF
+    83     1 (CP=( 8))                         39     
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+  File AFIFO_Scoreboard.sv
+------------------------------------IF Branch------------------------------------
+    70                                       121     Count coming in to IF
+    70     1 (CP=( 8))                         39     
+                                              82     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    75                                        39     Count coming in to IF
+    75     1 (CP=( 8))                         39     
+    80     1 (CP=( 8))                    ***0***     
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    90                                       121     Count coming in to IF
+    90     1 (CP=( 8))                         82     
+                                              39     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    95                                       121     Count coming in to IF
+    95     1 (CP=( 8))                    ***0***     
+                                             121     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       5         2         3    40.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /AFIFO_Pkg --
+
+  File AFIFO_Monitor.sv
+----------------Focused Condition View-------------------
+Line       65 Item    1 (CP=( 8)) (this.vif_mon.rd_inc || this.vif_mon.rd_empty || this.vif_mon.wr_full || ~this.vif_mon.rd_rst)
+Condition totals: 2 of 4 input terms covered = 50.00%
+
+             Input Term   Covered  Reason for no coverage   Hint
+            -----------  --------  -----------------------  --------------
+    this.vif_mon.rd_inc         Y
+  this.vif_mon.rd_empty         Y
+   this.vif_mon.wr_full         N  '_1' not hit             Hit '_1'
+    this.vif_mon.rd_rst         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target               Non-masking condition(s)      
+ ---------  ---------  --------------------     -------------------------     
+  Row   1:          1  this.vif_mon.rd_inc_0    ~(this.vif_mon.rd_empty || (this.vif_mon.wr_full || ~this.vif_mon.rd_rst))
+  Row   2:          1  this.vif_mon.rd_inc_1    -                             
+  Row   3:          1  this.vif_mon.rd_empty_0  (~this.vif_mon.rd_inc && ~(this.vif_mon.wr_full || ~this.vif_mon.rd_rst))
+  Row   4:          1  this.vif_mon.rd_empty_1  ~this.vif_mon.rd_inc          
+  Row   5:          1  this.vif_mon.wr_full_0   (~this.vif_mon.rd_inc && ~this.vif_mon.rd_empty && this.vif_mon.rd_rst)
+  Row   6:    ***0***  this.vif_mon.wr_full_1   (~this.vif_mon.rd_inc && ~this.vif_mon.rd_empty)
+  Row   7:    ***0***  this.vif_mon.rd_rst_0    (~this.vif_mon.rd_inc && ~this.vif_mon.rd_empty && ~this.vif_mon.wr_full)
+  Row   8:          1  this.vif_mon.rd_rst_1    (~this.vif_mon.rd_inc && ~this.vif_mon.rd_empty && ~this.vif_mon.wr_full)
+
+
+----------------Focused Condition View-------------------
+Line       75 Item    1 (CP=( 8)) (this.tr_mon2scb.rd_data == this.tr_mon2scb.rd_data_refModule)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+                                                      Input Term   Covered  Reason for no coverage   Hint
+                                                     -----------  --------  -----------------------  --------------
+  (this.tr_mon2scb.rd_data == this.tr_mon2scb.rd_data_refModule)         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target                                                        Non-masking condition(s)      
+ ---------  ---------  --------------------                                              -------------------------     
+  Row   1:    ***0***  (this.tr_mon2scb.rd_data == this.tr_mon2scb.rd_data_refModule)_0  -                             
+  Row   2:          1  (this.tr_mon2scb.rd_data == this.tr_mon2scb.rd_data_refModule)_1  -                             
+
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                     144       119        25    82.63%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AFIFO_Pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AFIFO_Transaction.sv
+    11     1 (CP=( 8))                         42     
+    17     1 (CP=( 8))                         42     
+    18     1 (CP=( 8))                         42     
+    19     1 (CP=( 8))                         42     
+    20     1 (CP=( 8))                         42     
+    21     1 (CP=( 8))                         42     
+    22     1 (CP=( 8))                         42     
+  File AFIFO_Generator.sv
+    16              1                          1     
+    17              1                          1     
+    23              1                          1     
+    24              1                         43     
+    29              1                         42     
+    33              1                         42     
+    35              1                         42     
+  File AFIFO_Driver.sv
+    22     1 (CP=( 8, 3))                          1     
+    23     1 (CP=( 8, 3))                          1     
+    33     1 (CP=( 8, 3))                          3     
+    34     1 (CP=( 8, 3))                          3     
+    35     1 (CP=( 8, 3))                          3     
+    36     1 (CP=( 8, 3))                         15     
+    36     2 (CP=( 8, 3))                         15     
+    37     1 (CP=( 8, 3))                          3     
+    38     1 (CP=( 8, 3))                          3     
+    39     1 (CP=( 8, 3))                          3     
+    40     1 (CP=( 8, 3))                          3     
+    46     1 (CP=( 8, 3))                         60     
+    46     2 (CP=( 8, 3))                         60     
+    47     1 (CP=( 8, 3))                          3     
+    48     1 (CP=( 8, 3))                          3     
+    49     1 (CP=( 8, 3))                         15     
+    49     2 (CP=( 8, 3))                         15     
+    61     1 (CP=( 8, 3))                          2     
+    64     1 (CP=( 8, 3))                          2     
+    65     1 (CP=( 8, 3))                          2     
+    67     1 (CP=( 8, 3))                         40     
+    68     1 (CP=( 8, 3))                         40     
+    75     1 (CP=( 8, 3))                         40     
+    76     1 (CP=( 8, 3))                         40     
+    78     1 (CP=( 8, 3))                         40     
+    80     1 (CP=( 8, 3))                         40     
+    84     1 (CP=( 8, 3))                         40     
+    85     1 (CP=( 8, 3))                         40     
+    86     1 (CP=( 8, 3))                         40     
+    98     1 (CP=( 8, 3))                          2     
+    99     1 (CP=( 8, 3))                          2     
+    101    1 (CP=( 8, 3))                         70     
+    102    1 (CP=( 8, 3))                         71     
+    108    1 (CP=( 8, 3))                         40     
+    110    1 (CP=( 8, 3))                         40     
+    114    1 (CP=( 8, 3))                         40     
+    115    1 (CP=( 8, 3))                         39     
+    116    1 (CP=( 8, 3))                         39     
+    125    1 (CP=( 8, 3))                          1     
+    126    1 (CP=( 8, 3))                          1     
+    129    1 (CP=( 8, 3))                          2     
+    130    1 (CP=( 8, 3))                          2     
+    135    1 (CP=( 8, 3))                          2     
+    140    1 (CP=( 8, 3))                         14     
+    140    2 (CP=( 8, 3))                         14     
+    141    1 (CP=( 8, 3))                          2     
+    144    1 (CP=( 8, 3))                          1     
+    148    1 (CP=( 8, 3))                    ***0***     
+    149    1 (CP=( 8, 3))                    ***0***     
+    150    1 (CP=( 8, 3))                    ***0***     
+    151    1 (CP=( 8, 3))                    ***0***     
+    155    1 (CP=( 8, 3))                    ***0***     
+    156    1 (CP=( 8, 3))                    ***0***     
+    157    1 (CP=( 8, 3))                    ***0***     
+    158    1 (CP=( 8, 3))                    ***0***     
+    159    1 (CP=( 8, 3))                    ***0***     
+    163    1 (CP=( 8, 3))                    ***0***     
+    164    1 (CP=( 8, 3))                    ***0***     
+    169    1 (CP=( 8, 3))                    ***0***     
+    173    1 (CP=( 8, 3))                    ***0***     
+    173    2 (CP=( 8, 3))                    ***0***     
+    174    1 (CP=( 8, 3))                    ***0***     
+    177    1 (CP=( 8, 3))                    ***0***     
+    178    1 (CP=( 8, 3))                    ***0***     
+    180    1 (CP=( 8, 3))                    ***0***     
+    184    1 (CP=( 8, 3))                          1     
+    185    1 (CP=( 8, 3))                          1     
+    186    1 (CP=( 8, 3))                          1     
+    192    1 (CP=( 8, 3))                    ***0***     
+  File AFIFO_Monitor.sv
+    20     1 (CP=( 8))                          1     
+    31     1 (CP=( 8))                          1     
+    49     1 (CP=( 8))                          1     
+    50     1 (CP=( 8))                        178     
+    55     1 (CP=( 8))                         40     
+    56     1 (CP=( 8))                         40     
+    63     1 (CP=( 8))                          1     
+    64     1 (CP=( 8))                        165     
+    70     1 (CP=( 8))                        121     
+    71     1 (CP=( 8))                        121     
+    72     1 (CP=( 8))                        121     
+    73     1 (CP=( 8))                        121     
+    74     1 (CP=( 8))                        121     
+    75     1 (CP=( 8))                        121     
+    76     1 (CP=( 8))                        121     
+    78     1 (CP=( 8))                         39     
+    83     1 (CP=( 8))                         39     
+    90     1 (CP=( 8))                        121     
+    92     1 (CP=( 8))                        121     
+    98     1 (CP=( 8))                         43     
+  File AFIFO_Scoreboard.sv
+    15     1 (CP=( 8))                          1     
+    26     1 (CP=( 8))                          1     
+    27     1 (CP=( 8))                          1     
+    32     1 (CP=( 8))                          1     
+    35     1 (CP=( 8))                          1     
+    38     1 (CP=( 8))                        122     
+    39     1 (CP=( 8))                        121     
+    65     1 (CP=( 8))                        121     
+    76     1 (CP=( 8))                         39     
+    77     1 (CP=( 8))                         39     
+    78     1 (CP=( 8))                         39     
+    81     1 (CP=( 8))                    ***0***     
+    82     1 (CP=( 8))                    ***0***     
+    83     1 (CP=( 8))                    ***0***     
+    91     1 (CP=( 8))                         82     
+    92     1 (CP=( 8))                         82     
+    93     1 (CP=( 8))                         82     
+    96     1 (CP=( 8))                    ***0***     
+    97     1 (CP=( 8))                    ***0***     
+    98     1 (CP=( 8))                    ***0***     
+  File AFIFO_Environment.sv
+    28     1 (CP=( 8))                          1     
+    29     1 (CP=( 8))                          1     
+    30     1 (CP=( 8))                          1     
+    32     1 (CP=( 8))                          1     
+    33     1 (CP=( 8))                          1     
+    34     1 (CP=( 8))                          1     
+    35     1 (CP=( 8))                          1     
+    37     1 (CP=( 8))                          1     
+    38     1 (CP=( 8))                          1     
+    39     1 (CP=( 8))                          1     
+    40     1 (CP=( 8))                          1     
+    42     1 (CP=( 8))                          1     
+    43     1 (CP=( 8))                          1     
+    44     1 (CP=( 8))                          1     
+    45     1 (CP=( 8))                          1     
+    46     1 (CP=( 8))                          1     
+    47     1 (CP=( 8))                          1     
+    52     1 (CP=( 8))                          1     
+    53     1 (CP=( 8))                          1     
+    54     1 (CP=( 8))                          1     
+    55     1 (CP=( 8))                          1     
+
+
+Total Coverage By Instance (filtered view): 72.81%
+
