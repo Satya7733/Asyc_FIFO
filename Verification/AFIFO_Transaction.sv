@@ -4,6 +4,7 @@ class AFIFO_Transaction #(parameter DSIZE = 8);
  bit rd_clk, rd_rst, rd_inc;
 //Why do we need to declare the c=output data here
  logic [DSIZE-1: 0]rd_data;
+ logic [DSIZE-1: 0]rd_data_refModule;
  bit rd_empty,wr_full;
 
 function AFIFO_Transaction copy();// create deep copy
@@ -17,6 +18,7 @@ copy.wr_data = this.wr_data;
 copy.rd_data = this.rd_data;
 copy.rd_empty = this.rd_empty;
 copy.wr_full = this.wr_full;
+copy.rd_data_refModule = this.rd_data_refModule;
  return copy;
 endfunction
  

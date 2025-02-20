@@ -16,4 +16,3 @@ interface AFIFO_Interface #(parameter DSIZE = 8, parameter ASIZE = 4);
 				output rd_data, rd_empty, wr_full );
     
 endinterface
-
