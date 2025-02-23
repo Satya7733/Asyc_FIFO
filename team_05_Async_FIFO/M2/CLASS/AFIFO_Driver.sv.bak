@@ -186,15 +186,9 @@ testcase1();
 testcase2();// Reads and Writes
 testcase2();
 testcase2();
-`ifdef OnlyWrite
 testcase3(); //Only writes
-`endif
-`ifdef OnlyRead
 testcase4(); //Only Reads
-`endif
-`ifdef ReadWrite
 testcase5(); //Continuous Reads and Writes
-`endif
 ->coverage_done; //event to print to coverage
 //$finish;
 endtask

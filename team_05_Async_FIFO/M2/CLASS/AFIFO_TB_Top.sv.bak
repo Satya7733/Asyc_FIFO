@@ -128,7 +128,7 @@ end
 */
 // ====== Display coverage ====== 
 initial begin
-wait(en.dr.coverage_done);
+wait(coverage_done);
 $display(" \n========== FUNCTIONAL COVERAGE ==========");
 $display("\nCOVERAGE REPORT: %.2f%%", f_cg.get_coverage());
 $display("WRITE DATA: %.2f%%", f_cg.get_coverage());

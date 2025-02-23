@@ -58,13 +58,6 @@ fork
 	end // @(posedge vif_mon.rd_inc); 
 	end
 	end	
-	
-	begin
- 	forever begin
-	@(posedge vif_mon.rd_rst or posedge vif_mon.wr_rst);
-	wr_data_drv_q.delete(); // delete the contents of ref module when DUT is reset
-	end
-	end	
 
 	begin
 	forever begin
