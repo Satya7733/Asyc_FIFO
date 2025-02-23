@@ -4481,3 +4481,5 @@ run -all
 #    Time: 16765 ns  Iteration: 2  Instance: /AFIFO_TB_Top
 # 1
 # Break in Module AFIFO_TB_Top at /u/satyajit/ECE593-W25/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_TB_Top.sv line 139
+# End time: 17:54:16 on Feb 22,2025, Elapsed time: 0:37:17
+# Errors: 0, Warnings: 2
