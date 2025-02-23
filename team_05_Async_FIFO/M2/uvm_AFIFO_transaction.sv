@@ -6,15 +6,9 @@ class uvm_AFIFO_transaction #(parameter DSIZE = 8) extends uvm_sequence_item;
 	 logic [DSIZE-1: 0]rd_data_refModule;
 	 bit rd_empty,wr_full;
 
-	function AFIFO_Transaction copy();// create deep copy
-	copy = new();
-	copy.wr_data = this.wr_data;
-	copy.rd_data = this.rd_data;
-	copy.rd_empty = this.rd_empty;
-	copy.wr_full = this.wr_full;
-	copy.rd_data_refModule = this.rd_data_refModule;
-	 return copy;
-	endfunction
+	function new(string name = "");
+          super.new(name);
+     endfunction: new
 
 	`uvm_object_utils_begin(uvm_AFIFO_transaction)
 	    `uvm_field_int(wr_data, UVM_ALL_ON)

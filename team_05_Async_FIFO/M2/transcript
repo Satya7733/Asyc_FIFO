@@ -686,3 +686,643 @@ run -all
 # 1
 # Break in Module AFIFO_TB_Top at //thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_TB_Top.sv line 139
 # Compile of uvm_AFIFO_transaction.sv failed with 2 errors.
+vsim -voptargs=+acc work.AFIFO_TB_Top
+# End time: 23:51:28 on Feb 22,2025, Elapsed time: 1:13:48
+# Errors: 0, Warnings: 14
+# vsim -voptargs="+acc" work.AFIFO_TB_Top 
+# Start time: 23:51:28 on Feb 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.AFIFO_Interface(fast)
+# Loading work.AFIFO_Pkg(fast)
+# Loading work.AFIFO_TB_Top_sv_unit(fast)
+# Loading work.AFIFO_TB_Top(fast)
+# Loading work.AFIFO_Interface(fast__2)
+# Loading work.FIFO(fast)
+# Loading work.fifo_memory(fast)
+# Loading work.rd_empty(fast)
+# Loading work.wr_full(fast)
+# Loading work.ff_sync(fast)
+# ** Warning: (vsim-3764) Stand-alone call to function 'try_put' treated as implicit void cast.
+#    Time: 0 ps  Iteration: 0  Region: /AFIFO_Pkg File: //thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_Generator.sv Line: 29
+run -all
+# [DRIVER] : [Test Case] Reset  
+# [DRIVER] : DRIVING RESET (5 WR_CLK) READ AND WRITE TO DUT
+# [DRIVER] : [Test Case] START: Writes and Reads
+# [DRIVER] : DRIVING RESET (5 WR_CLK) READ AND WRITE TO DUT
+# [DRIVER][WRITE] : WRITE for          20 times
+# [GENERATOR] Generated Write Data : 152
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 152
+# [iMON]: WRITE DATA INPUT TO DUT 152 
+# [GENERATOR] Generated Write Data : 84
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  84
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 84 
+# [GENERATOR] Generated Write Data : 117
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][READ] : READ for          30 times 
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 117
+# [DRV][READ] : READ INCREMENT HIGH
+# [oMON]: READ DATA OUTPUT FROM DUT: 152 
+# [iMON]: WRITE DATA INPUT TO DUT 117 
+# [GENERATOR] Generated Write Data : 33
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =           1] MATCHED, READ DATA : 152
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  33
+# [oMON]: READ DATA OUTPUT FROM DUT:  84 
+# [iMON]: WRITE DATA INPUT TO DUT 33 
+# =================================================
+# [SCB]: [ID =           2] MATCHED, READ DATA :  84
+# =================================================
+# [GENERATOR] Generated Write Data : 126
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 126
+# [oMON]: READ DATA OUTPUT FROM DUT: 117 
+# [iMON]: WRITE DATA INPUT TO DUT 126 
+# [GENERATOR] Generated Write Data : 103
+# =================================================
+# [SCB]: [ID =           3] MATCHED, READ DATA : 117
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 103
+# [oMON]: READ DATA OUTPUT FROM DUT:  33 
+# [iMON]: WRITE DATA INPUT TO DUT 103 
+# [GENERATOR] Generated Write Data : 165
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =           4] MATCHED, READ DATA :  33
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 165
+# [oMON]: READ DATA OUTPUT FROM DUT: 126 
+# =================================================
+# [SCB]: [ID =           5] MATCHED, READ DATA : 126
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 165 
+# [GENERATOR] Generated Write Data : 191
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 191
+# [oMON]: READ DATA OUTPUT FROM DUT: 103 
+# =================================================
+# [SCB]: [ID =           6] MATCHED, READ DATA : 103
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 191 
+# [GENERATOR] Generated Write Data : 252
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 252
+# [oMON]: READ DATA OUTPUT FROM DUT: 165 
+# [iMON]: WRITE DATA INPUT TO DUT 252 
+# =================================================
+# [SCB]: [ID =           7] MATCHED, READ DATA : 165
+# =================================================
+# [GENERATOR] Generated Write Data : 61
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  61
+# [oMON]: READ DATA OUTPUT FROM DUT: 191 
+# [iMON]: WRITE DATA INPUT TO DUT 61 
+# [GENERATOR] Generated Write Data : 213
+# =================================================
+# [SCB]: [ID =           8] MATCHED, READ DATA : 191
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 213
+# [oMON]: READ DATA OUTPUT FROM DUT: 252 
+# [iMON]: WRITE DATA INPUT TO DUT 213 
+# [GENERATOR] Generated Write Data : 102
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =           9] MATCHED, READ DATA : 252
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 102
+# [oMON]: READ DATA OUTPUT FROM DUT:  61 
+# =================================================
+# [SCB]: [ID =          10] MATCHED, READ DATA :  61
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 102 
+# [GENERATOR] Generated Write Data : 111
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 111
+# [oMON]: READ DATA OUTPUT FROM DUT: 213 
+# =================================================
+# [SCB]: [ID =          11] MATCHED, READ DATA : 213
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 111 
+# [GENERATOR] Generated Write Data : 153
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 153
+# [oMON]: READ DATA OUTPUT FROM DUT: 102 
+# [iMON]: WRITE DATA INPUT TO DUT 153 
+# =================================================
+# [SCB]: [ID =          12] MATCHED, READ DATA : 102
+# =================================================
+# [GENERATOR] Generated Write Data : 31
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  31
+# [oMON]: READ DATA OUTPUT FROM DUT: 111 
+# [iMON]: WRITE DATA INPUT TO DUT 31 
+# [GENERATOR] Generated Write Data : 157
+# =================================================
+# [SCB]: [ID =          13] MATCHED, READ DATA : 111
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 157
+# [oMON]: READ DATA OUTPUT FROM DUT: 153 
+# [iMON]: WRITE DATA INPUT TO DUT 157 
+# [GENERATOR] Generated Write Data : 171
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          14] MATCHED, READ DATA : 153
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 171
+# [oMON]: READ DATA OUTPUT FROM DUT:  31 
+# =================================================
+# [SCB]: [ID =          15] MATCHED, READ DATA :  31
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 171 
+# [GENERATOR] Generated Write Data : 225
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 225
+# [oMON]: READ DATA OUTPUT FROM DUT: 157 
+# =================================================
+# [SCB]: [ID =          16] MATCHED, READ DATA : 157
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 225 
+# [GENERATOR] Generated Write Data : 200
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 200
+# [oMON]: READ DATA OUTPUT FROM DUT: 171 
+# [iMON]: WRITE DATA INPUT TO DUT 200 
+# =================================================
+# [SCB]: [ID =          17] MATCHED, READ DATA : 171
+# =================================================
+# [GENERATOR] Generated Write Data : 62
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  62
+# [DRIVER] : [Test Case] DONE: Writes and Reads
+# [DRIVER] : [Test Case] START: Writes and Reads
+# [DRIVER] : DRIVING RESET (5 WR_CLK) READ AND WRITE TO DUT
+# [iMON]: WRITE DATA INPUT TO DUT 62 
+# [GENERATOR] Generated Write Data : 253
+# [DRIVER][WRITE] : WRITE for          20 times
+# [GENERATOR] Generated Write Data : 215
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 253
+# [iMON]: WRITE DATA INPUT TO DUT 253 
+# [GENERATOR] Generated Write Data : 244
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 215
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 215 
+# [GENERATOR] Generated Write Data : 38
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][READ] : READ for          30 times 
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 244
+# [DRV][READ] : READ INCREMENT HIGH
+# [oMON]: READ DATA OUTPUT FROM DUT: 253 
+# [iMON]: WRITE DATA INPUT TO DUT 244 
+# [GENERATOR] Generated Write Data : 44
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          18] MATCHED, READ DATA : 253
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  38
+# [oMON]: READ DATA OUTPUT FROM DUT: 215 
+# [iMON]: WRITE DATA INPUT TO DUT 38 
+# =================================================
+# [SCB]: [ID =          19] MATCHED, READ DATA : 215
+# =================================================
+# [GENERATOR] Generated Write Data : 100
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  44
+# [oMON]: READ DATA OUTPUT FROM DUT: 244 
+# [iMON]: WRITE DATA INPUT TO DUT 44 
+# [GENERATOR] Generated Write Data : 96
+# =================================================
+# [SCB]: [ID =          20] MATCHED, READ DATA : 244
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 100
+# [oMON]: READ DATA OUTPUT FROM DUT:  38 
+# [iMON]: WRITE DATA INPUT TO DUT 100 
+# [GENERATOR] Generated Write Data : 113
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          21] MATCHED, READ DATA :  38
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  96
+# [oMON]: READ DATA OUTPUT FROM DUT:  44 
+# =================================================
+# [SCB]: [ID =          22] MATCHED, READ DATA :  44
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 96 
+# [GENERATOR] Generated Write Data : 24
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 113
+# [oMON]: READ DATA OUTPUT FROM DUT: 100 
+# =================================================
+# [SCB]: [ID =          23] MATCHED, READ DATA : 100
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 113 
+# [GENERATOR] Generated Write Data : 137
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  24
+# [oMON]: READ DATA OUTPUT FROM DUT:  96 
+# [iMON]: WRITE DATA INPUT TO DUT 24 
+# =================================================
+# [SCB]: [ID =          24] MATCHED, READ DATA :  96
+# =================================================
+# [GENERATOR] Generated Write Data : 55
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 137
+# [oMON]: READ DATA OUTPUT FROM DUT: 113 
+# [iMON]: WRITE DATA INPUT TO DUT 137 
+# [GENERATOR] Generated Write Data : 208
+# =================================================
+# [SCB]: [ID =          25] MATCHED, READ DATA : 113
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  55
+# [oMON]: READ DATA OUTPUT FROM DUT:  24 
+# [iMON]: WRITE DATA INPUT TO DUT 55 
+# [GENERATOR] Generated Write Data : 27
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          26] MATCHED, READ DATA :  24
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 208
+# [oMON]: READ DATA OUTPUT FROM DUT: 137 
+# =================================================
+# [SCB]: [ID =          27] MATCHED, READ DATA : 137
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 208 
+# [GENERATOR] Generated Write Data : 124
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  27
+# [oMON]: READ DATA OUTPUT FROM DUT:  55 
+# =================================================
+# [SCB]: [ID =          28] MATCHED, READ DATA :  55
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 27 
+# [GENERATOR] Generated Write Data : 203
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 124
+# [oMON]: READ DATA OUTPUT FROM DUT: 208 
+# [iMON]: WRITE DATA INPUT TO DUT 124 
+# =================================================
+# [SCB]: [ID =          29] MATCHED, READ DATA : 208
+# =================================================
+# [GENERATOR] Generated Write Data : 248
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 203
+# [oMON]: READ DATA OUTPUT FROM DUT:  27 
+# [iMON]: WRITE DATA INPUT TO DUT 203 
+# [GENERATOR] Generated Write Data : 1
+# =================================================
+# [SCB]: [ID =          30] MATCHED, READ DATA :  27
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 248
+# [oMON]: READ DATA OUTPUT FROM DUT: 124 
+# [iMON]: WRITE DATA INPUT TO DUT 248 
+# [GENERATOR] Generated Write Data : 214
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          31] MATCHED, READ DATA : 124
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =   1
+# [oMON]: READ DATA OUTPUT FROM DUT: 203 
+# =================================================
+# [SCB]: [ID =          32] MATCHED, READ DATA : 203
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 1 
+# [GENERATOR] Generated Write Data : 206
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 214
+# [oMON]: READ DATA OUTPUT FROM DUT: 248 
+# =================================================
+# [SCB]: [ID =          33] MATCHED, READ DATA : 248
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 214 
+# [GENERATOR] Generated Write Data : 3
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 206
+# [oMON]: READ DATA OUTPUT FROM DUT:   1 
+# [iMON]: WRITE DATA INPUT TO DUT 206 
+# =================================================
+# [SCB]: [ID =          34] MATCHED, READ DATA :   1
+# =================================================
+# [GENERATOR] Generated Write Data : 204
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =   3
+# [DRIVER] : [Test Case] DONE: Writes and Reads
+# [DRIVER] : [Test Case] START: Writes and Reads
+# [DRIVER] : DRIVING RESET (5 WR_CLK) READ AND WRITE TO DUT
+# [iMON]: WRITE DATA INPUT TO DUT 3 
+# [GENERATOR] Generated Write Data : 77
+# [DRIVER][WRITE] : WRITE for          20 times
+# [GENERATOR] Generated Write Data : 72
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 204
+# [iMON]: WRITE DATA INPUT TO DUT 204 
+# [GENERATOR] Generated Write Data : 121
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  77
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 77 
+# [GENERATOR] Generated Write Data : 167
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][READ] : READ for          30 times 
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  72
+# [DRV][READ] : READ INCREMENT HIGH
+# [oMON]: READ DATA OUTPUT FROM DUT: 204 
+# [iMON]: WRITE DATA INPUT TO DUT 72 
+# [GENERATOR] Generated Write Data : 255
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          35] MATCHED, READ DATA : 204
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 121
+# [oMON]: READ DATA OUTPUT FROM DUT:  77 
+# [iMON]: WRITE DATA INPUT TO DUT 121 
+# =================================================
+# [SCB]: [ID =          36] MATCHED, READ DATA :  77
+# =================================================
+# [GENERATOR] Generated Write Data : 116
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 167
+# [oMON]: READ DATA OUTPUT FROM DUT:  72 
+# [iMON]: WRITE DATA INPUT TO DUT 167 
+# [GENERATOR] Generated Write Data : 193
+# =================================================
+# [SCB]: [ID =          37] MATCHED, READ DATA :  72
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 255
+# [oMON]: READ DATA OUTPUT FROM DUT: 121 
+# [iMON]: WRITE DATA INPUT TO DUT 255 
+# [GENERATOR] Generated Write Data : 175
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          38] MATCHED, READ DATA : 121
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 116
+# [oMON]: READ DATA OUTPUT FROM DUT: 167 
+# =================================================
+# [SCB]: [ID =          39] MATCHED, READ DATA : 167
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 116 
+# [GENERATOR] Generated Write Data : 173
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 193
+# [oMON]: READ DATA OUTPUT FROM DUT: 255 
+# =================================================
+# [SCB]: [ID =          40] MATCHED, READ DATA : 255
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 193 
+# [GENERATOR] Generated Write Data : 59
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 175
+# [oMON]: READ DATA OUTPUT FROM DUT: 116 
+# [iMON]: WRITE DATA INPUT TO DUT 175 
+# =================================================
+# [SCB]: [ID =          41] MATCHED, READ DATA : 116
+# =================================================
+# [GENERATOR] Generated Write Data : 7
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 173
+# [oMON]: READ DATA OUTPUT FROM DUT: 193 
+# [iMON]: WRITE DATA INPUT TO DUT 173 
+# [GENERATOR] Generated Write Data : 19
+# =================================================
+# [SCB]: [ID =          42] MATCHED, READ DATA : 193
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  59
+# [oMON]: READ DATA OUTPUT FROM DUT: 175 
+# [iMON]: WRITE DATA INPUT TO DUT 59 
+# [GENERATOR] Generated Write Data : 150
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          43] MATCHED, READ DATA : 175
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =   7
+# [oMON]: READ DATA OUTPUT FROM DUT: 173 
+# =================================================
+# [SCB]: [ID =          44] MATCHED, READ DATA : 173
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 7 
+# [GENERATOR] Generated Write Data : 95
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  19
+# [oMON]: READ DATA OUTPUT FROM DUT:  59 
+# =================================================
+# [SCB]: [ID =          45] MATCHED, READ DATA :  59
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 19 
+# [GENERATOR] Generated Write Data : 235
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 150
+# [oMON]: READ DATA OUTPUT FROM DUT:   7 
+# [iMON]: WRITE DATA INPUT TO DUT 150 
+# =================================================
+# [SCB]: [ID =          46] MATCHED, READ DATA :   7
+# =================================================
+# [GENERATOR] Generated Write Data : 142
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  95
+# [oMON]: READ DATA OUTPUT FROM DUT:  19 
+# [iMON]: WRITE DATA INPUT TO DUT 95 
+# [GENERATOR] Generated Write Data : 80
+# =================================================
+# [SCB]: [ID =          47] MATCHED, READ DATA :  19
+# =================================================
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 235
+# [oMON]: READ DATA OUTPUT FROM DUT: 150 
+# [iMON]: WRITE DATA INPUT TO DUT 235 
+# [GENERATOR] Generated Write Data : 15
+# [DRV][READ] : READ INCREMENT HIGH
+# =================================================
+# [SCB]: [ID =          48] MATCHED, READ DATA : 150
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 142
+# [oMON]: READ DATA OUTPUT FROM DUT:  95 
+# =================================================
+# [SCB]: [ID =          49] MATCHED, READ DATA :  95
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 142 
+# [GENERATOR] Generated Write Data : 226
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  80
+# [oMON]: READ DATA OUTPUT FROM DUT: 235 
+# =================================================
+# [SCB]: [ID =          50] MATCHED, READ DATA : 235
+# =================================================
+# [iMON]: WRITE DATA INPUT TO DUT 80 
+# [GENERATOR] Generated Write Data : 192
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRV][READ] : READ INCREMENT HIGH
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA =  15
+# [oMON]: READ DATA OUTPUT FROM DUT: 142 
+# [iMON]: WRITE DATA INPUT TO DUT 15 
+# =================================================
+# [SCB]: [ID =          51] MATCHED, READ DATA : 142
+# =================================================
+# [GENERATOR] Generated Write Data : 81
+# =================================================
+# [SCB]: READ EMPTY 
+# =================================================
+# [DRIVER][WRITE] : WRITE INCREMENT HIGH, DATA = 226
+# [DRIVER] : [Test Case] DONE: Writes and Reads
+# [iMON]: WRITE DATA INPUT TO DUT 226 
+# [GENERATOR] Generated Write Data : 120
+#  
+# ========== FUNCTIONAL COVERAGE ==========
+# 
+# COVERAGE REPORT: 87.50%
+# WRITE DATA: 87.50%
+# WRITE OPERAION: 87.50%
+# READ DATA: 87.50%
+# READ OPERATION: 87.50%
+# ** Note: $finish    : //thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_TB_Top.sv(139)
+#    Time: 16765 ns  Iteration: 2  Instance: /AFIFO_TB_Top
+# 1
+# Break in Module AFIFO_TB_Top at //thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_TB_Top.sv line 139

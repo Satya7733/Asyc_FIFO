@@ -1,3 +1,4 @@
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 do run.do
 # QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 # Start time: 02:29:56 on Feb 20,2025
@@ -188,10 +189,56 @@ vlog -work work FIFO.sv \
 # -- Compiling module FIFO
 # -- Compiling module ff_sync
 # -- Compiling module rd_empty
+=======
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading project Coverage-check
+pwd
+# /u/aakashbh/ECE-593/Asyc_FIFO/Verification
+ls
+# AFIFO_Driver.sv
+# AFIFO_Driver.sv.bak
+# AFIFO_Environment.sv
+# AFIFO_Generator.sv
+# AFIFO_Interface.sv
+# AFIFO_Monitor.sv
+# AFIFO_Pkg.sv
+# AFIFO_Scoreboard.sv
+# AFIFO_TB_Top.sv
+# AFIFO_Transaction.sv
+# Coverage-check.mpf
+# etch30622
+# run.do
+# transcript
+# work
+do run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:17:49 on Feb 20,2025
+# vlog -reportprogress 300 -work work /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_2FF_Sync.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_rd_empty.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb_comp.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_wr_full.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/fifo_memory.sv 
+# -- Compiling module FIFO
+# -- Compiling module ff_sync
+# -- Compiling module rd_empty
+# -- Compiling module FIFO_tb
+# -- Compiling module async_fifo_TB
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # -- Compiling module wr_full
 # -- Compiling module fifo_memory
 # 
 # Top level modules:
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 # 	FIFO
 # End time: 02:45:19 on Feb 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
@@ -209,6 +256,15 @@ vlog -work work +cover AFIFO_Interface.sv \
 # QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 # Start time: 02:45:28 on Feb 20,2025
 # vlog -reportprogress 300 -work work "+cover" AFIFO_Interface.sv AFIFO_Transaction.sv AFIFO_Pkg.sv AFIFO_Generator.sv AFIFO_Driver.sv AFIFO_Monitor.sv AFIFO_Scoreboard.sv AFIFO_Environment.sv AFIFO_TB_Top.sv 
+=======
+# 	FIFO_tb
+# 	async_fifo_TB
+# End time: 01:17:49 on Feb 20,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:17:49 on Feb 20,2025
+# vlog -reportprogress 300 -work work "+cover" /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Interface.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Transaction.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Pkg.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Generator.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Driver.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Monitor.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Scoreboard.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Environment.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv 
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # -- Compiling interface AFIFO_Interface
 # -- Compiling package AFIFO_Transaction_sv_unit
 # -- Compiling package AFIFO_Pkg
@@ -223,6 +279,7 @@ vlog -work work +cover AFIFO_Interface.sv \
 # 
 # Top level modules:
 # 	AFIFO_TB_Top
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 # End time: 02:45:29 on Feb 20,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
@@ -233,12 +290,21 @@ vsim -coverage -voptargs="+cover=bcesft" +acc work.AFIFO_TB_Top
 # ** Note: (vsim-3812) Design is being optimized...
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 # Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+=======
+# End time: 01:17:50 on Feb 20,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Warning: (vsim-8689) Ignoring plusarg '+acc'.  Did you mean '-voptargs=+acc'?
+# vsim -coverage -voptargs=""+cover=bcesft"" "+acc" work.AFIFO_TB_Top 
+# Start time: 01:17:50 on Feb 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # Loading sv_std.std
 # Loading work.AFIFO_Interface(fast)
 # Loading work.AFIFO_Pkg(fast)
 # Loading work.AFIFO_TB_Top_sv_unit(fast)
 # Loading work.AFIFO_TB_Top(fast)
 # Loading work.FIFO(fast)
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 # ** Warning: (vsim-3764) Stand-alone call to function 'try_put' treated as implicit void cast.
 #    Time: 0 ps  Iteration: 0  Region: /AFIFO_Pkg File: AFIFO_Generator.sv Line: 29
 
@@ -352,16 +418,806 @@ do run.do
 # [oMON]: READ DATA OUTPUT FROM DUT:  33 
 #  
 # ========== FUNCTIONAL COVERAGE ==========
+=======
+# Coverage Report Summary Data by instance
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/vif
+# === Design Unit: work.AFIFO_Interface
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         48         0        48     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_mem
+# === Design Unit: work.fifo_memory
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         0         2     0.00%
+#     Conditions                       2         0         2     0.00%
+#     Statements                       3         0         3     0.00%
+#     Toggles                         16         0        16     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_empty
+# === Design Unit: work.rd_empty
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         0         4     0.00%
+#     Expressions                      1         0         1     0.00%
+#     Statements                      12         0        12     0.00%
+#     Toggles                         42         0        42     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_full
+# === Design Unit: work.wr_full
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         0         4     0.00%
+#     Expressions                      1         0         1     0.00%
+#     Statements                      10         0        10     0.00%
+#     Toggles                         42         0        42     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/r2w
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         0         2     0.00%
+#     Statements                       4         0         4     0.00%
+#     Toggles                         16         0        16     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/w2r
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         0         2     0.00%
+#     Statements                       4         0         4     0.00%
+#     Toggles                         16         0        16     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo
+# === Design Unit: work.FIFO
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         92         0        92     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top
+# === Design Unit: work.AFIFO_TB_Top
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Statements                      31         0        31     0.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_Pkg
+# === Design Unit: work.AFIFO_Pkg
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                        28         0        28     0.00%
+#     Conditions                       5         0         5     0.00%
+#     Statements                     158         0       158     0.00%
+# 
+# 
+# Total Coverage By Instance (filtered view): 0.00%
+# 
+# 
+# ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
+# [DRV] : [Test Case 1] Reset  
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] : [Test Case 2] START: Writes and Reads
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][WRITE] : WRITE for          20 times
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 152
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 152
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4275000[MON]:Entered Loop sending Tr class
+#              4275000[MON]: rd_inc = 0, wr_inc = 1
+#              4275000[SCO]:----------------------------------------
+#              4305000[MON]: DATA WRITTEN TO REF MODULE 152 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 84
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4325000 [SCO]: gOt the data rd_data =   x ==========================================================
+#              4325000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4325000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4325000[SCO]:----------------------------------------
+#              4325000[MON]:Entered Loop sending Tr class
+#              4325000[MON]: rd_inc = 0, wr_inc = 0
+#              4325000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  84
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4375000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4375000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4375000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4375000[SCO]:----------------------------------------
+#              4375000[MON]:Entered Loop sending Tr class
+#              4375000[MON]: rd_inc = 0, wr_inc = 0
+#              4375000[SCO]:----------------------------------------
+#              4425000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4425000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4425000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4425000[SCO]:----------------------------------------
+#              4425000[MON]:Entered Loop sending Tr class
+#              4425000[MON]: rd_inc = 0, wr_inc = 1
+#              4425000[SCO]:----------------------------------------
+#              4445000[MON]: DATA WRITTEN TO REF MODULE 84 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 117
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4475000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4475000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4475000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4475000[SCO]:----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][READ] : READ for          20 times 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 117
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV][READ] : Data Read to rd_data
+#              4575000[MON]:Entered Loop sending Tr class
+# popped data is: 152
+#              4575000[MON]: rd_inc = 1, wr_inc = 1
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[SCO]:----------------------------------------
+#              4585000[MON]: DATA WRITTEN TO REF MODULE 117 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 33
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+#              4625000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4625000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4625000[SCO]: SUCCESS, Data Matched : 152
+#              4625000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  33
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4675000[MON]:Entered Loop sending Tr class
+# popped data is:  84
+#              4675000[MON]: rd_inc = 1, wr_inc = 1
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[SCO]:----------------------------------------
+#              4725000[MON]: DATA WRITTEN TO REF MODULE 33 
+#              4725000 [SCO]: gOt the data rd_data =  84 ==========================================================
+#              4725000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4725000[SCO]: SUCCESS, Data Matched :  84
+#              4725000[SCO]:----------------------------------------
+#              4725000[MON]:Entered Loop sending Tr class
+#              4725000[MON]: rd_inc = 0, wr_inc = 1
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 126
+#              4725000[SCO]:----------------------------------------
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4775000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4775000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4775000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4775000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 126
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4825000[MON]:Entered Loop sending Tr class
+# popped data is: 117
+#              4825000[MON]: rd_inc = 1, wr_inc = 1
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[SCO]:----------------------------------------
+#              4865000[MON]: DATA WRITTEN TO REF MODULE 126 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 103
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4875000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4875000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4875000[SCO]: SUCCESS, Data Matched : 117
+#              4875000[SCO]:----------------------------------------
+#              4875000[MON]:Entered Loop sending Tr class
+#              4875000[MON]: rd_inc = 0, wr_inc = 0
+#              4875000[SCO]:----------------------------------------
+#              4925000 [SCO]: gOt the data rd_data =  33 ==========================================================
+#              4925000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4925000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4925000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 103
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4975000[MON]:Entered Loop sending Tr class
+# popped data is:  33
+#              4975000[MON]: rd_inc = 1, wr_inc = 1
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[SCO]:----------------------------------------
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # 
 # COVERAGE REPORT: 75.00%
 # WRITE DATA: 75.00%
 # WRITE OPERAION: 75.00%
 # READ DATA: 75.00%
 # READ OPERATION: 75.00%
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 # ** Note: $finish    : AFIFO_TB_Top.sv(137)
 #    Time: 5 us  Iteration: 1  Instance: /AFIFO_TB_Top
 # 1
 # Break in Module AFIFO_TB_Top at AFIFO_TB_Top.sv line 137
+=======
+# ** Note: $finish    : /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv(117)
+#    Time: 5 us  Iteration: 1  Instance: /AFIFO_TB_Top
+# 1
+# Break in Module AFIFO_TB_Top at /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv line 117
+# ** Warning: (vsim-19053) Option '-file' has been deprecated. Please use option '-output' instead.
+# ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
+quit -sim
+# End time: 01:26:51 on Feb 20,2025, Elapsed time: 0:09:01
+# Errors: 0, Warnings: 7
+do run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:27:00 on Feb 20,2025
+# vlog -reportprogress 300 -work work /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_2FF_Sync.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_rd_empty.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb_comp.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_wr_full.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/fifo_memory.sv 
+# -- Compiling module FIFO
+# -- Compiling module ff_sync
+# -- Compiling module rd_empty
+# -- Compiling module FIFO_tb
+# -- Compiling module async_fifo_TB
+# -- Compiling module wr_full
+# -- Compiling module fifo_memory
+# 
+# Top level modules:
+# 	FIFO_tb
+# 	async_fifo_TB
+# End time: 01:27:01 on Feb 20,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:27:01 on Feb 20,2025
+# vlog -reportprogress 300 -work work "+cover" /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Interface.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Transaction.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Pkg.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Generator.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Driver.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Monitor.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Scoreboard.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Environment.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv 
+# -- Compiling interface AFIFO_Interface
+# -- Compiling package AFIFO_Transaction_sv_unit
+# -- Compiling package AFIFO_Pkg
+# -- Compiling package AFIFO_Generator_sv_unit
+# -- Importing package AFIFO_Pkg
+# -- Compiling package AFIFO_Driver_sv_unit
+# -- Compiling package AFIFO_Monitor_sv_unit
+# -- Compiling package AFIFO_Scoreboard_sv_unit
+# -- Compiling package AFIFO_Environment_sv_unit
+# -- Compiling package AFIFO_TB_Top_sv_unit
+# -- Compiling module AFIFO_TB_Top
+# 
+# Top level modules:
+# 	AFIFO_TB_Top
+# End time: 01:27:01 on Feb 20,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Warning: (vsim-8689) Ignoring plusarg '+acc'.  Did you mean '-voptargs=+acc'?
+# vsim -coverage -voptargs=""+cover=bcesft"" "+acc" work.AFIFO_TB_Top 
+# Start time: 01:27:01 on Feb 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.AFIFO_Interface(fast)
+# Loading work.AFIFO_Pkg(fast)
+# Loading work.AFIFO_TB_Top_sv_unit(fast)
+# Loading work.AFIFO_TB_Top(fast)
+# Loading work.FIFO(fast)
+# [DRV] : [Test Case 1] Reset  
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] : [Test Case 2] START: Writes and Reads
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][WRITE] : WRITE for          20 times
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 152
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 152
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4275000[MON]:Entered Loop sending Tr class
+#              4275000[MON]: rd_inc = 0, wr_inc = 1
+#              4275000[SCO]:----------------------------------------
+#              4305000[MON]: DATA WRITTEN TO REF MODULE 152 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 84
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4325000 [SCO]: gOt the data rd_data =   x ==========================================================
+#              4325000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4325000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4325000[SCO]:----------------------------------------
+#              4325000[MON]:Entered Loop sending Tr class
+#              4325000[MON]: rd_inc = 0, wr_inc = 0
+#              4325000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  84
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4375000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4375000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4375000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4375000[SCO]:----------------------------------------
+#              4375000[MON]:Entered Loop sending Tr class
+#              4375000[MON]: rd_inc = 0, wr_inc = 0
+#              4375000[SCO]:----------------------------------------
+#              4425000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4425000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4425000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4425000[SCO]:----------------------------------------
+#              4425000[MON]:Entered Loop sending Tr class
+#              4425000[MON]: rd_inc = 0, wr_inc = 1
+#              4425000[SCO]:----------------------------------------
+#              4445000[MON]: DATA WRITTEN TO REF MODULE 84 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 117
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4475000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4475000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4475000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4475000[SCO]:----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][READ] : READ for          20 times 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 117
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV][READ] : Data Read to rd_data
+#              4575000[MON]:Entered Loop sending Tr class
+# popped data is: 152
+#              4575000[MON]: rd_inc = 1, wr_inc = 1
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[SCO]:----------------------------------------
+#              4585000[MON]: DATA WRITTEN TO REF MODULE 117 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 33
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+#              4625000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4625000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4625000[SCO]: SUCCESS, Data Matched : 152
+#              4625000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  33
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4675000[MON]:Entered Loop sending Tr class
+# popped data is:  84
+#              4675000[MON]: rd_inc = 1, wr_inc = 1
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[SCO]:----------------------------------------
+#              4725000[MON]: DATA WRITTEN TO REF MODULE 33 
+#              4725000 [SCO]: gOt the data rd_data =  84 ==========================================================
+#              4725000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4725000[SCO]: SUCCESS, Data Matched :  84
+#              4725000[SCO]:----------------------------------------
+#              4725000[MON]:Entered Loop sending Tr class
+#              4725000[MON]: rd_inc = 0, wr_inc = 1
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 126
+#              4725000[SCO]:----------------------------------------
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4775000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4775000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4775000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4775000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 126
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4825000[MON]:Entered Loop sending Tr class
+# popped data is: 117
+#              4825000[MON]: rd_inc = 1, wr_inc = 1
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[SCO]:----------------------------------------
+#              4865000[MON]: DATA WRITTEN TO REF MODULE 126 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 103
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4875000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4875000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4875000[SCO]: SUCCESS, Data Matched : 117
+#              4875000[SCO]:----------------------------------------
+#              4875000[MON]:Entered Loop sending Tr class
+#              4875000[MON]: rd_inc = 0, wr_inc = 0
+#              4875000[SCO]:----------------------------------------
+#              4925000 [SCO]: gOt the data rd_data =  33 ==========================================================
+#              4925000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4925000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4925000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 103
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4975000[MON]:Entered Loop sending Tr class
+# popped data is:  33
+#              4975000[MON]: rd_inc = 1, wr_inc = 1
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[SCO]:----------------------------------------
+# 
+# COVERAGE REPORT: 75.00%
+# WRITE DATA: 75.00%
+# WRITE OPERAION: 75.00%
+# READ DATA: 75.00%
+# READ OPERATION: 75.00%
+# ** Note: $finish    : /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv(117)
+#    Time: 5 us  Iteration: 1  Instance: /AFIFO_TB_Top
+# 1
+# Break in Module AFIFO_TB_Top at /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv line 117
+# Coverage Report Summary Data by instance
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/vif
+# === Design Unit: work.AFIFO_Interface
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         48        40         8    83.33%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_mem
+# === Design Unit: work.fifo_memory
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Conditions                       2         1         1    50.00%
+#     Statements                       3         3         0   100.00%
+#     Toggles                         16        13         3    81.25%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_empty
+# === Design Unit: work.rd_empty
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         4         0   100.00%
+#     Expressions                      1         1         0   100.00%
+#     Statements                      12        12         0   100.00%
+#     Toggles                         42        28        14    66.66%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_full
+# === Design Unit: work.wr_full
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         4         0   100.00%
+#     Expressions                      1         0         1     0.00%
+#     Statements                      10        10         0   100.00%
+#     Toggles                         42        24        18    57.14%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/r2w
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Statements                       4         4         0   100.00%
+#     Toggles                         16         6        10    37.50%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/w2r
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Statements                       4         4         0   100.00%
+#     Toggles                         16         8         8    50.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo
+# === Design Unit: work.FIFO
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         92        65        27    70.65%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top
+# === Design Unit: work.AFIFO_TB_Top
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Statements                      31        31         0   100.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_Pkg
+# === Design Unit: work.AFIFO_Pkg
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                        28        23         5    82.14%
+#     Conditions                       5         2         3    40.00%
+#     Statements                     158       133        25    84.17%
+# 
+# 
+# Total Coverage By Instance (filtered view): 67.46%
+# 
+# 
+# ** Warning: (vsim-19053) Option '-file' has been deprecated. Please use option '-output' instead.
+# ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
+quit -sim
+# End time: 01:30:19 on Feb 20,2025, Elapsed time: 0:03:18
+# Errors: 0, Warnings: 4
+do run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:31:21 on Feb 20,2025
+# vlog -reportprogress 300 -work work /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_2FF_Sync.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_rd_empty.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_tb_comp.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/FIFO_wr_full.sv /u/aakashbh/ECE-593/Asyc_FIFO/dut/fifo_memory.sv 
+# -- Compiling module FIFO
+# -- Compiling module ff_sync
+# -- Compiling module rd_empty
+# -- Compiling module FIFO_tb
+# -- Compiling module async_fifo_TB
+# -- Compiling module wr_full
+# -- Compiling module fifo_memory
+# 
+# Top level modules:
+# 	FIFO_tb
+# 	async_fifo_TB
+# End time: 01:31:22 on Feb 20,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:31:22 on Feb 20,2025
+# vlog -reportprogress 300 -work work "+cover" /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Interface.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Transaction.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Pkg.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Generator.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Driver.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Monitor.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Scoreboard.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_Environment.sv /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv 
+# -- Compiling interface AFIFO_Interface
+# -- Compiling package AFIFO_Transaction_sv_unit
+# -- Compiling package AFIFO_Pkg
+# -- Compiling package AFIFO_Generator_sv_unit
+# -- Importing package AFIFO_Pkg
+# -- Compiling package AFIFO_Driver_sv_unit
+# -- Compiling package AFIFO_Monitor_sv_unit
+# -- Compiling package AFIFO_Scoreboard_sv_unit
+# -- Compiling package AFIFO_Environment_sv_unit
+# -- Compiling package AFIFO_TB_Top_sv_unit
+# -- Compiling module AFIFO_TB_Top
+# 
+# Top level modules:
+# 	AFIFO_TB_Top
+# End time: 01:31:22 on Feb 20,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Warning: (vsim-8689) Ignoring plusarg '+acc'.  Did you mean '-voptargs=+acc'?
+# vsim -coverage -voptargs=""+cover=bcesft"" "+acc" work.AFIFO_TB_Top 
+# Start time: 01:31:22 on Feb 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.AFIFO_Interface(fast)
+# Loading work.AFIFO_Pkg(fast)
+# Loading work.AFIFO_TB_Top_sv_unit(fast)
+# Loading work.AFIFO_TB_Top(fast)
+# Loading work.FIFO(fast)
+# [DRV] : [Test Case 1] Reset  
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] : [Test Case 2] START: Writes and Reads
+# [DRV] ----------------------------------------
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESET READ AND WRITE 
+# [DRV] : RESETING FOR 5 WRITE CLK CYCLES
+# [DRV] : RESET DONE
+# [DRV] ----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][WRITE] : WRITE for          20 times
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 152
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 152
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4275000[MON]:Entered Loop sending Tr class
+#              4275000[MON]: rd_inc = 0, wr_inc = 1
+#              4275000[SCO]:----------------------------------------
+#              4305000[MON]: DATA WRITTEN TO REF MODULE 152 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 84
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4325000 [SCO]: gOt the data rd_data =   x ==========================================================
+#              4325000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4325000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4325000[SCO]:----------------------------------------
+#              4325000[MON]:Entered Loop sending Tr class
+#              4325000[MON]: rd_inc = 0, wr_inc = 0
+#              4325000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  84
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4375000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4375000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4375000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4375000[SCO]:----------------------------------------
+#              4375000[MON]:Entered Loop sending Tr class
+#              4375000[MON]: rd_inc = 0, wr_inc = 0
+#              4375000[SCO]:----------------------------------------
+#              4425000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4425000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4425000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4425000[SCO]:----------------------------------------
+#              4425000[MON]:Entered Loop sending Tr class
+#              4425000[MON]: rd_inc = 0, wr_inc = 1
+#              4425000[SCO]:----------------------------------------
+#              4445000[MON]: DATA WRITTEN TO REF MODULE 84 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 117
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4475000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4475000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4475000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4475000[SCO]:----------------------------------------
+# [DRV] ----------------------------------------
+# [DRV][READ] : READ for          20 times 
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 117
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+# [DRV][READ] : Data Read to rd_data
+#              4575000[MON]:Entered Loop sending Tr class
+# popped data is: 152
+#              4575000[MON]: rd_inc = 1, wr_inc = 1
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[MON]: MBX DATA SENT TO SCO 152, and ref MOD : 152 
+#              4575000[SCO]:----------------------------------------
+#              4585000[MON]: DATA WRITTEN TO REF MODULE 117 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 33
+# [GEN] completed
+# [GEN] ----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+#              4625000 [SCO]: gOt the data rd_data = 152 ==========================================================
+#              4625000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4625000[SCO]: SUCCESS, Data Matched : 152
+#              4625000[SCO]:----------------------------------------
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data =  33
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4675000[MON]:Entered Loop sending Tr class
+# popped data is:  84
+#              4675000[MON]: rd_inc = 1, wr_inc = 1
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[MON]: MBX DATA SENT TO SCO 84, and ref MOD :  84 
+#              4675000[SCO]:----------------------------------------
+#              4725000[MON]: DATA WRITTEN TO REF MODULE 33 
+#              4725000 [SCO]: gOt the data rd_data =  84 ==========================================================
+#              4725000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4725000[SCO]: SUCCESS, Data Matched :  84
+#              4725000[SCO]:----------------------------------------
+#              4725000[MON]:Entered Loop sending Tr class
+#              4725000[MON]: rd_inc = 0, wr_inc = 1
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 126
+#              4725000[SCO]:----------------------------------------
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4775000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4775000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4775000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4775000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 126
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4825000[MON]:Entered Loop sending Tr class
+# popped data is: 117
+#              4825000[MON]: rd_inc = 1, wr_inc = 1
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[MON]: MBX DATA SENT TO SCO 117, and ref MOD : 117 
+#              4825000[SCO]:----------------------------------------
+#              4865000[MON]: DATA WRITTEN TO REF MODULE 126 
+# [GEN] ----------------------------------------
+# [GEN] [PUT SUCCESS] placed in mailbox
+# [GEN] Generated Write Data : 103
+# [GEN] completed
+# [GEN] ----------------------------------------
+#              4875000 [SCO]: gOt the data rd_data = 117 ==========================================================
+#              4875000tr_mon2scb.rd_inc : 1, tr_mon2scb.rd_empty : 0, tr_mon2scb.rd_clk is : 0 
+#              4875000[SCO]: SUCCESS, Data Matched : 117
+#              4875000[SCO]:----------------------------------------
+#              4875000[MON]:Entered Loop sending Tr class
+#              4875000[MON]: rd_inc = 0, wr_inc = 0
+#              4875000[SCO]:----------------------------------------
+#              4925000 [SCO]: gOt the data rd_data =  33 ==========================================================
+#              4925000tr_mon2scb.rd_inc : 0, tr_mon2scb.rd_empty : 1, tr_mon2scb.rd_clk is : 0 
+#              4925000[SCO] : READ EMPTY, Nothing to read in FIFO Mem 
+#              4925000[SCO]:----------------------------------------
+# [DRV][READ] : Data Read to rd_data
+# [DRV][WRITE] : Mailbox.get done, gen2drv
+# [DRV][WRITE] : Data Written to wr_data = 103
+# [DRV][WRITE] : Mailbox.put done, drv2sco
+#              4975000[MON]:Entered Loop sending Tr class
+# popped data is:  33
+#              4975000[MON]: rd_inc = 1, wr_inc = 1
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[MON]: MBX DATA SENT TO SCO 33, and ref MOD :  33 
+#              4975000[SCO]:----------------------------------------
+#  ========== FUNCTIONAL COVERAGE ==========
+# 
+# COVERAGE REPORT: 75.00%
+# WRITE DATA: 75.00%
+# WRITE OPERAION: 75.00%
+# READ DATA: 75.00%
+# READ OPERATION: 75.00%
+# ** Note: $finish    : /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv(118)
+#    Time: 5 us  Iteration: 1  Instance: /AFIFO_TB_Top
+# 1
+# Break in Module AFIFO_TB_Top at /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv line 118
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # Coverage Report Summary Data by instance
 # 
 # =================================================================================
@@ -447,16 +1303,26 @@ do run.do
 # =================================================================================
 #     Enabled Coverage              Bins      Hits    Misses  Coverage
 #     ----------------              ----      ----    ------  --------
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 #     Branches                        22        17         5    77.27%
 #     Conditions                       5         2         3    40.00%
 #     Statements                     144       117        27    81.25%
 # 
 # 
 # Total Coverage By Instance (filtered view): 66.73%
+=======
+#     Branches                        28        23         5    82.14%
+#     Conditions                       5         2         3    40.00%
+#     Statements                     158       133        25    84.17%
+# 
+# 
+# Total Coverage By Instance (filtered view): 67.47%
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
 # 
 # 
 # ** Warning: (vsim-19053) Option '-file' has been deprecated. Please use option '-output' instead.
 # ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
+<<<<<<< HEAD:team_05_Async_FIFO/M2/CLASS/transcript
 add wave -position insertpoint sim:/AFIFO_TB_Top/fifo/*
 restart -f
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
@@ -3874,3 +4740,7 @@ do run.do
 # ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
 # End time: 03:05:22 on Feb 20,2025, Elapsed time: 0:05:14
 # Errors: 0, Warnings: 5
+=======
+# End time: 01:43:34 on Feb 20,2025, Elapsed time: 0:12:12
+# Errors: 0, Warnings: 4
+>>>>>>> f408578aab148255eb9ad2c3772a3042e0a9bec0:Verification/transcript
