@@ -46,7 +46,6 @@ gr.gen_done = next_gen;
 dr.gen_done = next_gen;
 mo.mon_done = next_ms;
 sco.mon_done = next_ms;
-
 endfunction
  
 task run();
