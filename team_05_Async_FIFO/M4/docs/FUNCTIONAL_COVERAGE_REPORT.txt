@@ -1,0 +1,108 @@
+#  ========== FUNCTIONAL COVERAGE ==========
+# 
+# COVERAGE REPORT: 75.00%
+# WRITE DATA: 75.00%
+# WRITE OPERAION: 75.00%
+# READ DATA: 75.00%
+# READ OPERATION: 75.00%
+# ** Note: $finish    : /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv(118)
+#    Time: 5 us  Iteration: 1  Instance: /AFIFO_TB_Top
+# 1
+# Break in Module AFIFO_TB_Top at /u/aakashbh/ECE-593/Asyc_FIFO/Verification/AFIFO_TB_Top.sv line 118
+# Coverage Report Summary Data by instance
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/vif
+# === Design Unit: work.AFIFO_Interface
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         48        40         8    83.33%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_mem
+# === Design Unit: work.fifo_memory
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Conditions                       2         1         1    50.00%
+#     Statements                       3         3         0   100.00%
+#     Toggles                         16        13         3    81.25%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_empty
+# === Design Unit: work.rd_empty
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         4         0   100.00%
+#     Expressions                      1         1         0   100.00%
+#     Statements                      12        12         0   100.00%
+#     Toggles                         42        28        14    66.66%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/fifo_full
+# === Design Unit: work.wr_full
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         4         4         0   100.00%
+#     Expressions                      1         0         1     0.00%
+#     Statements                      10        10         0   100.00%
+#     Toggles                         42        24        18    57.14%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/r2w
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Statements                       4         4         0   100.00%
+#     Toggles                         16         6        10    37.50%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo/w2r
+# === Design Unit: work.ff_sync
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                         2         2         0   100.00%
+#     Statements                       4         4         0   100.00%
+#     Toggles                         16         8         8    50.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top/fifo
+# === Design Unit: work.FIFO
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                         92        65        27    70.65%
+# 
+# =================================================================================
+# === Instance: /AFIFO_TB_Top
+# === Design Unit: work.AFIFO_TB_Top
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Statements                      32        32         0   100.00%
+# 
+# =================================================================================
+# === Instance: /AFIFO_Pkg
+# === Design Unit: work.AFIFO_Pkg
+# =================================================================================
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                        28        23         5    82.14%
+#     Conditions                       5         2         3    40.00%
+#     Statements                     158       133        25    84.17%
+# 
+# 
+# Total Coverage By Instance (filtered view): 67.47%
+# 
+# 
+# ** Warning: (vsim-19053) Option '-file' has been deprecated. Please use option '-output' instead.
+# ** Warning: (vsim-19042) No matching item found for 'COVERAGE_REPORT_web'.
+# End time: 01:43:34 on Feb 20,2025, Elapsed time: 0:12:12
+# Errors: 0, Warnings: 4
