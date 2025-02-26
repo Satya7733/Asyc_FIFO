@@ -1,13 +1,17 @@
-class uvm_AFIFO_scoreboard extends uvm_scoreboard;
-	`uvm_component_utils(uvm_AFIFO_scoreboard)
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+`include "uvm_AFIFO_sequence_item.sv"
 
-	`uvm_analysis_export #(uvm_AFIFO_transaction) sb_export_mon;	//these will receive transactions from the monitor and driver.
-	`uvm_analysis_export #(bit[DSIZE-1:0]) sb_export_drv;
+class uvm_AFIFO_scoreboard#(DSIZE=8, ASIZE=3) extends uvm_scoreboard;
+	`uvm_component_utils(uvm_AFIFO_scoreboard#(8,3))
 
-	`uvm_tlm_analysis_fifo #(uvm_AFIFO_transaction) mon_fifo;	//to store and compare transactions
-	`uvm_tlm_analysis_fifo #(bit[DSIZE-1:0]) drv_fifo;
+	uvm_analysis_export #(uvm_AFIFO_sequence_item) sb_export_mon;	//these will receive transactions from the monitor and driver.
+	uvm_analysis_export #(bit[DSIZE-1:0]) sb_export_drv;
 
-	uvm_AFIFO_transaction tr_mon;
+	uvm_tlm_analysis_fifo #(uvm_AFIFO_sequence_item) mon_fifo;	//to store and compare transactions
+	uvm_tlm_analysis_fifo #(bit[DSIZE-1:0]) drv_fifo;
+
+	uvm_AFIFO_sequence_item tr_mon;
 
 	function new(string name, uvm_component parent);
 		super.new(name, parent);
@@ -39,7 +43,7 @@ class uvm_AFIFO_scoreboard extends uvm_scoreboard;
 		end
 	endtask : run
 
-	function void compare(uvm_AFIFO_transaction tr_mon, bit [DSIZE-1:0] rd_exp)
+	function void compare(uvm_AFIFO_sequence_item tr_mon, bit [DSIZE-1:0] rd_exp);
 	if (tr_mon.rd_data == rd_exp) begin
             `uvm_info("SCOREBOARD", $sformatf("[ID = %d] MATCHED, READ DATA: %0d", tr_mon.id, tr_mon.rd_data), UVM_LOW);
         end else begin

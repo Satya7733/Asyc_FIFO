@@ -1,16 +1,17 @@
-import AFIFO_Pkg::*;
+import uvm_pkg::*;
 `include "uvm_macros.svh"
+`include "uvm_AFIFO_sequence_item.sv"
 
-class afifo_driver extends uvm_driver #(afifo_seq_item);
+class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_AFIFO_sequence_item);
 
 // ========== FACTORY REGISTRATION ==========
-`uvm_component_utils(AFIFO_Driver) 
+`uvm_component_utils(uvm_AFIFO_driver#(8,3)) 
 // ========== Handle ==========
  virtual AFIFO_Interface vif;
- int DSIZE;
- int ASIZE;
+//int DSIZE  = DSIZE;
+//int ASIZE = ASIZE;
 // Sequence Item Port: For receiving sequence items from the sequencer
- uvm_seq_item_pull_port #(afifo_seq_item) seq_item_port;
+ uvm_seq_item_pull_port #(uvm_AFIFO_sequence_item) seq_item_port;
 
 // Analysis Port: For sending data to the scoreboard
  uvm_analysis_port #(bit [DSIZE-1:0]) analysis_port;
@@ -21,7 +22,7 @@ event gen_done;
 
 // ========== MEMORY CONSTRUCTOR ==========
 
-function new(string name = "afifo_driver", uvm_component parent);
+function new(string name = "uvm_AFIFO_driver", uvm_component parent);
     super.new(name,parent);
     seq_item_port = new("seq_item_port", this); // Create the sequence item port
     analysis_port = new("analysis_port", this); // Create the analysis port
@@ -88,7 +89,7 @@ task write(input int drv_repeat_count);
  repeat(drv_repeat_count) begin
  	@(posedge vif.wr_clk);
 	if(!vif.wr_full)begin
-	afifo_seq_item seq_item; // Handle for afifo_seq_item
+	uvm_AFIFO_sequence_item seq_item; // Handle for afifo_seq_item
 	seq_item_port.get(seq_item); // Receieve item from sequencer
 
 
@@ -193,4 +194,4 @@ $display("[DRV] : Drv_nxt");
 endtask: testcase5
 
 
-endclass: afifo_driver
+endclass: uvm_AFIFO_driver

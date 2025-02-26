@@ -1,17 +1,17 @@
-import AFIFO_Pkg::*;
+import uvm_pkg::*;
 `include "uvm_macros.svh"
-
-class afifo_monitor extends uvm_monitor;
+`include "uvm_AFIFO_sequence_item.sv"
+class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
 // ========== FACTORY REGISTRATION ==========
-`uvm_component_utils(AFIFO_Monitor) 
+`uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
 
 // ========== Handle ==========
  virtual AFIFO_Interface vif_mon;
- int DSIZE;
- int ASIZE;
-
+// int DSIZE;
+// int ASIZE;
+//
 // Analysis Port: For sending data to the scoreboard
- uvm_analysis_export #(AFIFO_Transaction) analysis_export;
+ uvm_analysis_export #(uvm_AFIFO_sequence_item) analysis_export;
 
 
 // ========== MEMORY CONSTRUCTOR ==========
@@ -50,10 +50,10 @@ endfunction
 // ========== RUN PHASE ==========
 
 task run();
-  afifo_seq_item seq_item;
+  uvm_AFIFO_sequence_item seq_item;
 
   //Ref Module
-  reg [DSIZE -1 :0] wr_data_drv_q[$]; //Queue Driver to Scoreboard
+//  reg [DSIZE -1 :0] wr_data_drv_q[$]; //Queue Driver to Scoreboard
   bit[DSIZE-1 :0] ref_wr_data_drv;
   
         // Forever loop for monitoring the signals
@@ -77,7 +77,7 @@ task run();
                         $display($time, "[MON]: Entered loop sending sequence item");
 
                         // Create a new sequence item
-                        seq_item = afifo_seq_item::new();
+                        seq_item = uvm_AFIFO_sequence_item::new();
 
                         // Set the sequence item fields based on DUT signals
                         seq_item.rd_data = vif_mon.rd_data;
@@ -102,7 +102,7 @@ task run();
                             analysis_export.write(seq_item); // Send sequence item via analysis export
                         end
 
-                        -> mon_done; // Trigger event for completion
+//                        -> mon_done; // Trigger event for completion
                     end else begin
                         // Wait for read or write increment to occur
                         wait(vif_mon.rd_inc || vif_mon.wr_inc);
@@ -112,5 +112,5 @@ task run();
         join_none // Wait for both processes to run indefinitely
     endtask
 
-endclass: afifo_monitor
+endclass: uvm_AFIFO_monitor
 
