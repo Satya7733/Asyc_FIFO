@@ -11,15 +11,20 @@ class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
 // int ASIZE;
 //
 // Analysis Port: For sending data to the scoreboard
- uvm_analysis_export #(uvm_AFIFO_sequence_item) sb_export_mon;
+ uvm_analysis_port #(uvm_AFIFO_sequence_item) sb_export_mon;
 
 
 // ========== MEMORY CONSTRUCTOR ==========
 
-function new(string name = "afifo_monitor", uvm_component parent);
-    super.new(name,parent);
-    analysis_export = new("analysis_export", this); // Create the analysis port
-endfunction: new
+//function new(string name = "afifo_monitor", uvm_component parent);
+//    super.new(name,parent);
+//    analysis_export = new("analysis_export", this); // Create the analysis port
+//endfunction: new
+//
+
+	function new(string name, uvm_component parent);
+          super.new(name, parent);
+	endfunction: new
 
 // ========== Build Phase: Configure parameters using config_db and get virtual interface ========== 
 
@@ -35,8 +40,9 @@ virtual function void build_phase(uvm_phase phase);
         if (!uvm_config_db#(virtual AFIFO_Interface)::get(this, "", "vif", vif_mon)) begin
             `uvm_fatal("AFIFO_MONITOR", "Virtual interface not set!")
         end
-
-endfunction
+	
+	sb_export_mon = new(.name("sb_export_mon"), .parent(this));
+endfunction : build_phase
 
 
 // ========== CONNECT PHASE ==========

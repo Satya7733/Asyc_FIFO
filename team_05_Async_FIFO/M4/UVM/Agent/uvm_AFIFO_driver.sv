@@ -22,15 +22,19 @@ event gen_done;
 
 // ========== MEMORY CONSTRUCTOR ==========
 
-function new(string name = "uvm_AFIFO_driver", uvm_component parent);
-    super.new(name,parent);
-    seq_item_port = new("seq_item_port", this); // Create the sequence item port
-    analysis_port = new("analysis_port", this); // Create the analysis port
-endfunction: new
+//function new(string name = "uvm_AFIFO_driver", uvm_component parent);
+//    super.new(name,parent);
+//    seq_item_port = new("seq_item_port", this); // Create the sequence item port
+//    analysis_port = new("analysis_port", this); // Create the analysis port
+//endfunction: new
+
+	function new(string name, uvm_component parent);
+          super.new(name, parent);
+	endfunction: new
 
 // ========== Build Phase: Configure parameters using config_db and get virtual interface ==========  
 
-virtual function void build_phase(uvm_phase phase);
+     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
 	//----- Get DSIZE AND ASIZE from config_db -----
@@ -46,7 +50,7 @@ virtual function void build_phase(uvm_phase phase);
         if (!uvm_config_db#(virtual afifo_if)::get(this, "", "vif", vif)) begin
           `uvm_fatal("AFIFO_DRIVER", "Virtual interface not set!")
         end
-    endfunction
+    endfunction : build_phase
 // ========== CONNECT PHASE ==========
 
 virtual function void connect_phase(uvm_phase phase);

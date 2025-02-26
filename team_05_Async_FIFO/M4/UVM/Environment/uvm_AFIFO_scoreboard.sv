@@ -43,7 +43,7 @@ class uvm_AFIFO_scoreboard#(DSIZE=8, ASIZE=3) extends uvm_scoreboard;
 		end
 	endtask : run
 
-	function void compare(uvm_AFIFO_sequence_item tr_mon, bit [DSIZE-1:0] rd_exp)
+	function void compare(uvm_AFIFO_sequence_item tr_mon, bit [DSIZE-1:0] rd_exp);
 	if (tr_mon.rd_data == rd_exp) begin
             `uvm_info("SCOREBOARD", $sformatf("[ID = %d] MATCHED, READ DATA: %0d", tr_mon.id, tr_mon.rd_data), UVM_LOW);
         end else begin
