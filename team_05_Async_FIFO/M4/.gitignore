@@ -4,7 +4,8 @@
 *.qdb
 *.qpg
 *.qtl
+*.mti
+*.mpf
 /transcript
 /work/
-/M2/
-/M4/work
+/UVM/work/

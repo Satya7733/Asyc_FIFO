@@ -1,4 +1,7 @@
-class uvm_AFIFO_transaction #(parameter DSIZE = 8) extends uvm_sequence_item;
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+
+class uvm_AFIFO_sequence_item #(parameter DSIZE = 8) extends uvm_sequence_item;
 	 randc logic [DSIZE-1:0] wr_data;
 	 bit wr_clk, wr_rst, wr_inc;
 	 bit rd_clk, rd_rst, rd_inc;
@@ -10,7 +13,7 @@ class uvm_AFIFO_transaction #(parameter DSIZE = 8) extends uvm_sequence_item;
           super.new(name);
      endfunction: new
 
-	`uvm_object_utils_begin(uvm_AFIFO_transaction)
+	`uvm_object_utils_begin(uvm_AFIFO_sequence_item)
 	    `uvm_field_int(wr_data, UVM_ALL_ON)
 	    `uvm_field_int(rd_data, UVM_ALL_ON)
 	    `uvm_field_int(rd_data_refModule, UVM_ALL_ON)
@@ -23,4 +26,4 @@ class uvm_AFIFO_transaction #(parameter DSIZE = 8) extends uvm_sequence_item;
 	    `uvm_field_int(rd_rst, UVM_ALL_ON)
 	    `uvm_field_int(rd_inc, UVM_ALL_ON)
 	`uvm_object_utils_end
-endclass : uvm_AFIFO_transaction
+endclass : uvm_AFIFO_sequence_item

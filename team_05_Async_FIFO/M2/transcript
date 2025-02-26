@@ -1326,3 +1326,4 @@ run -all
 #    Time: 16765 ns  Iteration: 2  Instance: /AFIFO_TB_Top
 # 1
 # Break in Module AFIFO_TB_Top at //thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2/CLASS/AFIFO_TB_Top.sv line 139
+run -step
