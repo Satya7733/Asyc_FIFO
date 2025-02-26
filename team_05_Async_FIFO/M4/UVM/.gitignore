@@ -4,6 +4,7 @@
 *.qdb
 *.qpg
 *.qtl
+*.mti
 /transcript/
 /work/
 /M2/
