@@ -1,4 +1,8 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class afifo_seq_item extends uvm_sequence_item;
+parameter DSIZE = 8;
  randc logic [DSIZE-1:0] wr_data;
  bit wr_clk, wr_rst, wr_inc;
  bit rd_clk, rd_rst, rd_inc;
@@ -22,7 +26,7 @@ class afifo_seq_item extends uvm_sequence_item;
 `uvm_object_utils_end
 
 
-function new(string name= "apb_seq_item");// create deep copy
+function new(string name= "afifo_seq_item");// create deep copy
 //copy = new();
 //copy.wr_data = this.wr_data;
 //copy.rd_data = this.rd_data;
@@ -33,4 +37,4 @@ function new(string name= "apb_seq_item");// create deep copy
 super.new(name);
 endfunction: new
  
-endclass: apb_seq_item
+endclass: afifo_seq_item
