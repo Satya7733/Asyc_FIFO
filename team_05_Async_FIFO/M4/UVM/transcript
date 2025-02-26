@@ -1,0 +1,6 @@
+# Compile of afifo_driver.sv failed with 3 errors.
+# Compile of afifo_monitor.sv failed with 3 errors.
+# Compile of uvm_AFIFO_scoreboard.sv failed with 2 errors.
+# Compile of uvm_AFIFO_sequence.sv failed with 2 errors.
+# Compile of uvm_AFIFO_transaction.sv failed with 2 errors.
+# 5 compiles, 5 failed with 12 errors.
