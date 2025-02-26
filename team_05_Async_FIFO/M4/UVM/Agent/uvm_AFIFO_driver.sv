@@ -14,7 +14,7 @@ class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_A
  uvm_seq_item_pull_port #(uvm_AFIFO_sequence_item) seq_item_port;
 
 // Analysis Port: For sending data to the scoreboard
- uvm_analysis_port #(bit [DSIZE-1:0]) analysis_port;
+ uvm_analysis_port #(bit [DSIZE-1:0]) sb_export_drv;
 
 //========== Event ==========
 event drv_nxt;
@@ -53,8 +53,13 @@ virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     // Connect sequence item port to sequencer
     seq_item_port.connect(sequencer.seq_item_export);
+
     // Connect analysis port to scoreboard
-    analysis_port.connect(scoreboard.analysis_export);
+    analysis_port.connect(scoreboard.sb_export_drv);
+        
+        // DEBUG STATEMENT
+        `uvm_info("DRV", "Driver connected to scoreboard", UVM_LOW)
+
 endfunction
 
 	
