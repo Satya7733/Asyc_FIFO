@@ -1,16 +1,16 @@
-class uvm_AFIFO_sequence extends uvm_sequence#(uvm_AFIFO_transaction);
+class afifo_sequence extends uvm_sequence#(afifo_transaction);
 
-	`uvm_object_utils_begin(uvm_AFIFO_sequence)
+	`uvm_object_utils_begin(afifo_sequence)
 
-	function new(string name = "");
+	function new(string name = "afifo_sequence");
 		super.new(name);
 	endfunction: new
 
 	task body();
-		uvm_AFIFO_transaction afifo_tx;
+		afifo_transaction afifo_tx;
 
 	repeat(15) begin		//can be configured through the UVM factory or testbench components
-		afifo_tx = uvm_AFIFO_transaction::typeid::create(.name("afifo_tx"), .context(get_full_name()));
+		afifo_tx = afifo_transaction::typeid::create(.name("afifo_tx"), .context(get_full_name()));
 
 		start_item(afifo_tx); 		//sequence waits for the driver to be ready before sending the transaction
 		assert(afifo_tx.randomize());
@@ -18,6 +18,6 @@ class uvm_AFIFO_sequence extends uvm_sequence#(uvm_AFIFO_transaction);
 	end
 	endtask : body
 		
-endclass : uvm_AFIFO_sequence
+endclass : afifo_sequence
 
-typedef uvm_sequencer#(uvm_AFIFO_transaction) uvm_AFIFO_sequencer;
+typedef uvm_sequencer#(afifo_transaction) uvm_AFIFO_sequencer;

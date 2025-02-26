@@ -1,7 +1,7 @@
 import AFIFO_Pkg::*;
 `include "uvm_macros.svh"
 
-class afifo_driver extends uvm_driver #(afifo_seq_item);
+class afifo_driver extends uvm_driver #(afifo_transaction);
 
 // ========== FACTORY REGISTRATION ==========
 `uvm_component_utils(AFIFO_Driver) 
@@ -10,10 +10,10 @@ class afifo_driver extends uvm_driver #(afifo_seq_item);
  int DSIZE;
  int ASIZE;
 // Sequence Item Port: For receiving sequence items from the sequencer
- uvm_seq_item_pull_port #(afifo_seq_item) seq_item_port;
+ uvm_seq_item_pull_port #(afifo_transaction) seq_item_port;
 
 // Analysis Port: For sending data to the scoreboard
- uvm_analysis_port #(bit [DSIZE-1:0]) analysis_port;
+ uvm_analysis_port #(bit [DSIZE-1:0]) sb_export_drv;
 
 //========== Event ==========
 event drv_nxt;
@@ -52,8 +52,13 @@ virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     // Connect sequence item port to sequencer
     seq_item_port.connect(sequencer.seq_item_export);
+
     // Connect analysis port to scoreboard
-    analysis_port.connect(scoreboard.analysis_export);
+    analysis_port.connect(scoreboard.sb_export_drv);
+        
+        // DEBUG STATEMENT
+        `uvm_info("DRV", "Driver connected to scoreboard", UVM_LOW)
+
 endfunction
 
 	
@@ -88,7 +93,7 @@ task write(input int drv_repeat_count);
  repeat(drv_repeat_count) begin
  	@(posedge vif.wr_clk);
 	if(!vif.wr_full)begin
-	afifo_seq_item seq_item; // Handle for afifo_seq_item
+	afifo_transaction seq_item; // Handle for afifo_seq_item
 	seq_item_port.get(seq_item); // Receieve item from sequencer
 
 

@@ -11,7 +11,7 @@ class afifo_monitor extends uvm_monitor;
  int ASIZE;
 
 // Analysis Port: For sending data to the scoreboard
- uvm_analysis_export #(AFIFO_Transaction) analysis_export;
+ uvm_analysis_export #(AFIFO_Transaction) sb_export_mon;
 
 
 // ========== MEMORY CONSTRUCTOR ==========
@@ -43,7 +43,11 @@ endfunction
 
 virtual function void connect_phase(uvm_phase phase);
   super.connect_phase(phase);
-  analysis_export.connect(scoreboard.analysis_import);
+  analysis_export.connect(scoreboard.sb_export_mon);
+
+  // DEBUG STATEMENT
+    `uvm_info("MON", "Monitor connected to scoreboard", UVM_LOW)
+
 endfunction
 
 
