@@ -1,2 +1,0 @@
-var g_data = {"1":["work.AFIFO_Interface",83.33,1],"2":["work.AFIFO_Pkg",68.77,1],"4":["work.AFIFO_TB_Top",100.00,1],"5":["work.FIFO",70.65,1],"9":["work.ff_sync",83.33,1],"6":["work.fifo_memory",82.81,1],"7":["work.rd_empty",91.66,1],"8":["work.wr_full",64.28,1]};
-processDuLinks(g_data);
