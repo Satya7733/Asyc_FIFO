@@ -24,7 +24,7 @@ uvm_AFIFO_env env;
         super.build_phase(phase);
         // Create and configure the environment, agent, etc. (if needed)
         // Example:
-        // env = uvm_AFIFO_environment::type_id::create("env", this);
+        env = uvm_AFIFO_env::type_id::create("env", this);
     endfunction: build_phase
 
     // Run phase: Start the sequence and execute the test case
@@ -35,7 +35,7 @@ uvm_AFIFO_env env;
         seq = uvm_AFIFO_sequence::type_id::create(.name("seq"), .contxt(get_full_name()));
 
         // Start the sequence on the default sequencer
-        seq.start(null);
+        seq.start(env.agent.afifo_seqr);
 
         // Execute the desired test case
         `uvm_info("TEST", "Running Test Case 1: Reset", UVM_LOW)
