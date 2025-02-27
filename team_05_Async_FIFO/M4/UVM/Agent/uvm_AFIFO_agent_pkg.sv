@@ -9,5 +9,7 @@ import uvm_pkg::*;
     `include "uvm_AFIFO_driver.sv"      // Driver class
     `include "uvm_AFIFO_monitor.sv"     // Monitor class
     `include "uvm_AFIFO_agent.sv"       // Agent class
+//    `include "../Environment/uvm_AFIFO_scoreboard.sv"       // Scb class
+//    `include "../Environment/uvm_AFIFO_env.sv"
 
 endpackage: uvm_AFIFO_agent_pkg

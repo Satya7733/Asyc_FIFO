@@ -33,17 +33,17 @@ endfunction: new
         seq_item_port = new("seq_item_port", this); // Create the sequence item port
         sb_export_drv = new("analysis_port", this); // Create the analysis port
 
-	//----- Get DSIZE AND ASIZE from config_db -----
-	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-	  `uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
-        end
-
-        if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
-        `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
-        end
+//	//----- Get DSIZE AND ASIZE from config_db -----
+//	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
+//	  `uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
+//        end
+//
+//        if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
+//        `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
+//        end
 
 	//----- Get the virtual interface from config_db -----
-        if (!uvm_config_db#(virtual afifo_if)::get(this, "", "vif", vif)) begin
+        if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(null, "*", "vif", vif)) begin
           `uvm_fatal("AFIFO_DRIVER", "Virtual interface not set!")
         end
     endfunction : build_phase
@@ -103,7 +103,7 @@ task write(input int drv_repeat_count);
 	$display("[DRV][WRITE] : Data Written to wr_data = %d" ,seq_item.wr_data);
 
 // Send the data to scoreboard using analysis port
-	sb_export_drv.write(seq_item.wr_data);
+	sb_export_drv.write(seq_item);
 
 
 	@(posedge vif.wr_clk); //Experimental

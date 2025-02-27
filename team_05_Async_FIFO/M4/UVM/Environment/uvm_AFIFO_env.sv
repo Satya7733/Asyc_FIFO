@@ -1,5 +1,8 @@
 `include "uvm_macros.svh"
+
 import uvm_pkg::*;
+import uvm_AFIFO_agent_pkg::*;
+`include "uvm_AFIFO_scoreboard.sv"
 
 class uvm_AFIFO_env extends uvm_env;
 
@@ -8,7 +11,7 @@ class uvm_AFIFO_env extends uvm_env;
 
     // ========== COMPONENT HANDLES ==========
     uvm_AFIFO_agent      agent;      // Agent (contains driver, monitor, and sequencer)
-    uvm_AFIFO_scoreboard scoreboard; // Scoreboard for checking DUT outputs
+    uvm_AFIFO_scoreboard#(8,3) scoreboard; // Scoreboard for checking DUT outputs
 
     // ========== CONSTRUCTOR ==========
     function new(string name = "uvm_AFIFO_env", uvm_component parent);
@@ -20,10 +23,10 @@ class uvm_AFIFO_env extends uvm_env;
         super.build_phase(phase);
 
         // Create the agent
-        agent = afifo_agent::type_id::create("agent", this);
+        agent = uvm_AFIFO_agent::type_id::create("agent", this);
 
         // Create the scoreboard
-        scoreboard = afifo_scoreboard::type_id::create("scoreboard", this);
+        scoreboard = uvm_AFIFO_scoreboard # (8,3)::type_id::create("scoreboard", this);
 
         // Create other components (e.g., coverage collector)
         // coverage = afifo_coverage::type_id::create("coverage", this);
@@ -34,10 +37,10 @@ class uvm_AFIFO_env extends uvm_env;
         super.connect_phase(phase);
 
         // Connect the monitor's analysis port to the scoreboard
-        agent.monitor.analysis_port.connect(scoreboard.sb_export_mon);
+        agent.afifo_mon.sb_export_mon.connect(scoreboard.sb_export_mon);
 
         // Connect the driver's analysis port to the scoreboard
-        agent.driver.analysis_port.connect(scoreboard.sb_export_drv);
+        agent.afifo_drvr.sb_export_drv.connect(scoreboard.sb_export_drv);
 
         // Connect other components (e.g., coverage collector)
         // agent.monitor.analysis_port.connect(coverage.analysis_export);

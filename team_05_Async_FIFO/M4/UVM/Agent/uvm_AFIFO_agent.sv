@@ -1,5 +1,7 @@
+
 import uvm_pkg::*;
 `include "uvm_macros.svh"
+import uvm_AFIFO_agent_pkg::*;
 
 class uvm_AFIFO_agent extends uvm_agent;
 
@@ -12,12 +14,12 @@ class uvm_AFIFO_agent extends uvm_agent;
     uvm_AFIFO_monitor   afifo_mon;  // Monitor
 
     // Analysis port to send transactions from monitor to scoreboard
-    uvm_analysis_port#(uvm_AFIFO_sequence_item) mon2scb;
+    uvm_analysis_port#(uvm_AFIFO_sequence_item) sb_export_mon;
 
     // ========== CONSTRUCTOR ==========
     function new(string name = "uvm_AFIFO_agent", uvm_component parent);
         super.new(name, parent);
-        mon2scb = new("mon2scb", this); // Create the analysis port
+        sb_export_mon = new("sb_export_mon", this); // Create the analysis port
     endfunction: new
 
     // ========== BUILD PHASE ==========
@@ -44,7 +46,7 @@ class uvm_AFIFO_agent extends uvm_agent;
         end
 
         // Connect the monitor's analysis port to the agent's analysis port
-        afifo_mon.analysis_port.connect(mon2scb);
+        afifo_mon.sb_export_mon.connect(sb_export_mon);
     endfunction: connect_phase
 
 endclass: uvm_AFIFO_agent

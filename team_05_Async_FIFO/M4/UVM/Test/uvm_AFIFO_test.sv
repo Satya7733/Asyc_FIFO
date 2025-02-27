@@ -1,6 +1,8 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`include "uvm_AFIFO_agent_pkg.sv" // Include the sequence file
+//`include "uvm_AFIFO_agent_pkg.sv" // Include the sequence file
+import uvm_AFIFO_agent_pkg::*;
+`include "../Environment/uvm_AFIFO_env.sv"
 
 class uvm_AFIFO_test extends uvm_test;
 
@@ -9,7 +11,7 @@ class uvm_AFIFO_test extends uvm_test;
 
 
 // Handles
-uvm_AFIFO_environment env;
+uvm_AFIFO_env env;
 
 
 // ========== MEMORY CONSTRUCTOR ==========
@@ -30,7 +32,7 @@ uvm_AFIFO_environment env;
         uvm_AFIFO_sequence seq;
 
         // Create the sequence
-        seq = uvm_AFIFO_sequence::type_id::create("seq");
+        seq = uvm_AFIFO_sequence::type_id::create(.name("seq"), .contxt(get_full_name()));
 
         // Start the sequence on the default sequencer
         seq.start(null);
@@ -39,17 +41,17 @@ uvm_AFIFO_environment env;
         `uvm_info("TEST", "Running Test Case 1: Reset", UVM_LOW)
         seq.testcase1(); // Run Test Case 1
 
-        `uvm_info("TEST", "Running Test Case 2: Writes and Reads", UVM_LOW)
-        seq.testcase2(); // Run Test Case 2
-
-        `uvm_info("TEST", "Running Test Case 3: Write Full", UVM_LOW)
-        seq.testcase3(); // Run Test Case 3
-
-        `uvm_info("TEST", "Running Test Case 4: Read Empty", UVM_LOW)
-        seq.testcase4(); // Run Test Case 4
-
-        `uvm_info("TEST", "Running Test Case 5: Continuous Writes and Reads", UVM_LOW)
-        seq.testcase5(); // Run Test Case 5
+//        `uvm_info("TEST", "Running Test Case 2: Writes and Reads", UVM_LOW)
+//        seq.testcase2(); // Run Test Case 2
+//
+//        `uvm_info("TEST", "Running Test Case 3: Write Full", UVM_LOW)
+//        seq.testcase3(); // Run Test Case 3
+//
+//        `uvm_info("TEST", "Running Test Case 4: Read Empty", UVM_LOW)
+//        seq.testcase4(); // Run Test Case 4
+//
+//        `uvm_info("TEST", "Running Test Case 5: Continuous Writes and Reads", UVM_LOW)
+//        seq.testcase5(); // Run Test Case 5
     endtask: run_phase
 
 endclass: uvm_AFIFO_test

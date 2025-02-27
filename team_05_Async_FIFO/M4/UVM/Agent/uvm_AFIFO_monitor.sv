@@ -6,7 +6,7 @@ class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
 `uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
 
 // ========== Handle ==========
- virtual AFIFO_Interface vif_mon;
+ virtual uvm_AFIFO_interface vif_mon;
 // uvm_AFIFO_scoreboard scoreboard;
 // int DSIZE;
 // int ASIZE;
@@ -33,14 +33,14 @@ virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         sb_export_mon = new("analysis_port", this); // Create the analysis port
 
-
-        // Get DSIZE from config_db
-        if (!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-            `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
-        end
+//
+//        // Get DSIZE from config_db
+//        if (!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
+//            `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
+//        end
 
         // Get the virtual interface from config_db
-        if (!uvm_config_db#(virtual AFIFO_Interface)::get(this, "", "vif", vif_mon)) begin
+        if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(null, "*", "vif", vif_mon)) begin
             `uvm_fatal("AFIFO_MONITOR", "Virtual interface not set!")
         end
 	
