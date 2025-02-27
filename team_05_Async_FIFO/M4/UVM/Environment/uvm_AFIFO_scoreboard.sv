@@ -7,7 +7,7 @@ class uvm_AFIFO_scoreboard#(DSIZE, ASIZE) extends uvm_scoreboard;
 	`uvm_component_utils(uvm_AFIFO_scoreboard#(8,3))
 
 	uvm_analysis_export #(uvm_AFIFO_sequence_item) sb_export_mon;	//these will receive transactions from the monitor and driver.
-	uvm_analysis_export #(uvm_AFIFO_sequence_item) sb_export_drv;
+	uvm_analysis_export #(bit [DSIZE-1:0]) sb_export_drv;
 
 	uvm_tlm_analysis_fifo #(uvm_AFIFO_sequence_item) mon_fifo;	//to store and compare transactions
 	uvm_tlm_analysis_fifo #(bit [DSIZE-1:0]) drv_fifo;

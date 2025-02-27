@@ -1,4 +1,4 @@
-interface uvm_AFIFO_interface #(parameter DSIZE = 8, parameter ASIZE = 3);
+interface uvm_AFIFO_interface #(DSIZE=8 ,ASIZE=3);
 
     logic [DSIZE-1:0] rd_data;
     logic [DSIZE-1:0] wr_data;

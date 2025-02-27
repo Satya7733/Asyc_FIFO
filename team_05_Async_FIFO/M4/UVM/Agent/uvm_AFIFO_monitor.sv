@@ -6,7 +6,7 @@ class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
 `uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
 
 // ========== Handle ==========
- virtual uvm_AFIFO_interface vif_mon;
+ virtual uvm_AFIFO_interface#(8,3) vif_mon;
 // uvm_AFIFO_scoreboard scoreboard;
 // int DSIZE;
 // int ASIZE;
@@ -84,7 +84,7 @@ task run();
 
                         // send data to scb
 
-sb_export_mon.write(vif_mon.wr_data);
+			sb_export_mon.write(seq_item);
                     end
                 end
             end
