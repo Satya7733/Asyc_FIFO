@@ -43,7 +43,7 @@ endfunction: new
 //        end
 
 	//----- Get the virtual interface from config_db -----
-        if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(null, "*", "vif", vif)) begin
+        if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(this, "*", "vif", vif)) begin
           `uvm_fatal("AFIFO_DRIVER", "Virtual interface not set!")
         end
     endfunction : build_phase
@@ -95,7 +95,7 @@ task write(input int drv_repeat_count);
  	@(posedge vif.wr_clk);
 	if(!vif.wr_full)begin
 	uvm_AFIFO_sequence_item seq_item; // Handle for afifo_seq_item
-	seq_item_port.get(seq_item); // Receieve item from sequencer
+	seq_item_port.get_next_item(seq_item); // Receieve item from sequencer
 
 
  	vif.wr_data <= seq_item.wr_data;
