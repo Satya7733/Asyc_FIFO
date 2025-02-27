@@ -11,7 +11,7 @@ class uvm_AFIFO_driver#(int DSIZE, int ASIZE) extends uvm_driver #(uvm_AFIFO_seq
 //int DSIZE  = DSIZE;
 //int ASIZE = ASIZE;
 // Sequence Item Port: For receiving sequence items from the sequencer
- uvm_seq_item_pull_port #(uvm_AFIFO_sequence_item) seq_item_port;
+// uvm_seq_item_pull_port #(uvm_AFIFO_sequence_item) seq_item_port;
 
 // Analysis Port: For sending data to the scoreboard
  uvm_analysis_port #(bit [DSIZE-1:0]) sb_export_drv;
@@ -30,7 +30,7 @@ endfunction: new
 
      function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        seq_item_port = new("seq_item_port", this); // Create the sequence item port
+  //      seq_item_port = new("seq_item_port", this); // Create the sequence item port
         sb_export_drv = new("analysis_port", this); // Create the analysis port
 
 //	//----- Get DSIZE AND ASIZE from config_db -----
