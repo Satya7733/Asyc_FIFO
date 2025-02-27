@@ -1,6 +1,6 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`include "uvm_AFIFO_agent_pkg.sv"
+import uvm_AFIFO_agent_pkg::*;
 //import uvm_AFIFO_sequence_item::*;
 
 class uvm_AFIFO_sequence extends uvm_sequence#(uvm_AFIFO_sequence_item);

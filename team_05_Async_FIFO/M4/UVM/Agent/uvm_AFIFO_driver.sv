@@ -1,6 +1,6 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`include "uvm_AFIFO_agent_pkg.sv"
+import uvm_AFIFO_agent_pkg::*;
 
 class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_AFIFO_sequence_item);
 
