@@ -7,7 +7,7 @@ class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_A
 // ========== FACTORY REGISTRATION ==========
 `uvm_component_utils(uvm_AFIFO_driver#(8,3)) 
 // ========== Handle ==========
- virtual AFIFO_Interface vif;
+ virtual uvm_AFIFO_interface vif;
 //int DSIZE  = DSIZE;
 //int ASIZE = ASIZE;
 // Sequence Item Port: For receiving sequence items from the sequencer
@@ -143,7 +143,7 @@ task run;
   $finish;
 endtask: run
 
-
+/*
 task testcase1();
     $display("[DRV] : [Test Case 1] Reset");
     reset();
@@ -197,6 +197,6 @@ reset();
 $display("[DRV] : [Test Case 5] DONE: Continuous Writes and Reads");
 $display("[DRV] : Drv_nxt");
 endtask: testcase5
-
+*/
 
 endclass: uvm_AFIFO_driver
