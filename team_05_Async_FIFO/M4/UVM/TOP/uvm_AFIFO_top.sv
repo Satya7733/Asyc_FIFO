@@ -1,6 +1,6 @@
-`include uvm_AFIFO_interface.sv
-`include //design package
-`include //design file
+`include "uvm_AFIFO_interface.sv"
+`include "../RTL/FIFO.sv"
+//`include //design file
 
 module uvm_AFIFO_top;
 	import uvm_pkg::*;
@@ -23,7 +23,7 @@ module uvm_AFIFO_top;
 		vif.rd_clk <= 0;
 	end
 
-	always
-		#5 vif.wr_clk <= ~vif.wr_clk;
-		#10 vif.rd_clk <= ~vif.rd_clk;
+	
+		always #5 vif.wr_clk <= ~vif.wr_clk;
+		always #10 vif.rd_clk <= ~vif.rd_clk;
 	endmodule
