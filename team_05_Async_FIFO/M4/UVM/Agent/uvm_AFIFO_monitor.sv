@@ -1,7 +1,7 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
-class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
+class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
 // ========== FACTORY REGISTRATION ==========
 `uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
 

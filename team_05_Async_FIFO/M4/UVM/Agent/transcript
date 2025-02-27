@@ -1,23 +1,256 @@
-# Compile of uvm_AFIFO_agent.sv failed with 2 errors.
-# Compile of uvm_AFIFO_driver.sv failed with 1 errors.
-# Compile of uvm_AFIFO_monitor.sv failed with 1 errors.
-# Compile of uvm_AFIFO_sequence.sv was successful.
-# Compile of uvm_AFIFO_sequence_item.sv was successful.
-# 5 compiles, 3 failed with 4 errors.
-# Compile of uvm_AFIFO_agent.sv failed with 2 errors.
-# Compile of uvm_AFIFO_driver.sv failed with 1 errors.
-# Compile of uvm_AFIFO_monitor.sv failed with 1 errors.
-# Compile of uvm_AFIFO_sequence.sv was successful.
-# Compile of uvm_AFIFO_sequence_item.sv was successful.
-# 5 compiles, 3 failed with 4 errors.
-# Compile of uvm_AFIFO_scoreboard.sv failed with 1 errors.
-# Compile of uvm_AFIFO_scoreboard.sv was successful.
-# Compile of uvm_AFIFO_agent.sv failed with 2 errors.
-# Compile of uvm_AFIFO_driver.sv failed with 1 errors.
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading project testing
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
 # Compile of uvm_AFIFO_monitor.sv was successful.
 # Compile of uvm_AFIFO_sequence.sv was successful.
 # Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
 # Compile of uvm_AFIFO_scoreboard.sv was successful.
-# 6 compiles, 2 failed with 3 errors.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:45:33 on Feb 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): uvm_AFIFO_driver.sv(106): (vopt-13215) Arg. 't' of 'write':  Cannot assign an unpacked type 'class uvm_AFIFO_sequence_item#(8,3)' to a packed type 'bit[7:0]'.
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 21:45:42 on Feb 26,2025, Elapsed time: 0:00:09
+# Errors: 2, Warnings: 9
+# Compile of uvm_AFIFO_driver.sv was successful.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:47:26 on Feb 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): uvm_AFIFO_driver.sv(106): (vopt-13215) Arg. 't' of 'write':  Cannot assign an unpacked type 'class uvm_AFIFO_sequence_item#(8,3)' to a packed type 'bit[7:0]'.
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 21:47:35 on Feb 26,2025, Elapsed time: 0:00:09
+# Errors: 2, Warnings: 2
+restart -f
+# No Design Loaded!
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:49:03 on Feb 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): uvm_AFIFO_driver.sv(106): (vopt-13215) Arg. 't' of 'write':  Cannot assign an unpacked type 'class uvm_AFIFO_sequence_item#(8,3)' to a packed type 'bit[7:0]'.
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 21:49:11 on Feb 26,2025, Elapsed time: 0:00:08
+# Errors: 2, Warnings: 1
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
+# Compile of uvm_AFIFO_monitor.sv was successful.
+# Compile of uvm_AFIFO_sequence.sv was successful.
+# Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
 # Compile of uvm_AFIFO_scoreboard.sv was successful.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:49:36 on Feb 26,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# ** Error: (vsim-8754) Actual input arg. of type 'reg[7:0]' for formal 't' of 'write' is not compatible with the formal's type 'class uvm_AFIFO_sequence_item #(8, 3)'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor #(8, 3) File: uvm_AFIFO_monitor.sv Line: 87
+# ** Error (suppressible): (vsim-2997) Cannot assign a packed type 'reg[7:0]' to an unpacked type 'class uvm_AFIFO_sequence_item #(8, 3)'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor #(8, 3) File: uvm_AFIFO_monitor.sv Line: 87
+# ** Error: (vsim-8754) Actual output arg. of type 'bit[7:0]' for formal 't' of 'get' is not compatible with the formal's type 'class uvm_AFIFO_sequence_item #(8, 3)'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_top_sv_unit::uvm_AFIFO_scoreboard #(8, 3) File: ../Environment/uvm_AFIFO_scoreboard.sv Line: 42
+# ** Error (suppressible): (vsim-13215) Cannot assign an unpacked type 'class uvm_AFIFO_sequence_item #(8, 3)' to a packed type 'bit[7:0]'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_top_sv_unit::uvm_AFIFO_scoreboard #(8, 3) File: ../Environment/uvm_AFIFO_scoreboard.sv Line: 42
+# Loading /pkgs/mentor/questa/2024.2/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Error loading design
+# End time: 21:49:45 on Feb 26,2025, Elapsed time: 0:00:09
+# Errors: 4, Warnings: 2
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
+# Compile of uvm_AFIFO_monitor.sv was successful.
+# Compile of uvm_AFIFO_sequence.sv was successful.
+# Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
 # Compile of uvm_AFIFO_scoreboard.sv was successful.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+restart -f
+# No Design Loaded!
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:55:23 on Feb 26,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# ** Error: (vsim-7039) The parameter 'DSIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor::uvm_AFIFO_monitor#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 14
+# ** Error: (vsim-7039) The parameter 'ASIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor::uvm_AFIFO_monitor#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 14
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# Error loading design
+# End time: 21:55:32 on Feb 26,2025, Elapsed time: 0:00:09
+# Errors: 2, Warnings: 2
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
+# Compile of uvm_AFIFO_monitor.sv was successful.
+# Compile of uvm_AFIFO_sequence.sv was successful.
+# Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
+# Compile of uvm_AFIFO_scoreboard.sv was successful.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:57:15 on Feb 26,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# ** Error: (vsim-7039) The parameter 'DSIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor::uvm_AFIFO_monitor#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 14
+# ** Error: (vsim-7039) The parameter 'ASIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor::uvm_AFIFO_monitor#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 14
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# Error loading design
+# End time: 21:57:20 on Feb 26,2025, Elapsed time: 0:00:05
+# Errors: 2, Warnings: 2
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
+# Compile of uvm_AFIFO_monitor.sv was successful.
+# Compile of uvm_AFIFO_sequence.sv was successful.
+# Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
+# Compile of uvm_AFIFO_scoreboard.sv was successful.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 21:59:30 on Feb 26,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# ** Error: (vsim-7039) The parameter 'DSIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_driver::uvm_AFIFO_driver#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 35
+# ** Error: (vsim-7039) The parameter 'ASIZE' has not been given a value.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_driver::uvm_AFIFO_driver#(<parameter_info_unavailable>) File: uvm_AFIFO_agent.sv Line: 35
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# Error loading design
+# End time: 21:59:35 on Feb 26,2025, Elapsed time: 0:00:05
+# Errors: 2, Warnings: 2
+# Compile of uvm_AFIFO_agent.sv was successful.
+# Compile of uvm_AFIFO_agent_pkg.sv was successful.
+# Compile of uvm_AFIFO_driver.sv was successful.
+# Compile of uvm_AFIFO_monitor.sv was successful.
+# Compile of uvm_AFIFO_sequence.sv was successful.
+# Compile of uvm_AFIFO_sequence_item.sv was successful.
+# Compile of uvm_AFIFO_env.sv was successful.
+# Compile of uvm_AFIFO_scoreboard.sv was successful.
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_2FF_Sync.sv was successful.
+# Compile of fifo_memory.sv was successful.
+# Compile of FIFO_rd_empty.sv was successful.
+# Compile of FIFO_wr_full.sv was successful.
+# Compile of uvm_AFIFO_test.sv was successful.
+# Compile of uvm_AFIFO_interface.sv was successful.
+# Compile of uvm_AFIFO_top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -vopt work.uvm_AFIFO_top
+# vsim -vopt work.uvm_AFIFO_top 
+# Start time: 22:00:24 on Feb 26,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# ** Error: (vsim-8754) Actual input arg. of type 'reg[7:0]' for formal 't' of 'write' is not compatible with the formal's type 'class uvm_AFIFO_sequence_item #(8, 3)'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor #(8, 3) File: uvm_AFIFO_monitor.sv Line: 87
+# ** Error (suppressible): (vsim-2997) Cannot assign a packed type 'reg[7:0]' to an unpacked type 'class uvm_AFIFO_sequence_item #(8, 3)'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_agent_pkg::uvm_AFIFO_monitor #(8, 3) File: uvm_AFIFO_monitor.sv Line: 87
+# ** Error: (vsim-8754) Actual input arg. of type 'class uvm_analysis_imp #(bit[7:0], class uvm_tlm_analysis_fifo #(bit[7:0]))' for formal 'provider' of 'connect' is not compatible with the formal's type 'class mtiUvm.uvm_pkg::uvm_port_base #(class mtiUvm.uvm_pkg::uvm_tlm_if_base #(class uvm_AFIFO_sequence_item #(8, 3), class uvm_AFIFO_sequence_item #(8, 3)))'.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_top_sv_unit::uvm_AFIFO_scoreboard #(8, 3) File: ../Environment/uvm_AFIFO_scoreboard.sv Line: 34
+# ** Error (suppressible): (vsim-12460) Illegal assignment to class mtiUvm.uvm_pkg::uvm_port_base #(class mtiUvm.uvm_pkg::uvm_tlm_if_base #(class uvm_AFIFO_sequence_item #(8, 3), class uvm_AFIFO_sequence_item #(8, 3))) from class uvm_analysis_imp #(bit[7:0], class uvm_tlm_analysis_fifo #(bit[7:0]))
+#    Time: 0 ns  Iteration: 0  Region: /uvm_AFIFO_top_sv_unit::uvm_AFIFO_scoreboard #(8, 3) File: ../Environment/uvm_AFIFO_scoreboard.sv Line: 34
+# Loading /pkgs/mentor/questa/2024.2/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Error loading design
+# End time: 22:00:29 on Feb 26,2025, Elapsed time: 0:00:05
+# Errors: 4, Warnings: 2

@@ -2,7 +2,7 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
 
-class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_AFIFO_sequence_item);
+class uvm_AFIFO_driver#(int DSIZE, int ASIZE) extends uvm_driver #(uvm_AFIFO_sequence_item);
 
 // ========== FACTORY REGISTRATION ==========
 `uvm_component_utils(uvm_AFIFO_driver#(8,3)) 
@@ -103,7 +103,7 @@ task write(input int drv_repeat_count);
 	$display("[DRV][WRITE] : Data Written to wr_data = %d" ,seq_item.wr_data);
 
 // Send the data to scoreboard using analysis port
-	sb_export_drv.write(seq_item);
+	sb_export_drv.write(seq_item.wr_data);
 
 
 	@(posedge vif.wr_clk); //Experimental
