@@ -7,6 +7,7 @@ class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
 
 // ========== Handle ==========
  virtual AFIFO_Interface vif_mon;
+// uvm_AFIFO_scoreboard scoreboard;
 // int DSIZE;
 // int ASIZE;
 //
@@ -30,6 +31,8 @@ class uvm_AFIFO_monitor#(DSIZE=8, ASIZE=3) extends uvm_monitor;
 
 virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        sb_export_mon = new("analysis_port", this); // Create the analysis port
+
 
         // Get DSIZE from config_db
         if (!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
@@ -41,25 +44,28 @@ virtual function void build_phase(uvm_phase phase);
             `uvm_fatal("AFIFO_MONITOR", "Virtual interface not set!")
         end
 	
-	sb_export_mon = new(.name("sb_export_mon"), .parent(this));
 endfunction : build_phase
 
 
 // ========== CONNECT PHASE ==========
-
+/*
 virtual function void connect_phase(uvm_phase phase);
   super.connect_phase(phase);
-  analysis_export.connect(scoreboard.sb_export_mon);
+  sb_export_mon.connect(scoreboard.sb_export_mon);
 
   // DEBUG STATEMENT
     `uvm_info("MON", "Monitor connected to scoreboard", UVM_LOW)
 
 endfunction
+*/
 
 
 // ========== RUN PHASE ==========
 
 task run();
+
+
+
   uvm_AFIFO_sequence_item seq_item;
 
   //Ref Module
@@ -74,7 +80,11 @@ task run();
                     @(posedge vif_mon.wr_clk);
                     if (vif_mon.wr_inc) begin
                         $display($time, "[MON]: Data written to ref module: %0d", vif_mon.wr_data);
-                        wr_data_drv_q.push_back(vif_mon.wr_data);
+                       // wr_data_drv_q.push_back(vif_mon.wr_data);
+
+                        // send data to scb
+
+sb_export_mon.write(vif_mon.wr_data);
                     end
                 end
             end
@@ -99,17 +109,17 @@ task run();
                         seq_item.wr_full = vif_mon.wr_full;
 
                         // Push the driver data to the sequence item if read increment is active
-                        if (vif_mon.rd_inc) begin
-                            seq_item.rd_data_refModule = wr_data_drv_q.pop_front();
-                            $display("Popped data is: %0d", seq_item.rd_data_refModule);
-                        end
+                        //if (vif_mon.rd_inc) begin
+                            //seq_item.rd_data_refModule = wr_data_drv_q.pop_front();
+                            //$display("Popped data is: %0d", seq_item.rd_data_refModule);
+                        //end
 
                         $display($time, "[MON]: rd_inc = %d, wr_inc = %d", seq_item.rd_inc, seq_item.wr_inc);
 
                         // Send the sequence item to the scoreboard via analysis export
                         if (vif_mon.rd_inc) begin
                             $display($time, "[MON]: Sequence Item sent to SCO %0d, and ref module: %0d", seq_item.rd_data, seq_item.rd_data_refModule);
-                            analysis_export.write(seq_item); // Send sequence item via analysis export
+                            sb_export_mon.write(seq_item); // Send sequence item via analysis export
                         end
 
 //                        -> mon_done; // Trigger event for completion

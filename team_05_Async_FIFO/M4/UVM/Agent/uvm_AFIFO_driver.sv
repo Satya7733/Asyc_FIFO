@@ -48,7 +48,7 @@ endfunction: new
         end
     endfunction : build_phase
 // ========== CONNECT PHASE ==========
-
+/*
 virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     // Connect sequence item port to sequencer
@@ -61,7 +61,7 @@ virtual function void connect_phase(uvm_phase phase);
         `uvm_info("DRV", "Driver connected to scoreboard", UVM_LOW)
 
 endfunction
-
+*/
 	
 	
 //Tasks
@@ -103,7 +103,7 @@ task write(input int drv_repeat_count);
 	$display("[DRV][WRITE] : Data Written to wr_data = %d" ,seq_item.wr_data);
 
 // Send the data to scoreboard using analysis port
-	analysis_port.write(seq_item.wr_data);
+	sb_export_drv.write(seq_item.wr_data);
 
 
 	@(posedge vif.wr_clk); //Experimental
@@ -133,7 +133,7 @@ task read(input int drv_repeat_count);
   $display("[DRV] ----------------------------------------");
 endtask: read
 
-
+/*
 task run;
   testcase1();
   testcase2();// Reads and Writes
@@ -143,7 +143,7 @@ task run;
   $finish;
 endtask: run
 
-/*
+
 task testcase1();
     $display("[DRV] : [Test Case 1] Reset");
     reset();

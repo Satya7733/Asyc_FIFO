@@ -25,12 +25,12 @@ class uvm_AFIFO_agent extends uvm_agent;
         super.build_phase(phase);
 
         // Create the monitor (always created, active or passive)
-        afifo_mon = uvm_AFIFO_monitor::type_id::create("afifo_mon", this);
+        afifo_mon = uvm_AFIFO_monitor#()::type_id::create("afifo_mon", this);
 
         // Create the sequencer and driver only if the agent is active
         if (get_is_active() == UVM_ACTIVE) begin
             afifo_seqr = uvm_AFIFO_sequencer::type_id::create("afifo_seqr", this);
-            afifo_drvr = uvm_AFIFO_driver::type_id::create("afifo_drvr", this);
+            afifo_drvr = uvm_AFIFO_driver#()::type_id::create("afifo_drvr", this);
         end
     endfunction: build_phase
 
