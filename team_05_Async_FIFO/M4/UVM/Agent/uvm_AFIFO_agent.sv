@@ -1,12 +1,50 @@
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+
 class uvm_AFIFO_agent extends uvm_agent;
-	`uvm_component_utils(uvm_AFIFO_agent)
 
-	uvm_analysis_port#(uvm_AFIFO_sequence_item) mon2scb;
+    // ========== FACTORY REGISTRATION ==========
+    `uvm_component_utils(uvm_AFIFO_agent)
 
-	uvm_AFIFO_sequence	afifo_seqr;
-	uvm_AFIFO_driver	afifo_drvr;
-	uvm_AFIFO_monitor	afifo_mon;
+    // ========== COMPONENT HANDLES ==========
+    uvm_AFIFO_sequencer afifo_seqr; // Sequencer
+    uvm_AFIFO_driver    afifo_drvr; // Driver
+    uvm_AFIFO_monitor   afifo_mon;  // Monitor
 
-	function new(string name, uvm_component parent);
-          super.new(name, parent);
-	endfunction: new
+    // Analysis port to send transactions from monitor to scoreboard
+    uvm_analysis_port#(uvm_AFIFO_sequence_item) mon2scb;
+
+    // ========== CONSTRUCTOR ==========
+    function new(string name = "uvm_AFIFO_agent", uvm_component parent);
+        super.new(name, parent);
+        mon2scb = new("mon2scb", this); // Create the analysis port
+    endfunction: new
+
+    // ========== BUILD PHASE ==========
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+
+        // Create the monitor (always created, active or passive)
+        afifo_mon = uvm_AFIFO_monitor::type_id::create("afifo_mon", this);
+
+        // Create the sequencer and driver only if the agent is active
+        if (get_is_active() == UVM_ACTIVE) begin
+            afifo_seqr = uvm_AFIFO_sequencer::type_id::create("afifo_seqr", this);
+            afifo_drvr = uvm_AFIFO_driver::type_id::create("afifo_drvr", this);
+        end
+    endfunction: build_phase
+
+    // ========== CONNECT PHASE ==========
+    function void connect_phase(uvm_phase phase);
+        super.connect_phase(phase);
+
+        // Connect the driver to the sequencer (if active)
+        if (get_is_active() == UVM_ACTIVE) begin
+            afifo_drvr.seq_item_port.connect(afifo_seqr.seq_item_export);
+        end
+
+        // Connect the monitor's analysis port to the agent's analysis port
+        afifo_mon.analysis_port.connect(mon2scb);
+    endfunction: connect_phase
+
+endclass: uvm_AFIFO_agent

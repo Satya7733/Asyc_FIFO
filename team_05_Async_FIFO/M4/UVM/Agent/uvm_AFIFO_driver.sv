@@ -1,6 +1,6 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`include "uvm_AFIFO_sequence_item.sv"
+`include "uvm_AFIFO_agent_pkg.sv"
 
 class uvm_AFIFO_driver#(int DSIZE = 8, int ASIZE = 3) extends uvm_driver #(uvm_AFIFO_sequence_item);
 
@@ -22,20 +22,16 @@ event gen_done;
 
 // ========== MEMORY CONSTRUCTOR ==========
 
-//function new(string name = "uvm_AFIFO_driver", uvm_component parent);
-//    super.new(name,parent);
-//    seq_item_port = new("seq_item_port", this); // Create the sequence item port
-//    analysis_port = new("analysis_port", this); // Create the analysis port
-//endfunction: new
-
-	function new(string name, uvm_component parent);
-          super.new(name, parent);
-	endfunction: new
+function new(string name = "uvm_AFIFO_driver", uvm_component parent);
+    super.new(name,parent);
+endfunction: new
 
 // ========== Build Phase: Configure parameters using config_db and get virtual interface ==========  
 
      function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        seq_item_port = new("seq_item_port", this); // Create the sequence item port
+        sb_export_drv = new("analysis_port", this); // Create the analysis port
 
 	//----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
