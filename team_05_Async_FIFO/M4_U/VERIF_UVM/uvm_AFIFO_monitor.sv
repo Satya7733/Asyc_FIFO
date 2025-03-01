@@ -1,12 +1,12 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
-class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
+class uvm_AFIFO_Rd_monitor extends uvm_monitor;
 // ========== FACTORY REGISTRATION ==========
-`uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
+`uvm_component_utils(uvm_AFIFO_Rd_monitor) 
 
 // ========== Handle ==========
- virtual uvm_AFIFO_interface#(8,3) vif_mon;
+ virtual uvm_AFIFO_interface vif;
 // uvm_AFIFO_scoreboard scoreboard;
 // int DSIZE;
 // int ASIZE;
@@ -17,48 +17,33 @@ class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
 
 // ========== MEMORY CONSTRUCTOR ==========
 
-//function new(string name = "afifo_monitor", uvm_component parent);
-//    super.new(name,parent);
-//    analysis_export = new("analysis_export", this); // Create the analysis port
-//endfunction: new
-//
+function new(string name = "uvm_AFIFO_Rd_monitor", uvm_component parent);
+    super.new(name,parent);
+endfunction: new
 
-	function new(string name, uvm_component parent);
-          super.new(name, parent);
-	endfunction: new
 
 // ========== Build Phase: Configure parameters using config_db and get virtual interface ========== 
 
 virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         sb_export_mon = new("analysis_port", this); // Create the analysis port
+        `uvm_info("Read Monitor", "Inside the build phase of monitor", UVM_NONE);
 
-//
-//        // Get DSIZE from config_db
-//        if (!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-//            `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
-//        end
+// ----- Reterving the Interface -----
+ if(!uvm_resource_db#(virtual uvm_AFIFO_interface)::read_by_name("ALL","TB",vif,this)) 
+  begin
+   `uvm_error("Read_MON","Problem with the interface")
+  end
+	//----- Get DSIZE AND ASIZE from config_db -----
+	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
+	  `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
+        end
 
-        // Get the virtual interface from config_db
-        if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(null, "*", "vif", vif_mon)) begin
-            `uvm_fatal("AFIFO_MONITOR", "Virtual interface not set!")
+        if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
+        `uvm_fatal("AFIFO_MONITOR", "ASIZE not set in config_db!")
         end
 	
 endfunction : build_phase
-
-
-// ========== CONNECT PHASE ==========
-/*
-virtual function void connect_phase(uvm_phase phase);
-  super.connect_phase(phase);
-  sb_export_mon.connect(scoreboard.sb_export_mon);
-
-  // DEBUG STATEMENT
-    `uvm_info("MON", "Monitor connected to scoreboard", UVM_LOW)
-
-endfunction
-*/
-
 
 // ========== RUN PHASE ==========
 
