@@ -1,0 +1,1 @@
+C:/questasim64_2024.2/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 1524000 work.AFIFO_TB_Top -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt -id 1-4cd7179a8c33-67bac234-256-3110 {+__design_bin_path+//thoth.cecs.pdx.edu/Home07/patilsid/My Documents/ECE593/Asyc_FIFO/team_05_Async_FIFO/M2} +__betafsm

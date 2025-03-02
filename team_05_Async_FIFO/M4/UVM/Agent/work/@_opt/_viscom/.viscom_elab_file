@@ -1,0 +1,1 @@
+/pkgs/mentor/questa/2024.2/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 86065440 work.uvm_AFIFO_top -quiet -auto_acc_if_foreign -work work -allow_unnamed -o _opt -id 1-525400b63b2a-67bfff78-b7d36-6329 +__design_bin_path+/u/aakashbh/ECE-593/Asyc_FIFO/team_05_Async_FIFO/M4/UVM/Agent
