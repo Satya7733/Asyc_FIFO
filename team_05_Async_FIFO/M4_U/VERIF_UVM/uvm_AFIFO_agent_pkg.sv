@@ -1,4 +1,4 @@
-//`include "uvm_macros.svh"
+`include "uvm_macros.svh"
 package uvm_AFIFO_agent_pkg;
 
 //import uvm_pkg::*;

@@ -21,7 +21,7 @@ class uvm_AFIFO_scoreboard#(DSIZE, ASIZE) extends uvm_scoreboard;
 	
 	function void build_phase(uvm_phase phase);
 	super.build_phase(phase);
-
+	`uvm_info("SCOREBOARD", "Inside the build phase of scoreboard", UVM_NONE);
 		sb_export_mon = new("sb_export_mon", this);
 	        sb_export_drv = new("sb_export_drv", this);
 	
@@ -30,6 +30,7 @@ class uvm_AFIFO_scoreboard#(DSIZE, ASIZE) extends uvm_scoreboard;
 	endfunction : build_phase
 
 	function void connect_phase(uvm_phase phase);
+	`uvm_info("SCOREBOARD", "Inside the connect phase of scoreboard", UVM_NONE);
 		sb_export_mon.connect(mon_fifo.analysis_export);
 		sb_export_drv.connect(drv_fifo.analysis_export);
 	endfunction : connect_phase
