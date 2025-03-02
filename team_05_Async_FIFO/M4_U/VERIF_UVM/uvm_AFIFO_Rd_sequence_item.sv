@@ -3,6 +3,7 @@
 import uvm_pkg::*;
 import uvm_AFIFO_agent_pkg::*;
 
+
 class uvm_AFIFO_Rd_sequence_item extends uvm_sequence_item;
 
 	 bit rd_clk, rd_rst, rd_inc;
@@ -17,7 +18,9 @@ class uvm_AFIFO_Rd_sequence_item extends uvm_sequence_item;
 		super.new(name);
 	endfunction: new
 
+
 	`uvm_object_utils_begin(uvm_AFIFO_Rd_sequence_item)
+
 	   
 	    `uvm_field_int(rd_data, UVM_ALL_ON)
 	    //`uvm_field_int(rd_data_refModule, UVM_ALL_ON)

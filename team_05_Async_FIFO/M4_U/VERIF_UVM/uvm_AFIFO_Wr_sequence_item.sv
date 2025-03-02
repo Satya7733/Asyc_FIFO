@@ -1,6 +1,8 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
+
 import uvm_AFIFO_agent_pkg::*;
+
 
 class uvm_AFIFO_Wr_sequence_item #(parameter DSIZE = 8, ASIZE = 3) extends uvm_sequence_item;
 	 randc logic [DSIZE-1:0] wr_data;
