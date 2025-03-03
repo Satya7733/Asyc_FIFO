@@ -7,9 +7,9 @@ import uvm_AFIFO_agent_pkg::*;
 class uvm_AFIFO_Rd_sequence_item extends uvm_sequence_item;
 
 	 bit rd_clk, rd_rst, rd_inc;
-	 logic [DSIZE-1: 0]rd_data;
+	 logic [7: 0]rd_data;
 // constraint so rdata stays in dsize limit 
-	   constraint c_data { rd_data < (1 << dsize); } 
+	   constraint c_data { rd_data < (1 << 8); } 
 
 	// logic [DSIZE-1: 0]rd_data_refModule;
 	 bit rd_empty;

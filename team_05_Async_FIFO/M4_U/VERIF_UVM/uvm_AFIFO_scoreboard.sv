@@ -1,16 +1,19 @@
-
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+import uvm_AFIFO_agent_pkg::*;
 `uvm_analysis_imp_decl(_wr)
 `uvm_analysis_imp_decl(_rd)
 
 class uvm_AFIFO_scoreboard extends uvm_scoreboard;
+
 	uvm_analysis_imp_wr#(uvm_AFIFO_Wr_sequence_item, uvm_AFIFO_scoreboard) imp_wr;
 	uvm_analysis_imp_rd#(uvm_AFIFO_Rd_sequence_item, uvm_AFIFO_scoreboard) imp_rd;
 `uvm_component_utils(uvm_AFIFO_scoreboard)
-
-bit [DSIZE-1:0] writeQ[$];
-bit [DSIZE-1:0] readQ[$];
-bit [DSIZE-1:0] write_data;
-bit [DSIZE-1:0] read_data;
+int DSIZE = 8;
+bit [7:0] writeQ[$];
+bit [7:0] readQ[$];
+bit [7:0] write_data;
+bit [7:0] read_data;
 
 function void build_phase(uvm_phase phase);
 	super.build_phase(phase);
@@ -44,3 +47,4 @@ task run_phase(uvm_phase phase);
 	end
 endtask
 
+endclass
