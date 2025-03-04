@@ -1,0 +1,12 @@
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 23:40:54 on Mar 03,2025
+# vlog -sv uvm_AFIFO_agent_pkg.sv 
+# ** Note: (vlog-2286) uvm_AFIFO_agent_pkg.sv(2): Using implicit +incdir+/pkgs/mentor/questa/2024.2/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package uvm_AFIFO_agent_pkg_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package uvm_AFIFO_agent_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:40:55 on Mar 03,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

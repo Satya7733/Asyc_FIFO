@@ -1,3 +1,7 @@
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+import uvm_AFIFO_agent_pkg::*;
+
 class uvm_AFIFO_Rd_cov extends uvm_subscriber#(uvm_AFIFO_Rd_sequence_item);
 uvm_AFIFO_Rd_sequence_item seq_item;
 `uvm_component_utils(uvm_AFIFO_Rd_cov)

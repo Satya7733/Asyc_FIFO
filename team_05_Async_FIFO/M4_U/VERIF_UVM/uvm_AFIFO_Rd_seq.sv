@@ -9,7 +9,7 @@ class uvm_AFIFO_Rd_base_seq extends uvm_sequence#(uvm_AFIFO_Rd_sequence_item);
 // ========== MEMORY CONSTRUCTOR ==========
 
 function new(string name = "uvm_AFIFO_Rd_base_seq");
-    super.new(name,parent);
+    super.new(name);
 endfunction: new
 
 // ========== Raising the  Objection && Setting the Drain Time ==========
@@ -42,7 +42,7 @@ class uvm_AFIFO_Rd_seq extends uvm_AFIFO_Rd_base_seq;
 // ========== MEMORY CONSTRUCTOR ==========
 
 function new(string name = "uvm_AFIFO_Rd_seq");
-    super.new(name,parent);
+    super.new(name);
 endfunction: new
 
 uvm_AFIFO_Rd_sequence_item rd_packet;
@@ -64,15 +64,15 @@ uvm_AFIFO_Rd_sequence_item rd_packet;
 
 		  repeat((repeat_count+1)) begin
           rd_packet = uvm_AFIFO_Rd_sequence_item::type_id::create("rd_packet");
-               
+          //rd_packet = new();     
         // ----- Pass dsize and asize values to sequence item -----
-             rd_packet.rd_data = $urandom_range(0, (1 << dsize) - 1); // Generate data with dsize bits
+             rd_packet.rd_data = $urandom_range(0, (1 << 8) - 1); // Generate data with dsize bits
     		`uvm_info("READ_SEQUENCE", $sformatf("Data_Read = %2h", rd_packet.rd_data), UVM_NONE)
 
     start_item(rd_packet);
     finish_item(rd_packet);
 
-    `uvm_info("READ_SEQUENCE", $sformatf("Data_Read = %2h (dsize=%0d)", rd_packet.rd_data, DSIZE), UVM_NONE)
+    `uvm_info("READ_SEQUENCE", $sformatf("Data_Read = %2h (dsize= 8 )", rd_packet.rd_data), UVM_NONE)
 
 
 		end
