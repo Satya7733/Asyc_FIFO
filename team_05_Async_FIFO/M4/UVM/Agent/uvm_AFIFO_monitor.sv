@@ -5,15 +5,16 @@ class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
 // ========== FACTORY REGISTRATION ==========
 `uvm_component_utils(uvm_AFIFO_monitor#(8,3)) 
 
+
 // ========== Handle ==========
  virtual uvm_AFIFO_interface#(8,3) vif_mon;
+
 // uvm_AFIFO_scoreboard scoreboard;
 // int DSIZE;
 // int ASIZE;
 //
 // Analysis Port: For sending data to the scoreboard
  uvm_analysis_port #(uvm_AFIFO_sequence_item) sb_export_mon;
-
 
 // ========== MEMORY CONSTRUCTOR ==========
 
@@ -30,6 +31,7 @@ class uvm_AFIFO_monitor#(DSIZE, ASIZE) extends uvm_monitor;
 // ========== Build Phase: Configure parameters using config_db and get virtual interface ========== 
 
 virtual function void build_phase(uvm_phase phase);
+
         super.build_phase(phase);
         sb_export_mon = new("analysis_port", this); // Create the analysis port
 
@@ -43,7 +45,7 @@ virtual function void build_phase(uvm_phase phase);
         if (!uvm_config_db#(virtual uvm_AFIFO_interface#(8,3))::get(null, "*", "vif", vif_mon)) begin
             `uvm_fatal("AFIFO_MONITOR", "Virtual interface not set!")
         end
-	
+
 endfunction : build_phase
 
 
@@ -130,6 +132,7 @@ task run();
                 end
             end
         join_none // Wait for both processes to run indefinitely
+
     endtask
 
 endclass: uvm_AFIFO_monitor
