@@ -1,55 +1,50 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-//`include "uvm_AFIFO_agent_pkg.sv"
 import uvm_AFIFO_agent_pkg::*;
+`uvm_analysis_imp_decl(_wr)
+`uvm_analysis_imp_decl(_rd)
 
-class uvm_AFIFO_scoreboard#(DSIZE, ASIZE) extends uvm_scoreboard;
-	`uvm_component_utils(uvm_AFIFO_scoreboard#(8,3))
+class uvm_AFIFO_scoreboard extends uvm_scoreboard;
 
-	uvm_analysis_export #(uvm_AFIFO_sequence_item) sb_export_mon;	//these will receive transactions from the monitor and driver.
-	uvm_analysis_export #(bit [DSIZE-1:0]) sb_export_drv;
+	uvm_analysis_imp_wr#(uvm_AFIFO_Wr_sequence_item, uvm_AFIFO_scoreboard) imp_wr;
+	uvm_analysis_imp_rd#(uvm_AFIFO_Rd_sequence_item, uvm_AFIFO_scoreboard) imp_rd;
+`uvm_component_utils(uvm_AFIFO_scoreboard)
+int DSIZE = 8;
+bit [7:0] writeQ[$];
+bit [7:0] readQ[$];
+bit [7:0] write_data;
+bit [7:0] read_data;
 
-	uvm_tlm_analysis_fifo #(uvm_AFIFO_sequence_item) mon_fifo;	//to store and compare transactions
-	uvm_tlm_analysis_fifo #(bit [DSIZE-1:0]) drv_fifo;
-
-	uvm_AFIFO_sequence_item tr_mon;
-
-	function new(string name, uvm_component parent);
-		super.new(name, parent);
-		tr_mon = new("tr_mon");
-	endfunction : new
-	
-	function void build_phase(uvm_phase phase);
+function void build_phase(uvm_phase phase);
 	super.build_phase(phase);
+  	imp_wr = new("imp_wr",this);
+ 	imp_rd = new("imp_rd",this);
+endfunction
 
-		sb_export_mon = new("sb_export_mon", this);
-	        sb_export_drv = new("sb_export_drv", this);
-	
-		mon_fifo = new("mon_fifo", this);
-	        drv_fifo = new("drv_fifo", this);
-	endfunction : build_phase
+function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
+	writeQ.push_back(tx.rd_data);
+	$display("Read_Data is : %h", tx.rd_data);
+	tx.print();
+endfunction
 
-	function void connect_phase(uvm_phase phase);
-		sb_export_mon.connect(mon_fifo.analysis_export);
-		sb_export_drv.connect(drv_fifo.analysis_export);
-	endfunction : connect_phase
+function void write_rd (uvm_AFIFO_Wr_sequence_item rx);
+	readQ.push_back(rx.rd_data);
+	$display("Expected Read_Data is : %h", rx.rd_data);
+	rx.print();
+endfunction
 
-	task run();
-		forever begin
-			bit [DSIZE-1:0] rd_exp;
+task run_phase(uvm_phase phase);
+	forever begin
+	wait(writeQ.size()>0 && readQ.size()>0);
+	write_data = writeQ.pop_front();
+	read_data = readQ.pop_back();
 
-			mon_fifo.get(tr_mon);
-			drv_fifo.get(rd_exp);
-			compare(tr_mon, rd_exp);
-		end
-	endtask : run
+	if(write_data == read_data)
+		$display("MATCHED DATA, DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data);
+	else begin 
+		$display("MISMATCHED DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data); 
+	end
+	end
+endtask
 
-	function void compare(uvm_AFIFO_sequence_item tr_mon, bit [DSIZE-1:0] rd_exp);
-	if (tr_mon.rd_data == rd_exp) begin
-            `uvm_info("SCOREBOARD", $sformatf("[ID = ] MATCHED, READ DATA: %0d", tr_mon.rd_data), UVM_LOW); //, tr_mon.id removed
-        end else begin
-            `uvm_error("SCOREBOARD", $sformatf("[ID = ] MISMATCHED, DUT: %0d != REF: %0d", tr_mon.rd_data, rd_exp));
-        end
-	endfunction : compare
-
-endclass : uvm_AFIFO_scoreboard
+endclass

@@ -1,12 +1,13 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-import 
+import uvm_AFIFO_agent_pkg::*;
 
 class uvm_AFIFO_Rd_driver extends uvm_driver#(uvm_AFIFO_Rd_sequence_item);
 
+int DSIZE, ASIZE;
 
 // ========== FACTORY REGISTRATION ==========
-`uvm_component_utils(uvm_AFIFO_driver)
+`uvm_component_utils(uvm_AFIFO_Rd_driver)
 
 // ========== Handle ==========
  virtual uvm_AFIFO_interface vif;
@@ -21,7 +22,7 @@ endfunction: new
 
      function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        rd_packet = new("rd_packet", this);
+        //rd_packet = new("rd_packet", this);
         `uvm_info("Read Driver", "Inside the build phase of driver", UVM_NONE);
  // ----- Reterving the Interface -----
  if(!uvm_resource_db#(virtual uvm_AFIFO_interface)::read_by_name("ALL","TB",vif,this)) 

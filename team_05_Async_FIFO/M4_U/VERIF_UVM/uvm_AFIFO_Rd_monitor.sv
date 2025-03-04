@@ -12,11 +12,11 @@ class uvm_AFIFO_Rd_monitor extends uvm_monitor;
 uvm_AFIFO_Rd_sequence_item seq_item;
 
 // uvm_AFIFO_scoreboard scoreboard;
-// int DSIZE;
-// int ASIZE;
+ int DSIZE;
+ int ASIZE;
 //
 // Analysis Port: For sending data to the coverage
- uvm_analysis_port#(uvm_AFIFO_sequence_item) mon_port_cov;
+ uvm_analysis_port#(uvm_AFIFO_Rd_sequence_item) mon_port_cov;
 
 
 // ========== MEMORY CONSTRUCTOR ==========
@@ -56,7 +56,7 @@ task run_phase(uvm_phase phase);
     forever begin
         @(posedge vif_mon.wr_clk);
             if (vif_mon.wr_inc==1) begin
-                seq_item = uvm_AFIFO_sequence_item::new();
+                seq_item = uvm_AFIFO_Rd_sequence_item::new();
             end   
         @(posedge vif_mon.rd_clk);
 
@@ -65,12 +65,12 @@ task run_phase(uvm_phase phase);
 
                 // Set the sequence item fields based on DUT signals
                 seq_item.rd_data = vif_mon.rd_data;
-                seq_item.wr_inc = vif_mon.wr_inc;
+              //  seq_item.wr_inc = vif_mon.wr_inc;
                 seq_item.rd_inc = vif_mon.rd_inc;
-                seq_item.wr_rst = vif_mon.wr_rst;
+               // seq_item.wr_rst = vif_mon.wr_rst;
                 seq_item.rd_rst = vif_mon.rd_rst;
                 seq_item.rd_empty = vif_mon.rd_empty;
-                seq_item.wr_full = vif_mon.wr_full;
+              //  seq_item.wr_full = vif_mon.wr_full;
 
                 mon_port_cov.write(seq_item); // Send sequence item via analysis export
 
@@ -81,5 +81,5 @@ task run_phase(uvm_phase phase);
     end
 endtask
 
-endclass: uvm_AFIFO_monitor
+endclass: uvm_AFIFO_Rd_monitor
 
