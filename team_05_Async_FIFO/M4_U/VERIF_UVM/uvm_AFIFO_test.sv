@@ -5,14 +5,9 @@ import uvm_AFIFO_agent_pkg::*;
 `include "../Environment/uvm_AFIFO_env.sv"
 
 class uvm_AFIFO_test extends uvm_test;
-
 // ========== FACTORY REGISTRATION ==========
     `uvm_component_utils(uvm_AFIFO_test)
-
-
-// Handles
-uvm_AFIFO_env env;
-
+	uvm_AFIFO_env env;
 
 // ========== MEMORY CONSTRUCTOR ==========
     function new(string name = "uvm_AFIFO_test", uvm_component parent = null);
@@ -22,10 +17,13 @@ uvm_AFIFO_env env;
     // Build phase: Create and configure the testbench environment
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        // Create and configure the environment, agent, etc. (if needed)
-        // Example:
-        // env = uvm_AFIFO_environment::type_id::create("env", this);
+        env = uvm_AFIFO_env::type_id::create("env", this);
     endfunction: build_phase
+
+	function void end_of_elaboration_phase(uvm_phase phase);
+ 		 uvm_top.print_topology();
+	endfunction
+endclass
 
     // Run phase: Start the sequence and execute the test case
     task run_phase(uvm_phase phase);
