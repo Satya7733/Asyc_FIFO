@@ -1,4 +1,3 @@
-
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
