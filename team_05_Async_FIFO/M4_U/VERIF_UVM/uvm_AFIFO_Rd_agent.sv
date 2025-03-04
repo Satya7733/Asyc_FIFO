@@ -17,7 +17,7 @@ class uvm_AFIFO_Rd_agent extends uvm_agent;
   //  uvm_analysis_port#(uvm_AFIFO_sequence_item) sb_export_mon;
 
     // ========== CONSTRUCTOR ==========
-    function new(string name = "uvm_AFIFO_Rd_agent", uvm_component parent ); 
+    function new(string name = "uvm_AFIFO_Rd_agent", uvm_component parent=null ); 
       super.new(name,parent); 
     endfunction 
 

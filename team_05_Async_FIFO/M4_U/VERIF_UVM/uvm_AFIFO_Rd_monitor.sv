@@ -54,23 +54,20 @@ endfunction : build_phase
 task run_phase(uvm_phase phase);
 
     forever begin
-        @(posedge vif_mon.wr_clk);
-            if (vif_mon.wr_inc==1) begin
+        @(posedge vif.rd_clk);
+            if (vif.rd_inc==1) begin
                 seq_item = uvm_AFIFO_Rd_sequence_item::new();
             end   
-        @(posedge vif_mon.rd_clk);
+        @(posedge vif.rd_clk);
 
-            if (vif_mon.rd_inc || vif_mon.rd_empty || vif_mon.wr_full || ~vif_mon.rd_rst) begin
-                `uvm_info("READ_MONITOR", $sformatf("Monitoring signals... rd_inc=%b, wr_inc=%b, rd_empty=%b", vif_mon.rd_inc, vif_mon.wr_inc, vif_mon.rd_empty), UVM_MEDIUM)
+            if (vif.rd_inc || vif.rd_empty || vif.wr_full || ~vif.rd_rst) begin
+                `uvm_info("READ_MONITOR", $sformatf("Monitoring signals... rd_inc=%b, wr_inc=%b, rd_empty=%b", vif.rd_inc, vif.wr_inc, vif.rd_empty), UVM_MEDIUM)
 
                 // Set the sequence item fields based on DUT signals
-                seq_item.rd_data = vif_mon.rd_data;
-              //  seq_item.wr_inc = vif_mon.wr_inc;
-                seq_item.rd_inc = vif_mon.rd_inc;
-               // seq_item.wr_rst = vif_mon.wr_rst;
-                seq_item.rd_rst = vif_mon.rd_rst;
-                seq_item.rd_empty = vif_mon.rd_empty;
-              //  seq_item.wr_full = vif_mon.wr_full;
+                seq_item.rd_data = vif.rd_data;
+                seq_item.rd_inc = vif.rd_inc;
+                seq_item.rd_rst = vif.rd_rst;
+                seq_item.rd_empty = vif.rd_empty;
 
                 mon_port_cov.write(seq_item); // Send sequence item via analysis export
 

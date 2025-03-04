@@ -9,6 +9,12 @@ class uvm_AFIFO_scoreboard extends uvm_scoreboard;
 	uvm_analysis_imp_wr#(uvm_AFIFO_Wr_sequence_item, uvm_AFIFO_scoreboard) imp_wr;
 	uvm_analysis_imp_rd#(uvm_AFIFO_Rd_sequence_item, uvm_AFIFO_scoreboard) imp_rd;
 `uvm_component_utils(uvm_AFIFO_scoreboard)
+
+function new(string name = "uvm_AFIFO_scoreboard", uvm_component parent = null); 
+ super.new(name,parent);
+ endfunction 
+
+
 int DSIZE = 8;
 bit [7:0] writeQ[$];
 bit [7:0] readQ[$];
