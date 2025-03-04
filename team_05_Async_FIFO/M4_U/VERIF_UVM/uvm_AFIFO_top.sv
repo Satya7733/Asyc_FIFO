@@ -1,5 +1,6 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
+
 `include "../RTL/FIFO.sv"
 `include "../RTL/FIFO_2FF_Sync.sv"
 `include "../RTL/FIFO_rd_empty.sv"
@@ -8,7 +9,7 @@ import uvm_pkg::*;
 
 import uvm_AFIFO_agent_pkg::*;
 
-
+/*
 `include "uvm_AFIFO_interface.sv"
 `include "uvm_AFIFO_agent_pkg.sv"
 `include "uvm_AFIFO_Wr_cov.sv"
@@ -28,6 +29,8 @@ import uvm_AFIFO_agent_pkg::*;
 `include "uvm_AFIFO_Rd_agent.sv"
 `include "uvm_AFIFO_env.sv"
 `include "uvm_AFIFO_test.sv"
+
+*/
 // check if all necessary files included
 
 module uvm_AFIFO_top;
@@ -42,7 +45,7 @@ module uvm_AFIFO_top;
 
 
 	initial begin
-		uvm_resource_db#(virtual uvm_AFIFO_interface#(8,3))::set("ALL", "TB",in,null);	
+		uvm_resource_db#(virtual uvm_AFIFO_interface#(8,3))::set("ALL", "TB",vif,null);	
 	end
 
 //Variable initialization
@@ -51,7 +54,7 @@ module uvm_AFIFO_top;
 		vif.rd_clk = 1;
 		vif.wr_rst = 1;
 		vif.wr_inc = 0;
-		vif.rd_data = 0;
+	//	vif.rd_data = 0;
 		vif.rd_clk = 0;
 		vif.rd_rst = 1;
 		vif.rd_inc = 0;

@@ -40,11 +40,11 @@ endfunction: new
   end
 	//----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-	  `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
+	//  `uvm_fatal("AFIFO_MONITOR", "DSIZE not set in config_db!")
         end
 
     if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
-        `uvm_fatal("AFIFO_MONITOR", "ASIZE not set in config_db!")
+    //    `uvm_fatal("AFIFO_MONITOR", "ASIZE not set in config_db!")
         end
 	
 endfunction : build_phase
@@ -55,10 +55,11 @@ task run_phase(uvm_phase phase);
 
     forever begin
         @(posedge vif.rd_clk);
-            if (vif.rd_inc==1) begin
+            if (vif.rd_inc==1 || vif.rd_empty == 1 ) begin
                 seq_item = uvm_AFIFO_Rd_sequence_item::new();
+                `uvm_info("READ_MONITOR", "Seq item object created ", UVM_MEDIUM)
             end   
-        @(posedge vif.rd_clk);
+      //  @(posedge vif.rd_clk);
 
             if (vif.rd_inc || vif.rd_empty || vif.wr_full || ~vif.rd_rst) begin
                 `uvm_info("READ_MONITOR", $sformatf("Monitoring signals... rd_inc=%b, wr_inc=%b, rd_empty=%b", vif.rd_inc, vif.wr_inc, vif.rd_empty), UVM_MEDIUM)

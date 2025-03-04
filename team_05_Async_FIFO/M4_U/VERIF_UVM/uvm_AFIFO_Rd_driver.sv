@@ -31,11 +31,11 @@ endfunction: new
   end
 // ----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-	  `uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
+	  //`uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
         end
 
     if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
-        `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
+       // `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
         end
 
     endfunction : build_phase

@@ -28,12 +28,12 @@ function void build_phase(uvm_phase phase);
 endfunction
 
 function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
-	writeQ.push_back(tx.rd_data);
-	$display("Read_Data is : %h", tx.rd_data);
+	writeQ.push_back(tx.wr_data);
+	$display("Data Written is : %h", tx.wr_data);
 	tx.print();
 endfunction
 
-function void write_rd (uvm_AFIFO_Wr_sequence_item rx);
+function void write_rd (uvm_AFIFO_Rd_sequence_item rx);
 	readQ.push_back(rx.rd_data);
 	$display("Expected Read_Data is : %h", rx.rd_data);
 	rx.print();

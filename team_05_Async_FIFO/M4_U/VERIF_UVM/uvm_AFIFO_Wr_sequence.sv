@@ -8,8 +8,8 @@ class uvm_AFIFO_Wr_base_sequence extends uvm_sequence#(uvm_AFIFO_Wr_sequence_ite
 `uvm_object_utils(uvm_AFIFO_Wr_base_sequence) //Factory Reg
 
 //================Memory Constructor =======================
- function new(string name = "uvm_AFIFO_Wr_base_sequence", uvm_component parent ); 
- super.new(name,parent); 
+ function new(string name = "uvm_AFIFO_Wr_base_sequence"); 
+ super.new(name); 
 
  endfunction 
 
@@ -34,8 +34,8 @@ endclass
 class uvm_AFIFO_Wr_sequence extends uvm_AFIFO_Wr_base_sequence;
 `uvm_object_utils(uvm_AFIFO_Wr_sequence) //Factory Reg
 //================Memory Constructor =======================
- function new(string name = "uvm_AFIFO_Wr_sequence", uvm_component parent ); 
- super.new(name,parent); 
+ function new(string name = "uvm_AFIFO_Wr_sequence" ); 
+ super.new(name); 
  
  endfunction 
 
@@ -48,7 +48,7 @@ int repeat_count;
 		repeat(repeat_count) begin
 			`uvm_do(wr_packet);// creates obj tr of transaction class, randomizes it and sends: seq->seqr 
 						 //start item -> Randomize -> Finish item(sends tr to driver)
-    		`uvm_info("WRITE_SEQUENCE", $sformatf("Data_Write = %2h", wr_packet.data), UVM_NONE)
+    		`uvm_info("WRITE_SEQUENCE", $sformatf("Data_Write = %2h", wr_packet.wr_data), UVM_NONE)
 		end
 	 endtask
 
