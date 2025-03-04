@@ -30,6 +30,7 @@ endfunction: new
 
      function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+	`uvm_info("DRIVER", "Inside the build phase of driver", UVM_NONE);
   //      seq_item_port = new("seq_item_port", this); // Create the sequence item port
         sb_export_drv = new("analysis_port", this); // Create the analysis port
 
