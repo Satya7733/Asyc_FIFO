@@ -33,8 +33,8 @@ class uvm_AFIFO_env extends uvm_env;
     // ========== CONNECT PHASE ==========
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-        Wr_agent.wr_mon.sb_export_mon.connect(scoreboard.imp_wr);	//Connecting Write Monitor and Scoreboard
-        Rd_agent.rd_mon.mon_port_cov.connect(scoreboard.imp_rd); //Connectiong Read Monitor and Scoreboard
+        Wr_agent.afifo_Wr_mon.sb_export_mon.connect(scoreboard.imp_wr);	//Connecting Write Monitor and Scoreboard
+        Rd_agent.Rd_mon.mon_port_cov.connect(scoreboard.imp_rd); //Connectiong Read Monitor and Scoreboard
 
 
     endfunction: connect_phase
