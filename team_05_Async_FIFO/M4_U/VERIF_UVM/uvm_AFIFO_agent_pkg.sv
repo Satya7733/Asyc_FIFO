@@ -25,7 +25,8 @@ package uvm_AFIFO_agent_pkg;
     `include "uvm_AFIFO_Wr_agent.sv"       // Agent class
     
     `include "uvm_AFIFO_scoreboard.sv" // Scb class
-    `include "uvm_AFIFO_env.sv"    
+    `include "uvm_AFIFO_env.sv"  
+    //`include "uvm_AFIFO_test.sv"  
   
 //    `include "../Environment/uvm_AFIFO_env.sv"
 
