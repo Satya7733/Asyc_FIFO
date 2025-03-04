@@ -1,3 +1,4 @@
+
 `uvm_analysis_imp_decl(_wr)
 `uvm_analysis_imp_decl(_rd)
 
@@ -42,3 +43,4 @@ task run_phase(uvm_phase phase);
 	end
 	end
 endtask
+

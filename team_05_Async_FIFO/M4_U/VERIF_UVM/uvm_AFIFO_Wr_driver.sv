@@ -49,7 +49,9 @@ task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
 
 @(posedge vif.wr_clk);
 		vif.wr_inc =1;
-		vif.wr_data = tx.wr_data;
+
+		vif.wr_data = wr_packet.wr_data;
+
     i++;
     if(i == repeat_count) begin
      @(posedge vif.wr_clk);
@@ -57,7 +59,9 @@ task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
 		vif.wr_inc = 0;
 		vif.wr_data = 0;
      end
-  `uvm_info("WRITE_DRIVER", $sformatf("Write_EN = %0d, Data_in = %2h", inf.w_en, tx.data), UVM_NONE)
+
+  `uvm_info("WRITE_DRIVER", $sformatf("Write_EN = %0d, Data_in = %2h", vif.wr_inc, wr_packet.data), UVM_NONE)
+
 
 endtask
 
