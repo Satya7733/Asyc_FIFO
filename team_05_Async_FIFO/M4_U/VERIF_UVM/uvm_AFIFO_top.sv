@@ -5,6 +5,10 @@ import uvm_pkg::*;
 `include "../RTL/FIFO_rd_empty.sv"
 `include "../RTL/FIFO_wr_full.sv"
 `include "../RTL/fifo_memory.sv"
+
+import uvm_AFIFO_agent_pkg::*;
+
+
 `include "uvm_AFIFO_interface.sv"
 `include "uvm_AFIFO_agent_pkg.sv"
 `include "uvm_AFIFO_Wr_cov.sv"
