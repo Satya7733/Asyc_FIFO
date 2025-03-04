@@ -6,7 +6,8 @@ package uvm_AFIFO_agent_pkg;
 
 
     //Include all components
-	
+ 
+
 	`include "uvm_AFIFO_Rd_sequence_item.sv" // Rd Transaction class
 	`include "uvm_AFIFO_Rd_sequencer.sv" // Rd Sequencer
     `include "uvm_AFIFO_Rd_seq.sv" // Rd Sequence class
@@ -22,9 +23,10 @@ package uvm_AFIFO_agent_pkg;
     `include "uvm_AFIFO_Wr_monitor.sv"     // Monitor class
 	`include "uvm_AFIFO_Wr_cov.sv"		//Coverage class
     `include "uvm_AFIFO_Wr_agent.sv"       // Agent class
-
-`include "uvm_AFIFO_scoreboard.sv"
-//    `include "../Environment/uvm_AFIFO_scoreboard.sv"       // Scb class
+    
+    `include "uvm_AFIFO_scoreboard.sv" // Scb class
+    `include "uvm_AFIFO_env.sv"    
+  
 //    `include "../Environment/uvm_AFIFO_env.sv"
 
 endpackage: uvm_AFIFO_agent_pkg
