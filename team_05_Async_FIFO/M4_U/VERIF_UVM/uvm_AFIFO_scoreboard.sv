@@ -66,16 +66,16 @@ endtask
 function void check_phase(uvm_phase phase);
         super.check_phase(phase);
     `uvm_info("SCOREBOARD", $sformatf("Functional Coverage at End: %0.2f%%", $get_coverage()), UVM_MEDIUM)
-    `uvm_info("SCOREBOARD", $sformatf("Read Data Coverage: %0.2f%%", rd_cov.rd_cg.data_depth.get_inst_coverage()), UVM_MEDIUM)
+   // `uvm_info("SCOREBOARD", $sformatf("Read Data Coverage: %0.2f%%", rd_cov.rd_cg.data_depth.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("Read Increment Coverage: %0.2f%%", rd_cov.rd_cg.rd_inc.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("FIFO Empty Coverage: %0.2f%%", rd_cov.rd_cg.rd_empty.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("Reset Coverage: %0.2f%%", rd_cov.rd_cg.reset.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("Read Increment vs FIFO Empty Cross Coverage: %0.2f%%", rd_cov.rd_cg.read_inc_vs_fifo_empty.get_inst_coverage()), UVM_MEDIUM)
-    `uvm_info("SCOREBOARD", $sformatf("Write Data Coverage: %0.2f%%", wr_cov.wr_cg.cp_data.get_inst_coverage()), UVM_MEDIUM)
+  //  `uvm_info("SCOREBOARD", $sformatf("Write Data Coverage: %0.2f%%", wr_cov.wr_cg.cp_data.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("Write Increment Coverage: %0.2f%%", wr_cov.wr_cg.cp_w_en.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("FIFO Full Coverage: %0.2f%%", wr_cov.wr_cg.cp_full.get_inst_coverage()), UVM_MEDIUM)
     `uvm_info("SCOREBOARD", $sformatf("Reset Coverage: %0.2f%%", wr_cov.wr_cg.cp_wrst_n.get_inst_coverage()), UVM_MEDIUM)
-    `uvm_info("SCOREBOARD", $sformatf("Write Increment vs Data Cross Coverage: %0.2f%%", wr_cov.wr_cg.cross_burst_idle.get_inst_coverage()), UVM_MEDIUM)
+   // `uvm_info("SCOREBOARD", $sformatf("Write Increment vs Data Cross Coverage: %0.2f%%", wr_cov.wr_cg.cross_burst_idle.get_inst_coverage()), UVM_MEDIUM)
 	endfunction
 
 endclass

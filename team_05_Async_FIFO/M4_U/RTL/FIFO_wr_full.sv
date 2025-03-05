@@ -60,5 +60,3 @@ assign wr_full_val = (wr_gray_next=={~wr_q2_rptr[ADDR_SIZE:ADDR_SIZE -1], wr_q2_
 
 */
 endmodule
-
-

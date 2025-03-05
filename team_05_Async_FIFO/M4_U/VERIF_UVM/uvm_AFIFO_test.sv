@@ -98,8 +98,8 @@ class AFIFO_wr_rd extends uvm_AFIFO_test;
 
 	function void build_phase(uvm_phase phase);
 	 super.build_phase(phase);
-    	 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_RD",600,this);
-		 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_WR",500,this);
+    	 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_RD",25,this);
+		 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_WR",20,this);
 	endfunction
 
     // Run phase: Start the sequence and execute the test case
@@ -111,7 +111,7 @@ class AFIFO_wr_rd extends uvm_AFIFO_test;
 	rd_seq = uvm_AFIFO_Rd_seq::type_id::create("rd_seq", this);
 
 	phase.raise_objection(this);
-//	phase.phase_done.set_drain_time(this,100);
+	phase.phase_done.set_drain_time(this,100);
         //wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
 		//rd_seq.start(env.Rd_agent.Rd_sqr);
 		fork

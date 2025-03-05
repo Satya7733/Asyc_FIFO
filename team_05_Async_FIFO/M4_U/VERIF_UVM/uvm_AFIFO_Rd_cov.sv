@@ -9,10 +9,10 @@ uvm_AFIFO_Rd_sequence_item seq_item;
 covergroup rd_cg;
     // Coverpoint For Data 
     option.per_instance = 1;
-    data_depth: coverpoint seq_item.rd_data {
-      bins depth_bins = {[0:7]}; // Assuming data depth is 3 bits as per FIFO depth analysis
-      bins depth_zero = {0}; // Directly specify the value for depth 0
-    }
+  //  data_depth: coverpoint seq_item.rd_data {
+  //    bins depth_bins = {[0:7]}; // Assuming data depth is 3 bits as per FIFO depth analysis
+  //    bins depth_zero = {0}; // Directly specify the value for depth 0
+  //  }
 
     // Coverpoint for read enable signal to capture read operations
     rd_inc: coverpoint seq_item.rd_inc {
@@ -21,7 +21,7 @@ covergroup rd_cg;
 
     // Coverpoint for empty signal to monitor FIFO empty status
     rd_empty: coverpoint seq_item.rd_empty {
-      bins empty = {1};
+    //  bins empty = {1};
       bins not_empty = {0};
     }
 

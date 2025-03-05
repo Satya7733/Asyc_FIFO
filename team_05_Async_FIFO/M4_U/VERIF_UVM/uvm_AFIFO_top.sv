@@ -1,11 +1,11 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
-`include "../RTL/BUGGYRTL/FIFO.sv"
-`include "../RTL/BUGGYRTL/Bug2_FIFO_2FF_Sync.sv"
-`include "../RTL/BUGGYRTL/Bug1_FIFO_rd_empty.sv"
-`include "../RTL/BUGGYRTL/FIFO_wr_full.sv"
-`include "../RTL/BUGGYRTL/fifo_memory.sv"
+`include "../RTL/FIFO.sv"
+`include "../RTL/FIFO_2FF_Sync.sv"
+`include "../RTL/FIFO_rd_empty.sv"
+`include "../RTL/FIFO_wr_full.sv"
+`include "../RTL/fifo_memory.sv"
 
 import uvm_AFIFO_agent_pkg::*;
 

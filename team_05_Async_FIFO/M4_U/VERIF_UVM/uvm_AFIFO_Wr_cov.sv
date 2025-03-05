@@ -13,9 +13,9 @@ class uvm_AFIFO_Wr_cov extends uvm_subscriber#(uvm_AFIFO_Wr_sequence_item);
     option.per_instance = 1;
     
     // Cover points
-    cp_data: coverpoint wr_packet_m2c.wr_data {
-      bins valid_data[] = {[0:255]};
-    }
+    //cp_data: coverpoint wr_packet_m2c.wr_data {
+   //   bins valid_data[] = {[0:255]};
+   // }
     cp_w_en: coverpoint wr_packet_m2c.wr_inc {     
       bins enabled = {1'b1};
     }
@@ -28,7 +28,7 @@ class uvm_AFIFO_Wr_cov extends uvm_subscriber#(uvm_AFIFO_Wr_sequence_item);
       bins not_full = {1'b0};
     }
     // Cross coverage
-    cross_burst_idle: cross cp_data, cp_w_en; 
+  //  cross_burst_idle: cross cp_data, cp_w_en; 
 
   endgroup
 

@@ -19,4 +19,3 @@ module ff_sync #(parameter SIZE = 4)(
  	end 
 
 endmodule
-
