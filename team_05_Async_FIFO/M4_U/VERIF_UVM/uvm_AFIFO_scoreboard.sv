@@ -28,14 +28,16 @@ function void build_phase(uvm_phase phase);
 endfunction
 
 function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
-	writeQ.push_back(tx.rd_data);
-	$display("Read_Data is : %h", tx.rd_data);
+	if(tx.wr_inc == 1)writeQ.push_back(tx.wr_data);
+	$display("Data Written is : %h", tx.wr_data);
+	if(tx.wr_full == 1)$display("[SCB]: WRITE FULL ");
 	tx.print();
 endfunction
 
-function void write_rd (uvm_AFIFO_Wr_sequence_item rx);
-	readQ.push_back(rx.rd_data);
+function void write_rd (uvm_AFIFO_Rd_sequence_item rx);
+	if(rx.rd_inc == 1)readQ.push_back(rx.rd_data);
 	$display("Expected Read_Data is : %h", rx.rd_data);
+	if(rx.rd_empty == 1)$display("[SCB]: READ EMPTY ");
 	rx.print();
 endfunction
 
@@ -44,11 +46,12 @@ task run_phase(uvm_phase phase);
 	wait(writeQ.size()>0 && readQ.size()>0);
 	write_data = writeQ.pop_front();
 	read_data = readQ.pop_back();
-
+	
+	
 	if(write_data == read_data)
-		$display("MATCHED DATA, DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data);
+		$display("MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data);
 	else begin 
-		$display("MISMATCHED DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data); 
+		$display("MISMATCHED DATA Written (Ref Module)= %0h, DATA_READ = %0h", write_data, read_data); 
 	end
 	end
 endtask

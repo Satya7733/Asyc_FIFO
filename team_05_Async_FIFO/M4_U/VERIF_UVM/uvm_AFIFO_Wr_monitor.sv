@@ -33,8 +33,9 @@ endfunction : build_phase
 // ========== RUN PHASE ==========
 task run_phase(uvm_phase phase);
 forever begin
-    @(vif.wr_clk);
+    @(posedge vif.wr_clk);
     if(vif.wr_inc == 1) begin
+    #2
     wr_packet_m2s = new();
     wr_packet_m2s.wr_rst = vif.wr_rst;
     wr_packet_m2s.wr_full = vif.wr_full;
