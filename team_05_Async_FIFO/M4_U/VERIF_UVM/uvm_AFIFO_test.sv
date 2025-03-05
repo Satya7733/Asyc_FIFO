@@ -2,6 +2,22 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
 
+int logfile, errorlogfile;
+class ahb_apb_report_server extends uvm_report_server;
+`uvm_object_utils(ahb_apb_report_server)
+function new (string name="ahb_apb_report_server");
+	super.new();
+	$display( "Constructing report serevr %0s",name);
+endfunction
+virtual function string compose_message( uvm_severity severity,string name,string id,string message,string filename,int line );
+	$display("%0s",super.compose_message(severity,name,id,message,filename,line));
+    return $sformatf( "UVM_INFO | %16s | %2d | %0t | %-21s | %-7s | %s",
+                         filename, line, $time, name, id, message );
+endfunction
+endclass
+
+
+
 class uvm_AFIFO_test extends uvm_test;
 
 // ========== FACTORY REGISTRATION ==========
@@ -22,6 +38,23 @@ class uvm_AFIFO_test extends uvm_test;
 	function void end_of_elaboration_phase(uvm_phase phase);
  		 uvm_top.print_topology();
 	endfunction
+
+function void start_of_simulation_phase(uvm_phase phase);
+	ahb_apb_report_server server = new;
+	super.start_of_simulation_phase(phase);
+	`uvm_info("TEST CLASS","start of simulation phase - test",UVM_NONE);
+	logfile = $fopen("simulation_log.txt","w");
+	set_report_severity_action_hier(UVM_INFO, UVM_DISPLAY | UVM_LOG);
+	set_report_severity_file_hier(UVM_INFO, logfile);
+	
+	errorlogfile = $fopen("error_log_file.txt","w");
+	set_report_severity_action_hier(UVM_ERROR, UVM_DISPLAY | UVM_LOG);
+	set_report_severity_file_hier(UVM_ERROR, errorlogfile);
+	uvm_report_server::set_server( server );
+endfunction
+
+
+
 endclass
 
 //FIFO Write Test

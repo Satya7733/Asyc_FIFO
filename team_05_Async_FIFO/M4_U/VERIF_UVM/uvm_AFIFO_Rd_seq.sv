@@ -52,13 +52,13 @@ uvm_AFIFO_Rd_sequence_item rd_packet;
 		`uvm_error("Read_Seq","Problem with the interface")
 	 end
 
-     if(!uvm_config_db#(int)::get(null, "", "dsize", DSIZE)) begin
-      `uvm_error("Read_Seq","Failed to get DSIZE from config DB")
-    end
+     //if(!uvm_config_db#(int)::get(null, "", "dsize", DSIZE)) begin
+      //`uvm_error("Read_Seq","Failed to get DSIZE from config DB")
+    //end
 
-    if(!uvm_config_db#(int)::get(null, "", "asize", ASIZE)) begin
-      `uvm_error("Read_Seq","Failed to get ASIZE from config DB")
-    end
+    //if(!uvm_config_db#(int)::get(null, "", "asize", ASIZE)) begin
+     // `uvm_error("Read_Seq","Failed to get ASIZE from config DB")
+    //end
 
     `uvm_info("READ_SEQUENCE", $sformatf("repeat_count=%0d, dsize=%0d, asize=%0d", repeat_count, DSIZE, ASIZE), UVM_MEDIUM)
 
