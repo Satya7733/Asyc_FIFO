@@ -48,7 +48,7 @@ endfunction: new
 uvm_AFIFO_Rd_sequence_item rd_packet;
 
 	 task body();
- 	 if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT",repeat_count,this)) begin
+ 	 if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT_RD",repeat_count,this)) begin
 		`uvm_error("Read_Seq","Problem with the interface")
 	 end
 

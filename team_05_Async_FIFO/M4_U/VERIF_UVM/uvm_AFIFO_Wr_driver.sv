@@ -29,7 +29,7 @@ endfunction: new
         begin
          `uvm_error("WRITE_DRIVER","Problem with the interface")
         end
-        if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT",repeat_count,this)) 
+        if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT_WR",repeat_count,this)) 
         begin
 		      `uvm_error("WRITE_SEQUENCE","Problem with the interface")
         end
