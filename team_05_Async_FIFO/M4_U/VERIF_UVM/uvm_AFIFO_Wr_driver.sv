@@ -29,7 +29,7 @@ endfunction: new
         begin
          `uvm_error("WRITE_DRIVER","Problem with the interface")
         end
-        if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT",repeat_count,this)) 
+        if(!uvm_resource_db#(int)::read_by_name("GLOBAL","RPT_CNT_WR",repeat_count,this)) 
         begin
 		      `uvm_error("WRITE_SEQUENCE","Problem with the interface")
         end
@@ -60,7 +60,7 @@ task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
 		vif.wr_data = 0;
      end
 
-  `uvm_info("WRITE_DRIVER", $sformatf("Write_EN = %0d, Data_in = %2h", vif.wr_inc, wr_packet.data), UVM_NONE)
+  `uvm_info("WRITE_DRIVER", $sformatf("Write_EN = %0d, Data_in = %2h", vif.wr_inc, wr_packet.wr_data), UVM_NONE)
 
 
 endtask

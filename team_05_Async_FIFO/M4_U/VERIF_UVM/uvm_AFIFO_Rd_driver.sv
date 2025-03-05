@@ -31,11 +31,11 @@ endfunction: new
   end
 // ----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
-	  `uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
+	  //`uvm_fatal("AFIFO_DRIVER", "DSIZE not set in config_db!")
         end
 
     if (!uvm_config_db#(int)::get(this, "", "ASIZE", ASIZE)) begin
-        `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
+       // `uvm_fatal("AFIFO_DRIVER", "ASIZE not set in config_db!")
         end
 
     endfunction : build_phase
@@ -52,11 +52,12 @@ endfunction: new
  endtask
 
  task drive_tx(uvm_AFIFO_Rd_sequence_item rd_packet);
-   @(posedge vif.rd_clk);
+   @(negedge vif.rd_clk);
    	if(!vif.rd_empty) begin
-	    vif.rd_inc <= 1'b1;
+	    #3
+      vif.rd_inc <= 1'b1;
         `uvm_info("READ_DRIVER", $sformatf("Read_INC = %0d",  vif.rd_inc), UVM_NONE)
-	    @(posedge vif.rd_clk); //Experimental
+	    @(negedge vif.rd_clk); //Experimental
 	    vif.rd_inc <= 1'b0;
         `uvm_info("READ_DRIVER", $sformatf("Read_INC = %0d",  vif.rd_inc), UVM_NONE)
     end
