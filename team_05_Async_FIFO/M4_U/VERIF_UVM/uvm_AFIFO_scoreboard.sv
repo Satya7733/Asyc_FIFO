@@ -49,9 +49,9 @@ task run_phase(uvm_phase phase);
 	
 	
 	if(write_data == read_data)
-		$display("MATCHED DATA, DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data);
+		$display("MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data);
 	else begin 
-		$display("MISMATCHED DATA_IN = %0h, DATA_OUT = %0h", write_data, read_data); 
+		$display("MISMATCHED DATA Written (Ref Module)= %0h, DATA_READ = %0h", write_data, read_data); 
 	end
 	end
 endtask

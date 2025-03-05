@@ -143,8 +143,10 @@ class AFIFO_full_empty extends uvm_AFIFO_test;
 
 	phase.raise_objection(this);
 	phase.phase_done.set_drain_time(this,100);
+		forever begin
         wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
-		rd_seq.start(env.Rd_agent.Rd_sqr);
+		#25 rd_seq.start(env.Rd_agent.Rd_sqr);
+		end
 	phase.drop_objection(this);
 	endtask	
     

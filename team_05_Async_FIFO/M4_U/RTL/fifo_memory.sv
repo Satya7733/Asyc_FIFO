@@ -1,13 +1,15 @@
 module fifo_memory #(parameter DATA_SIZE = 8, parameter ADDR_SIZE = 4)(
 	input [DATA_SIZE-1:0] wr_data,
 	input [ADDR_SIZE-1:0] wr_addr, rd_addr,
-	input en, wr_full, clk,
-	output [DATA_SIZE-1:0] rd_data);
+	input en, wr_full, clk, rd_inc, rd_clk,
+	output reg [DATA_SIZE-1:0] rd_data);
 
 	localparam DEPTH = 1<<ADDR_SIZE; //depth of fifo
 	reg [DATA_SIZE-1:0] mem [0:DEPTH-1];
 	
-	assign rd_data = mem[rd_addr];
+	always @(posedge rd_clk) begin
+		if (rd_inc)rd_data = mem[rd_addr];
+	end
 
 	always @(posedge clk) begin
 	if(en && !wr_full) begin 

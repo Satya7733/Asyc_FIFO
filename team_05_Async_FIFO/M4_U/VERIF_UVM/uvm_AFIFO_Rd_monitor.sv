@@ -58,6 +58,7 @@ task run_phase(uvm_phase phase);
 
          if (vif.rd_inc==1 ) begin
             seq_item = uvm_AFIFO_Rd_sequence_item::new();
+                #2
                 // Set the sequence item fields based on DUT signals
                 seq_item.rd_data = vif.rd_data;
                 seq_item.rd_inc = vif.rd_inc;

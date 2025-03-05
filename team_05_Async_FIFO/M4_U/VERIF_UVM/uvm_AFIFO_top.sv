@@ -52,15 +52,15 @@ module uvm_AFIFO_top;
 	initial begin
 		vif.wr_clk = 1;
 		vif.rd_clk = 1;
-		vif.wr_rst = 1;
+		vif.wr_rst = 0; //active low
 		vif.wr_inc = 0;
 	//	vif.rd_data = 0;
 		vif.rd_clk = 0;
-		vif.rd_rst = 1;
+		vif.rd_rst = 0;// active low
 		vif.rd_inc = 0;
 		repeat(2)@(posedge vif.wr_clk);
-		vif.wr_rst = 0;
-		vif.rd_rst = 0;
+		vif.wr_rst = 1;
+		vif.rd_rst = 1;
 	end
 
 	initial begin
