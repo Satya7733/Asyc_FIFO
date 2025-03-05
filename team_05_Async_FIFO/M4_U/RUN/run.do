@@ -1,46 +1,45 @@
-#Delete and create work library
-if [file exists "work"] {vdel -all}
-vlib work
 
-#Compile the RTL source & Testbench Files
-#vlog -source -lint -sv +incdir+../VERIF_UVM/uvm_AFIFO_interface.sv ../RTL ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv 
-vlog -source -lint -sv -cover bcesft +incdir+../RTL ../VERIF_UVM/uvm_AFIFO_interface.sv ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv
-
-
-#Optimize and simulate
-#vopt uvm_AFIFO_top -o uvm_AFIFO_top_opt 
-#vsim -coverage uvm_AFIFO_top_opt -voptargs="+cover=bcesft" +UVM_TESTNAME=AFIFO_wr_rd 
-#vsim uvm_AFIFO_top_opt -coverage -voptargs="+cover=bcesft" +UVM_TESTNAME=AFIFO_wr_rd
-
-
-#trial
-vopt uvm_AFIFO_top -o uvm_AFIFO_top_opt +cover=bcesft
-vsim -coverage uvm_AFIFO_top_opt \
-     -voptargs="+cover=bcesft" \
-     +UVM_TESTNAME=AFIFO_wr_rd
-
-#working
-#vsim -coverage -voptargs="+cover=bcesft" +acc work.uvm_AFIFO_top +UVM_TESTNAME=AFIFO_wr_rd
+#vlog +cover ../RTL/FIFO.sv ../VERIF_UVM/uvm_AFIFO_interface.sv ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv
+#vsim -coverage -voptargs="+cover=sbfcet" +acc work.uvm_AFIFO_top +UVM_TESTNAME=AFIFO_wr_rd
+#run -all
+# Save coverage data
+#coverage save coverage_data.ucdb
+# Generate code coverage report
+#vcover report -code sbcfet coverage_data.ucdb -output code_coverage.txt \
+#	-du=uvm_AFIFO_top -du=FIFO
+# Generate functional coverage report
+#vcover report -details -cvg coverage_data.ucdb -output functional_coverage.txt
+# Generate assertion coverage report
+#vcover report -details -assert coverage_data.ucdb -output assertion_coverage.txt
 
 
-#Setup VCD file and Logging
-vcd file uvm_AFIFO_top.vcd
-vcd add -r uvm_AFIFO_top/*
-set NoQuitOnFinish 1
-onbreak {resume}
-log /* -r
 
-#Run Simulation
+# DELETES IF THERE IS A PREVIOUS WORK DIRECTORY
+vdel -all 
+
+# CREATES THE WORK DIRECTORY
+vlib work 
+
+# COMPILING ALL THE DESIGN FILES 
+vlog -work work /u/aakashbh/ECE-593/Asyc_FIFO/team_05_Async_FIFO/M4_U/RTL/*.sv /u/aakashbh/ECE-593/Asyc_FIFO/team_05_Async_FIFO/M4_U/VERIF_UVM/uvm_AFIFO_interface.sv
+
+# COMPILING ALL THE Verification FILES 
+vlog -work work +cover /u/aakashbh/ECE-593/Asyc_FIFO/team_05_Async_FIFO/M4_U/VERIF_UVM/uvm_AFIFO_agent_pkg.sv /u/aakashbh/ECE-593/Asyc_FIFO/team_05_Async_FIFO/M4_U/VERIF_UVM/uvm_AFIFO_top.sv
+
+# TO SIMULATE THE TESTBENCH 
+vsim -coverage  +acc work.uvm_AFIFO_top +UVM_TESTNAME=AFIFO_wr_rd -voptargs="+cover=bcesft"
+
+
+
+# RUN SIMULATION
 run -all
 
-# Generate a coverage report after the simulation
-coverage report -details -file coverage_report.txt
+# Generate code coverage report
+vcover report -code sbcfet coverage_data.ucdb -output code_coverage.txt \
+	-du=uvm_AFIFO_top -du=FIFO
 
-#Save Coverage data
-coverage save AFIFO_wr_rd.ucdb
-#quit -sim
-
-#============================================
+# Generate functional coverage report
+vcover report -details -code coverage_data.ucdb -output code_1_coverage.txt
 
 
 
