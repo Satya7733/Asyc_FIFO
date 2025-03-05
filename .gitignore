@@ -8,5 +8,6 @@
 *.vstf
 /transcript
 /work/
-/M2/
-/M4/work
+/team_05_Async_FIFO/M4_U/VERIF_UVM/work/
+/team_05_Async_FIFO/M4_U/RTL/*.sv.swp
+
