@@ -1,12 +1,18 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 import uvm_AFIFO_agent_pkg::*;
+`include "uvm_AFIFO_report_server.sv"
 
 class uvm_AFIFO_test extends uvm_test;
 
 // ========== FACTORY REGISTRATION ==========
     `uvm_component_utils(uvm_AFIFO_test)
 	uvm_AFIFO_env env;
+
+
+// ========== LOGGING FILES ==========
+  int rd_mon_log, err_log, pkt_log;
+  // wr_mon_log,
 
 // ========== MEMORY CONSTRUCTOR ==========
     function new(string name = "uvm_AFIFO_test", uvm_component parent = null);
@@ -19,6 +25,33 @@ class uvm_AFIFO_test extends uvm_test;
        		env = uvm_AFIFO_env::type_id::create("env", this);
 	endfunction: build_phase
 
+function void start_of_simulation_phase(uvm_phase phase);
+        uvm_AFIFO_report_server report_server;
+        report_server = new();
+   super.start_of_simulation_phase(phase);
+	`uvm_info("TEST CLASS","start of simulation phase - test",UVM_HIGH);
+   
+   // Open Log Files
+    rd_mon_log = $fopen("rd_monitor.txt","w");
+
+    // Check if Rd_agent and Rd_mon are initialized and connected
+    if (env.Rd_agent != null && env.Rd_agent.Rd_mon != null) begin
+        env.Rd_agent.Rd_mon.set_report_severity_file_hier(UVM_INFO, rd_mon_log);
+    end else begin
+        `uvm_error("AFIFO_TEST", "Rd_agent or Rd_mon is not properly initialized.");
+    end
+    // Set logging actions    
+    set_report_severity_action_hier(UVM_INFO, UVM_DISPLAY | UVM_LOG);
+    set_report_severity_file_hier(UVM_INFO, pkt_log);   // Info
+
+    err_log    = $fopen("error.txt", "w");
+    set_report_severity_action_hier(UVM_ERROR, UVM_DISPLAY | UVM_LOG);
+    set_report_severity_file_hier(UVM_ERROR, err_log);  // Errors
+
+    `uvm_info("AFIFO_TEST", "Logging setup complete", UVM_MEDIUM);
+	uvm_report_server::set_server( report_server );
+
+endfunction
 	function void end_of_elaboration_phase(uvm_phase phase);
  		 uvm_top.print_topology();
 	endfunction
@@ -168,24 +201,4 @@ class AFIFO_full_empty extends uvm_AFIFO_test;
     
 endclass
 
-        // Start the sequence on the default sequencer
-//        seq.start(null);
 
-        // Execute the desired test case
-//        `uvm_info("TEST", "Running Test Case 1: Reset", UVM_LOW)
-//        seq.testcase1(); // Run Test Case 1
-
-//        `uvm_info("TEST", "Running Test Case 2: Writes and Reads", UVM_LOW)
-//        seq.testcase2(); // Run Test Case 2
-//
-//        `uvm_info("TEST", "Running Test Case 3: Write Full", UVM_LOW)
-//        seq.testcase3(); // Run Test Case 3
-//
-//        `uvm_info("TEST", "Running Test Case 4: Read Empty", UVM_LOW)
-//        seq.testcase4(); // Run Test Case 4
-//
-//        `uvm_info("TEST", "Running Test Case 5: Continuous Writes and Reads", UVM_LOW)
-//        seq.testcase5(); // Run Test Case 5
-//    endtask: run_phase
-
-// endclass: uvm_AFIFO_test

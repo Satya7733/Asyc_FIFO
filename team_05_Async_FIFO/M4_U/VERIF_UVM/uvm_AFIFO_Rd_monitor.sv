@@ -37,6 +37,8 @@ endfunction: new
  if(!uvm_resource_db#(virtual uvm_AFIFO_interface)::read_by_name("ALL","TB",vif,this)) 
   begin
    `uvm_error("Read_MON","Problem with the interface")
+  end else begin
+        `uvm_info("READ_MONITOR", "Successfully retrieved the interface", UVM_LOW);
   end
 	//----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
@@ -52,6 +54,7 @@ endfunction : build_phase
 // ========== RUN PHASE ==========
 
 task run_phase(uvm_phase phase);
+    `uvm_info("READ_MONITOR", "Run phase started, monitoring transactions...", UVM_MEDIUM);
 
     forever begin
         @(posedge vif.rd_clk);
@@ -64,8 +67,12 @@ task run_phase(uvm_phase phase);
                 seq_item.rd_inc = vif.rd_inc;
                 seq_item.rd_rst = vif.rd_rst;
                 seq_item.rd_empty = vif.rd_empty;
-                `uvm_info("READ_MONITOR", $sformatf("Sent sequence item: rd_inc = %d, rd_data=%0h, rd_empty=%b",seq_item.rd_inc, seq_item.rd_data, seq_item.rd_empty), UVM_MEDIUM)
+                `uvm_info("READ_MONITOR", $sformatf("Captured Transaction: rd_inc = %d, rd_data=%0h, rd_empty=%b",seq_item.rd_inc, seq_item.rd_data, seq_item.rd_empty), UVM_HIGH)
                 mon_port_cov.write(seq_item); // Send sequence item via analysis export 
+                    `uvm_info("READ_MONITOR", "Transaction sent to analysis port", UVM_HIGH);
+
+         end else begin 
+            `uvm_info("READ_MONITOR", "Waiting for READ INC TO BE 1...", UVM_LOW);
          end
 
           /*  if (vif.rd_inc==1 || vif.rd_empty == 1 ) begin
@@ -87,7 +94,7 @@ task run_phase(uvm_phase phase);
 
                 `uvm_info("READ_MONITOR", $sformatf("Sent sequence item: rd_inc = %d, rd_data=%0h, rd_empty=%b",seq_item.rd_inc, seq_item.rd_data, seq_item.rd_empty), UVM_MEDIUM)
             */                                
-            end 
+    end 
                     
 endtask
 
