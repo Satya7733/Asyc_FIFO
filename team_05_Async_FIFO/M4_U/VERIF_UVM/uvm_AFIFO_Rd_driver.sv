@@ -28,6 +28,8 @@ endfunction: new
  if(!uvm_resource_db#(virtual uvm_AFIFO_interface)::read_by_name("ALL","TB",vif,this)) 
   begin
    `uvm_error("Read_DRV","Problem with the interface")
+  end else begin
+    `uvm_info("Read Driver", "Successfully retrieved the interface", UVM_LOW)
   end
 // ----- Get DSIZE AND ASIZE from config_db -----
 	if(!uvm_config_db#(int)::get(this, "", "DSIZE", DSIZE)) begin
@@ -43,23 +45,35 @@ endfunction: new
 // ========== RUN PHASE ==========
 
  task run_phase(uvm_phase phase);
+     `uvm_info("Read Driver", "Run phase started", UVM_MEDIUM);
+
   wait(vif.rd_rst == 1);
+      `uvm_info("Read Driver", "Reset de-asserted, starting transaction processing", UVM_MEDIUM);
+
   forever begin 
     seq_item_port.get_next_item(rd_packet);
+            `uvm_info("Read Driver", "Received a new transaction", UVM_HIGH);
+
       drive_tx(rd_packet);
     seq_item_port.item_done;
   end
  endtask
 
+// ========== Drive Transaction ==========
+
  task drive_tx(uvm_AFIFO_Rd_sequence_item rd_packet);
    @(negedge vif.rd_clk);
    	if(!vif.rd_empty) begin
+              `uvm_info("READ_DRIVER", "FIFO not empty, issuing read operation", UVM_HIGH);
+
 	    #3
       vif.rd_inc <= 1'b1;
-        `uvm_info("READ_DRIVER", $sformatf("Read_INC = %0d",  vif.rd_inc), UVM_NONE)
+        `uvm_info("READ_DRIVER", $sformatf("Read_INC set to %0d", vif.rd_inc), UVM_HIGH);
 	    @(negedge vif.rd_clk); //Experimental
 	    vif.rd_inc <= 1'b0;
-        `uvm_info("READ_DRIVER", $sformatf("Read_INC = %0d",  vif.rd_inc), UVM_NONE)
+        `uvm_info("READ_DRIVER", $sformatf("Read_INC set to %0d", vif.rd_inc), UVM_HIGH);
+    end else begin
+              `uvm_warning("READ_DRIVER", "FIFO is empty, read operation skipped");
     end
  endtask
 endclass: uvm_AFIFO_Rd_driver

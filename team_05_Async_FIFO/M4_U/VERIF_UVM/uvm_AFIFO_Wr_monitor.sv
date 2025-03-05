@@ -27,11 +27,16 @@ virtual function void build_phase(uvm_phase phase);
         if(!uvm_resource_db#(virtual uvm_AFIFO_interface)::read_by_name("ALL","TB",vif,this)) //Reterving the Interface
         begin
         `uvm_error("WRITE_MON","Problem with the interface")
+        end else begin
+        `uvm_info("READ_MONITOR", "Successfully retrieved the interface", UVM_LOW);
         end
+  
 endfunction : build_phase
 
 // ========== RUN PHASE ==========
 task run_phase(uvm_phase phase);
+    `uvm_info("WRITE_MONITOR", "Run phase started, monitoring transactions...", UVM_MEDIUM);
+
 forever begin
     @(posedge vif.wr_clk);
     if(vif.wr_inc == 1) begin
@@ -42,8 +47,11 @@ forever begin
     wr_packet_m2s.wr_data = (vif.wr_inc)? vif.wr_data : 1'b0;
     wr_packet_m2s.wr_inc = vif.wr_inc;
     sb_export_mon.write(wr_packet_m2s); // send data to sco
-    `uvm_info("Write_Monitor",$psprintf("MON is doing WRITE at data=%0h",wr_packet_m2s.wr_data),UVM_NONE);
-    end
+    `uvm_info("Write_Monitor",$psprintf("MONITOR is doing WRITE at data=%0h",wr_packet_m2s.wr_data),UVM_NONE);
+    end else begin
+            `uvm_info("WRITE_MONITOR", "Waiting for WRITE INC TO BE 1...", UVM_LOW);
+
+end
 end
 endtask
 endclass
