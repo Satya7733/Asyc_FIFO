@@ -98,8 +98,8 @@ class AFIFO_wr_rd extends uvm_AFIFO_test;
 
 	function void build_phase(uvm_phase phase);
 	 super.build_phase(phase);
-    	 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_RD",30,this);
-		 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_WR",30,this);
+    	 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_RD",600,this);
+		 uvm_resource_db#(int)::set("GLOBAL","RPT_CNT_WR",500,this);
 	endfunction
 
     // Run phase: Start the sequence and execute the test case

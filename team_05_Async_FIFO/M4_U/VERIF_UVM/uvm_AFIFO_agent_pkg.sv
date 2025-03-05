@@ -7,7 +7,7 @@ package uvm_AFIFO_agent_pkg;
 
     //Include all components
  
-
+//`include "uvm_AFIFO_interface.sv"
 	`include "uvm_AFIFO_Rd_sequence_item.sv" // Rd Transaction class
 	`include "uvm_AFIFO_Rd_sequencer.sv" // Rd Sequencer
     `include "uvm_AFIFO_Rd_seq.sv" // Rd Sequence class

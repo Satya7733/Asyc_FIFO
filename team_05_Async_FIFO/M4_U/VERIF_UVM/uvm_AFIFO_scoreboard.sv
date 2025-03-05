@@ -10,6 +10,9 @@ class uvm_AFIFO_scoreboard extends uvm_scoreboard;
 	uvm_analysis_imp_rd#(uvm_AFIFO_Rd_sequence_item, uvm_AFIFO_scoreboard) imp_rd;
 `uvm_component_utils(uvm_AFIFO_scoreboard)
 
+  uvm_AFIFO_Rd_cov rd_cov;
+  uvm_AFIFO_Wr_cov wr_cov;
+
 function new(string name = "uvm_AFIFO_scoreboard", uvm_component parent = null); 
  super.new(name,parent);
  endfunction 
@@ -25,6 +28,8 @@ function void build_phase(uvm_phase phase);
 	super.build_phase(phase);
   	imp_wr = new("imp_wr",this);
  	imp_rd = new("imp_rd",this);
+    rd_cov = uvm_AFIFO_Rd_cov::type_id::create("rd_cov", this);
+    wr_cov = uvm_AFIFO_Wr_cov::type_id::create("wr_cov", this);
 endfunction
 
 function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
@@ -60,7 +65,17 @@ endtask
 
 function void check_phase(uvm_phase phase);
         super.check_phase(phase);
-        `uvm_info("SCOREBOARD", $sformatf("Functional Coverage at End: %0.2f%%", $get_coverage()), UVM_MEDIUM)
-endfunction
+    `uvm_info("SCOREBOARD", $sformatf("Functional Coverage at End: %0.2f%%", $get_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Read Data Coverage: %0.2f%%", rd_cov.rd_cg.data_depth.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Read Increment Coverage: %0.2f%%", rd_cov.rd_cg.rd_inc.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("FIFO Empty Coverage: %0.2f%%", rd_cov.rd_cg.rd_empty.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Reset Coverage: %0.2f%%", rd_cov.rd_cg.reset.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Read Increment vs FIFO Empty Cross Coverage: %0.2f%%", rd_cov.rd_cg.read_inc_vs_fifo_empty.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Write Data Coverage: %0.2f%%", wr_cov.wr_cg.cp_data.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Write Increment Coverage: %0.2f%%", wr_cov.wr_cg.cp_w_en.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("FIFO Full Coverage: %0.2f%%", wr_cov.wr_cg.cp_full.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Reset Coverage: %0.2f%%", wr_cov.wr_cg.cp_wrst_n.get_inst_coverage()), UVM_MEDIUM)
+    `uvm_info("SCOREBOARD", $sformatf("Write Increment vs Data Cross Coverage: %0.2f%%", wr_cov.wr_cg.cross_burst_idle.get_inst_coverage()), UVM_MEDIUM)
+	endfunction
 
 endclass

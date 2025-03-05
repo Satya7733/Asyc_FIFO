@@ -47,8 +47,19 @@ task run_phase(uvm_phase phase);
    vif.wr_inc = 0;
 endtask
 
-task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
 
+task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
+if(i ==0) begin 
+vif.wr_rst = 1;
+vif.rd_rst = 1;
+@(posedge vif.wr_clk);
+vif.rd_rst = 0;
+vif.wr_rst = 0;
+@(posedge vif.wr_clk);
+vif.wr_rst = 1;
+vif.rd_rst = 1;
+
+end
 @(posedge vif.wr_clk);
 		
     if(!vif.wr_full) begin 

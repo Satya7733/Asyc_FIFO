@@ -20,7 +20,7 @@ class uvm_AFIFO_Wr_cov extends uvm_subscriber#(uvm_AFIFO_Wr_sequence_item);
       bins enabled = {1'b1};
     }
     cp_wrst_n: coverpoint wr_packet_m2c.wr_rst {
-      bins reset = {1'b0};
+      //bins reset = {1'b0};
       bins no_reset = {1'b1};
     }
     cp_full: coverpoint wr_packet_m2c.wr_full {

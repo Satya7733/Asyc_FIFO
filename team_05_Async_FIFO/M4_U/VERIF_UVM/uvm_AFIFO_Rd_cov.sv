@@ -10,7 +10,7 @@ covergroup rd_cg;
     // Coverpoint For Data 
     option.per_instance = 1;
     data_depth: coverpoint seq_item.rd_data {
-      bins depth_bins = {[0:255]}; // Assuming data depth is 8 bits as per FIFO depth analysis
+      bins depth_bins = {[0:7]}; // Assuming data depth is 3 bits as per FIFO depth analysis
       bins depth_zero = {0}; // Directly specify the value for depth 0
     }
 

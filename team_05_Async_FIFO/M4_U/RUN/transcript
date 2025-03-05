@@ -1,0 +1,203 @@
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do run.do
+# QuestaSim-64 vlog 2021.3_1 Compiler 2021.08 Aug 15 2021
+# Start time: 22:36:51 on Mar 04,2025
+# vlog -reportprogress 300 -source -lint -sv -cover bcesft "+incdir+../RTL" ../VERIF_UVM/uvm_AFIFO_interface.sv ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv 
+# -- Compiling interface uvm_AFIFO_interface
+# ** Note: (vlog-2286) ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(2): Using implicit +incdir+/pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(20)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequencer.sv(7): typedef uvm_sequencer#(uvm_AFIFO_Wr_sequence_item) uvm_AFIFO_Wr_sequencer;
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(20)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequencer.sv(7): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(21)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(6): class uvm_AFIFO_Wr_base_sequence extends uvm_sequence#(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(21)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(6): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(21)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(42): uvm_AFIFO_Wr_sequence_item wr_packet;
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(21)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(42): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(5): class uvm_AFIFO_Wr_driver extends uvm_driver #(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(5): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(12):  uvm_AFIFO_Wr_sequence_item wr_packet;
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(12): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(51): task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(22)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(51): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(23)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(13):  uvm_analysis_port #(uvm_AFIFO_Wr_sequence_item) sb_export_mon;
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(23)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(13): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(23)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(15): uvm_AFIFO_Wr_sequence_item wr_packet_m2s; // mon to sco packet
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(23)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(15): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(6): class uvm_AFIFO_Wr_cov extends uvm_subscriber#(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(6): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(8):     uvm_AFIFO_Wr_sequence_item wr_packet_m2c; // monitor to coverage
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(8): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(42): function void write(uvm_AFIFO_Wr_sequence_item t);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(24)
+# ** at ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(42): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(27)
+# ** at ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(9): 	uvm_analysis_imp_wr#(uvm_AFIFO_Wr_sequence_item, uvm_AFIFO_scoreboard) imp_wr;
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(27)
+# ** at ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(9): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(27)
+# ** at ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(35): function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
+# ** Warning: ** while parsing file included at ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv(27)
+# ** at ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(35): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+# -- Compiling package uvm_AFIFO_agent_pkg_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package uvm_AFIFO_agent_pkg
+###### ../VERIF_UVM/uvm_AFIFO_Wr_sequencer.sv(7): typedef uvm_sequencer#(uvm_AFIFO_Wr_sequence_item) uvm_AFIFO_Wr_sequencer;
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_sequencer.sv(7): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(6): class uvm_AFIFO_Wr_base_sequence extends uvm_sequence#(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(6): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(42): uvm_AFIFO_Wr_sequence_item wr_packet;
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_sequence.sv(42): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(5): class uvm_AFIFO_Wr_driver extends uvm_driver #(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(5): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(12):  uvm_AFIFO_Wr_sequence_item wr_packet;
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(12): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(51): task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_driver.sv(51): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(13):  uvm_analysis_port #(uvm_AFIFO_Wr_sequence_item) sb_export_mon;
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(13): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(15): uvm_AFIFO_Wr_sequence_item wr_packet_m2s; // mon to sco packet
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_monitor.sv(15): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(6): class uvm_AFIFO_Wr_cov extends uvm_subscriber#(uvm_AFIFO_Wr_sequence_item);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(6): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(8):     uvm_AFIFO_Wr_sequence_item wr_packet_m2c; // monitor to coverage
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(8): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(42): function void write(uvm_AFIFO_Wr_sequence_item t);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_Wr_cov.sv(42): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(9): 	uvm_analysis_imp_wr#(uvm_AFIFO_Wr_sequence_item, uvm_AFIFO_scoreboard) imp_wr;
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(9): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+###### ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(35): function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
+# ** Warning: ../VERIF_UVM/uvm_AFIFO_scoreboard.sv(35): (vlog-2181) Use of a parameterized class uvm_AFIFO_Wr_sequence_item as a type creates a default specialization.
+# -- Compiling package uvm_AFIFO_top_sv_unit
+# -- Importing package uvm_AFIFO_agent_pkg
+# -- Compiling module FIFO
+# -- Compiling module ff_sync
+# -- Compiling module rd_empty
+# -- Compiling module wr_full
+# -- Compiling module fifo_memory
+# -- Compiling module uvm_AFIFO_top
+# 
+# Top level modules:
+# 	uvm_AFIFO_top
+# End time: 22:36:52 on Mar 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 26
+# ** Warning: (vsim-8689) Ignoring plusarg '+acc'.  Did you mean '-voptargs=+acc'?
+# vsim -coverage -voptargs=""+cover=bcesft"" "+acc" uvm_AFIFO_top "+UVM_TESTNAME=AFIFO_wr_rd" 
+# Start time: 22:36:52 on Mar 04,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-13408) Code coverage will be disabled for some DUs/packages/classes and source files.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.uvm_AFIFO_interface(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.uvm_AFIFO_agent_pkg(fast)
+# Loading work.uvm_AFIFO_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_AFIFO_top(fast)
+# Loading /pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# 1
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test AFIFO_wr_rd...
+# UVM_INFO ../VERIF_UVM/uvm_AFIFO_Rd_driver.sv(26) @ 0: uvm_test_top.env.Rd_agent.Rd_drvr [Read Driver] Inside the build phase of driver
+# UVM_INFO ../VERIF_UVM/uvm_AFIFO_Rd_monitor.sv(34) @ 0: uvm_test_top.env.Rd_agent.Rd_mon [Read Monitor] Inside the build phase of monitor
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               AFIFO_wr_rd             -     @470 
+#   env                      uvm_AFIFO_env           -     @477 
+#     Rd_agent               uvm_AFIFO_Rd_agent      -     @488 
+#       Rd_cov               uvm_AFIFO_Rd_cov        -     @649 
+#         analysis_imp       uvm_analysis_imp        -     @656 
+#       Rd_drvr              uvm_AFIFO_Rd_driver     -     @619 
+#         rsp_port           uvm_analysis_port       -     @634 
+#         seq_item_port      uvm_seq_item_pull_port  -     @626 
+#       Rd_mon               uvm_AFIFO_Rd_monitor    -     @642 
+#         mon_port_cov       uvm_analysis_port       -     @667 
+#       Rd_sqr               uvm_sequencer           -     @510 
+#         rsp_export         uvm_analysis_export     -     @517 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @611 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     Wr_agent               uvm_AFIFO_Wr_agent      -     @495 
+#       afifo_Wr_cov         uvm_AFIFO_Wr_cov        -     @823 
+#         analysis_imp       uvm_analysis_imp        -     @830 
+#       afifo_Wr_drv         uvm_AFIFO_Wr_driver     -     @793 
+#         rsp_port           uvm_analysis_port       -     @808 
+#         seq_item_port      uvm_seq_item_pull_port  -     @800 
+#       afifo_Wr_mon         uvm_AFIFO_Wr_monitor    -     @816 
+#         sb_export_mon      uvm_analysis_port       -     @840 
+#       afifo_Wr_seqr        uvm_sequencer           -     @684 
+#         rsp_export         uvm_analysis_export     -     @691 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @785 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     scoreboard             uvm_AFIFO_scoreboard    -     @502 
+#       imp_rd               uvm_analysis_imp_rd     -     @862 
+#       imp_wr               uvm_analysis_imp_wr     -     @854 
+#       rd_cov               uvm_AFIFO_Rd_cov        -     @870 
+#         analysis_imp       uvm_analysis_imp        -     @877 
+#       wr_cov               uvm_AFIFO_Wr_cov        -     @885 
+#         analysis_imp       uvm_analysis_imp        -     @892 
+# --------------------------------------------------------------
+# 
+# UVM_ERROR ../VERIF_UVM/uvm_AFIFO_Rd_seq.sv(56) @ 20: uvm_test_top.env.Rd_agent.Rd_sqr@@rd_seq [Read_Seq] Failed to get DSIZE from config DB
+# UVM_ERROR ../VERIF_UVM/uvm_AFIFO_Rd_seq.sv(60) @ 20: uvm_test_top.env.Rd_agent.Rd_sqr@@rd_seq [Read_Seq] Failed to get ASIZE from config DB
+# ** Fatal: (SIGSEGV) Bad handle or reference.
+#    Time: 20 ns  Iteration: 4  Process: /uvm_pkg::uvm_sequence_base::start/#FORK#294_7feff042a58 File: /pkgs/mentor/questa/2021.3_1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_report_server.svh
