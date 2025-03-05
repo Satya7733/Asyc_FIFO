@@ -3,7 +3,9 @@
 *.bak
 *.qdb
 *.qpg
+*.cr.mti
 *.qtl
+*.vstf
 /transcript
 /work/
 /M2/
