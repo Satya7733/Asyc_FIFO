@@ -3,7 +3,7 @@ if [file exists "work"] {vdel -all}
 vlib work
 
 #Compile the RTL source & Testbench Files
-#vlog -source -lint -sv +incdir+../VERIF_UVM/uvm_AFIFO_interface.sv ../RTL ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv 
+#vlog -source -lint -sv +incdir+../VERIF_UVM/uvm_AFIFO_interface.sv ../RTL/BUGGYRTL ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv 
 vlog -source -lint -sv -cover bcesft +incdir+../RTL ../VERIF_UVM/uvm_AFIFO_interface.sv ../VERIF_UVM/uvm_AFIFO_agent_pkg.sv ../VERIF_UVM/uvm_AFIFO_top.sv
 
 
