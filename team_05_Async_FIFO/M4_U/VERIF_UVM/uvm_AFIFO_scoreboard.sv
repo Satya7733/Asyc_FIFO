@@ -28,16 +28,16 @@ function void build_phase(uvm_phase phase);
 endfunction
 
 function void write_wr (uvm_AFIFO_Wr_sequence_item tx);
-	if(tx.wr_inc == 1)writeQ.push_back(tx.wr_data);
+	if(tx.wr_inc == 1 & !tx.wr_full )writeQ.push_back(tx.wr_data);
 	$display("Data Written is : %h", tx.wr_data);
-	if(tx.wr_full == 1)$display("[SCB]: WRITE FULL ");
+	if(tx.wr_full == 1)`uvm_info("SCOREBOARD", $sformatf("[SCB]: WRITE FULL"), UVM_NONE) //$display("[SCB]: WRITE FULL ");
 	tx.print();
 endfunction
 
 function void write_rd (uvm_AFIFO_Rd_sequence_item rx);
-	if(rx.rd_inc == 1)readQ.push_back(rx.rd_data);
+	if(rx.rd_inc == 1 & !rx.rd_empty)readQ.push_back(rx.rd_data);
 	$display("Expected Read_Data is : %h", rx.rd_data);
-	if(rx.rd_empty == 1)$display("[SCB]: READ EMPTY ");
+	if(rx.rd_empty == 1)`uvm_info("SCOREBOARD", $sformatf("[SCB]: READ EMPTY"), UVM_NONE) //$display("[SCB]: READ EMPTY ");
 	rx.print();
 endfunction
 
@@ -49,11 +49,18 @@ task run_phase(uvm_phase phase);
 	
 	
 	if(write_data == read_data)
-		$display("MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data);
+		//$display("MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data);
+		`uvm_info("SCOREBOARD", $sformatf("MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data), UVM_MEDIUM)
 	else begin 
-		$display("MISMATCHED DATA Written (Ref Module)= %0h, DATA_READ = %0h", write_data, read_data); 
+	//	$display("MISMATCHED DATA Written (Ref Module)= %0h, DATA_READ = %0h", write_data, read_data); 
+		`uvm_error("SCOREBOARD", $sformatf("MISS-MATCHED DATA, Data Written (Ref Module) = %0h, DATA_READ = %0h", write_data, read_data))
 	end
 	end
 endtask
+
+function void check_phase(uvm_phase phase);
+        super.check_phase(phase);
+        `uvm_info("SCOREBOARD", $sformatf("Functional Coverage at End: %0.2f%%", $get_coverage()), UVM_MEDIUM)
+endfunction
 
 endclass

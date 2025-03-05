@@ -42,22 +42,26 @@ task run_phase(uvm_phase phase);
     drive_write_input(wr_packet);
 	 //req.print();
     seq_item_port.item_done;
+    
    end
+   vif.wr_inc = 0;
 endtask
 
 task drive_write_input( uvm_AFIFO_Wr_sequence_item wr_packet);
 
 @(posedge vif.wr_clk);
-		vif.wr_inc =1;
-
+		
+    if(!vif.wr_full) begin 
+      vif.wr_inc =1;
 		vif.wr_data = wr_packet.wr_data;
-
+    
     i++;
     if(i == repeat_count) begin
      @(posedge vif.wr_clk);
      
 		vif.wr_inc = 0;
 		vif.wr_data = 0;
+     end
      end
 
   `uvm_info("WRITE_DRIVER", $sformatf("Write_EN = %0d, Data_in = %2h", vif.wr_inc, wr_packet.wr_data), UVM_NONE)

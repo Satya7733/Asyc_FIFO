@@ -111,9 +111,19 @@ class AFIFO_wr_rd extends uvm_AFIFO_test;
 	rd_seq = uvm_AFIFO_Rd_seq::type_id::create("rd_seq", this);
 
 	phase.raise_objection(this);
-	phase.phase_done.set_drain_time(this,100);
-        wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
-		rd_seq.start(env.Rd_agent.Rd_sqr);
+//	phase.phase_done.set_drain_time(this,100);
+        //wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
+		//rd_seq.start(env.Rd_agent.Rd_sqr);
+		fork
+        begin 
+			//`uvm_info("AFIFO_full_empty", "Running Test Case 1: Read and Writes", UVM_LOW)
+			wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
+		end
+		begin repeat(2) #20
+			rd_seq.start(env.Rd_agent.Rd_sqr);
+		end
+		join
+
 	phase.drop_objection(this);
 	endtask	
     
@@ -144,8 +154,13 @@ class AFIFO_full_empty extends uvm_AFIFO_test;
 	phase.raise_objection(this);
 	phase.phase_done.set_drain_time(this,100);
 		forever begin
-        wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
-		#25 rd_seq.start(env.Rd_agent.Rd_sqr);
+        begin 
+			`uvm_info("AFIFO_full_empty", "Running Test Case 1: Read and Writes", UVM_LOW)
+			wr_seq.start(env.Wr_agent.afifo_Wr_seqr);
+		end
+		begin repeat(2) #20
+			rd_seq.start(env.Rd_agent.Rd_sqr);
+		end
 		end
 	phase.drop_objection(this);
 	endtask	
