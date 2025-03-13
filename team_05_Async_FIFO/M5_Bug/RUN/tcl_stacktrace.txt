@@ -1,0 +1,10 @@
+Wed Mar 05 02:34:03 PST 2025
+Trace back: grab failed: window not viewable
+    while executing
+"grab -global $menu"
+    (procedure "tk::MenuButtonDown" line 39)
+    invoked from within
+"tk::MenuButtonDown .#mBar"
+    (command bound to event)
+  <2:/pkgs/mentor/questa/2024.2/questasim/linux_x86_64/tk8.6/bgerror.tcl:106: ::tkerror {grab failed: window not viewable}
+  <1:eval:1: ::tk::dialog::error::bgerror {grab failed: window not viewable}
