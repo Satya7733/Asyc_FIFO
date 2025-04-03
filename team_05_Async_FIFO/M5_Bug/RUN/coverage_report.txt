@@ -1,0 +1,304 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /uvm_AFIFO_agent_pkg
+=== Design Unit: work.uvm_AFIFO_agent_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      2        na        na   100.00%
+        Coverpoints/Crosses          7        na        na        na
+            Covergroup Bins          8         8         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /uvm_AFIFO_agent_pkg/uvm_AFIFO_Rd_cov/rd_cg     100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rd_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read_increment                                 48          1          -    Covered              
+    Coverpoint rd_empty                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_empty                                      48          1          -    Covered              
+    Coverpoint reset                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_not_active                               48          1          -    Covered              
+    Cross read_inc_vs_fifo_empty                      100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                 48          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Rd_cov::rd_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rd_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read_increment                                 48          1          -    Covered              
+    Coverpoint rd_empty                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_empty                                      48          1          -    Covered              
+    Coverpoint reset                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_not_active                               48          1          -    Covered              
+    Cross read_inc_vs_fifo_empty                      100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                 48          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Rd_cov::rd_cg#2  
+                                                        0.00%        100          -    ZERO                 
+    covered/total bins:                                     0          4          -                      
+    missing/total bins:                                     4          4          -                      
+    % Hit:                                              0.00%        100          -                      
+    Coverpoint rd_inc                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin read_increment                                  0          1          -    ZERO                 
+    Coverpoint rd_empty                                 0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin not_empty                                       0          1          -    ZERO                 
+    Coverpoint reset                                    0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin reset_not_active                                0          1          -    ZERO                 
+    Cross read_inc_vs_fifo_empty                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                  0          1          1    ZERO                 
+ TYPE /uvm_AFIFO_agent_pkg/uvm_AFIFO_Wr_cov/wr_cg     100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_w_en                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       209          1          -    Covered              
+    Coverpoint cp_wrst_n                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_reset                                      209          1          -    Covered              
+    Coverpoint cp_full                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin full                                          153          1          -    Covered              
+        bin not_full                                       56          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Wr_cov::wr_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_w_en                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       209          1          -    Covered              
+    Coverpoint cp_wrst_n                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_reset                                      209          1          -    Covered              
+    Coverpoint cp_full                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin full                                          153          1          -    Covered              
+        bin not_full                                       56          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Wr_cov::wr_cg#2  
+                                                        0.00%        100          -    ZERO                 
+    covered/total bins:                                     0          4          -                      
+    missing/total bins:                                     4          4          -                      
+    % Hit:                                              0.00%        100          -                      
+    Coverpoint cp_w_en                                  0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin enabled                                         0          1          -    ZERO                 
+    Coverpoint cp_wrst_n                                0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin no_reset                                        0          1          -    ZERO                 
+    Coverpoint cp_full                                  0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin full                                            0          1          -    ZERO                 
+        bin not_full                                        0          1          -    ZERO                 
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /uvm_AFIFO_agent_pkg/uvm_AFIFO_Rd_cov/rd_cg     100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rd_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read_increment                                 48          1          -    Covered              
+    Coverpoint rd_empty                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_empty                                      48          1          -    Covered              
+    Coverpoint reset                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_not_active                               48          1          -    Covered              
+    Cross read_inc_vs_fifo_empty                      100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                 48          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Rd_cov::rd_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rd_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read_increment                                 48          1          -    Covered              
+    Coverpoint rd_empty                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_empty                                      48          1          -    Covered              
+    Coverpoint reset                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_not_active                               48          1          -    Covered              
+    Cross read_inc_vs_fifo_empty                      100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                 48          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Rd_cov::rd_cg#2  
+                                                        0.00%        100          -    ZERO                 
+    covered/total bins:                                     0          4          -                      
+    missing/total bins:                                     4          4          -                      
+    % Hit:                                              0.00%        100          -                      
+    Coverpoint rd_inc                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin read_increment                                  0          1          -    ZERO                 
+    Coverpoint rd_empty                                 0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin not_empty                                       0          1          -    ZERO                 
+    Coverpoint reset                                    0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin reset_not_active                                0          1          -    ZERO                 
+    Cross read_inc_vs_fifo_empty                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read_increment,not_empty>                  0          1          1    ZERO                 
+ TYPE /uvm_AFIFO_agent_pkg/uvm_AFIFO_Wr_cov/wr_cg     100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_w_en                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       209          1          -    Covered              
+    Coverpoint cp_wrst_n                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_reset                                      209          1          -    Covered              
+    Coverpoint cp_full                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin full                                          153          1          -    Covered              
+        bin not_full                                       56          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Wr_cov::wr_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     4          4          -                      
+    missing/total bins:                                     0          4          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_w_en                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       209          1          -    Covered              
+    Coverpoint cp_wrst_n                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_reset                                      209          1          -    Covered              
+    Coverpoint cp_full                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin full                                          153          1          -    Covered              
+        bin not_full                                       56          1          -    Covered              
+ Covergroup instance \/uvm_AFIFO_agent_pkg::uvm_AFIFO_Wr_cov::wr_cg#2  
+                                                        0.00%        100          -    ZERO                 
+    covered/total bins:                                     0          4          -                      
+    missing/total bins:                                     4          4          -                      
+    % Hit:                                              0.00%        100          -                      
+    Coverpoint cp_w_en                                  0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin enabled                                         0          1          -    ZERO                 
+    Coverpoint cp_wrst_n                                0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          1          -                      
+        missing/total bins:                                 1          1          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin no_reset                                        0          1          -    ZERO                 
+    Coverpoint cp_full                                  0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin full                                            0          1          -    ZERO                 
+        bin not_full                                        0          1          -    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 2
+
+Total Coverage By Instance (filtered view): 100.00%
+

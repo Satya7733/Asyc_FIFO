@@ -1,0 +1,13 @@
+# Git Ignore File 
+*.mpf
+*.bak
+*.qdb
+*.qpg
+*.cr.mti
+*.qtl
+*.vstf
+/transcript
+/work/
+/team_05_Async_FIFO/M4_U/VERIF_UVM/work/
+/team_05_Async_FIFO/M4_U/RTL/*.sv.swp
+

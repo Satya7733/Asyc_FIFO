@@ -1,0 +1,11 @@
+# Git Ignore File 
+*.mpf
+*.bak
+*.qdb
+*.qpg
+*.qtl
+*.mti
+/transcript/
+/work/
+/M2/
+/M4/work

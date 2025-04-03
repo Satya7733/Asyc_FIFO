@@ -1,0 +1,11 @@
+# Git Ignore File 
+*.mpf
+*.bak
+*.qdb
+*.qpg
+*.qtl
+*.mti
+*.mpf
+/transcript
+/work/
+/UVM/work/
